@@ -1,0 +1,14 @@
+h1 {
+    font-family: 'Arial';
+    color: white;
+    background-color: rgb(94, 134, 162);
+    padding: .5em;
+  }
+
+  h2 {
+    color:  rgb(94, 134, 162);
+  }
+
+  ol p{
+    font-weight: 700;
+  }
