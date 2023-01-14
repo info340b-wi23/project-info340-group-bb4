@@ -5,10 +5,15 @@ h1 {
     padding: .5em;
   }
 
-  h2 {
-    color:  rgb(94, 134, 162);
-  }
+h2 {
+  color:  rgb(94, 134, 162);
+}
 
-  ol p{
-    font-weight: 700;
-  }
+ol p{
+  font-weight: 700;
+}
+
+ol p:hover {
+  background-color: rgb(157, 198, 228);
+}
+
