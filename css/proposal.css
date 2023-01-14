@@ -17,3 +17,14 @@ ol p:hover {
   background-color: rgb(157, 198, 228);
 }
 
+p a:link {
+  color: blue;
+}
+
+p a:hover {
+  color: cyan
+}
+
+p a:visited {
+  color: blueviolet;
+}
