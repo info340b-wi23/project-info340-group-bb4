@@ -64,10 +64,12 @@ nav li{
 }
 
 
-header{
+.homepage{
     color: black;
     padding-top: 1.5rem;
     padding-bottom: 1rem;
+    text-align: left;
+    font-family: 'Quicksand', sans-serif; 
 }
 
 
@@ -287,7 +289,28 @@ section h1 {
   
   nav a {
       font-size: 1.5rem;
-  }}
+  }
+}
+
+/* login page */
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+.h-custom {
+  height: calc(100% - 73px);
+}
+
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
+
 
 
 
