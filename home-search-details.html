@@ -22,20 +22,20 @@
     <div class="container-fluid navbar-collapse collapse" id="basic-navbar-nav">
       <ul>
         <li>
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="index.html">
             <img src="img/noun-world-travel-5074160.svg" alt="Logo" width="60" height="60" class="d-inline-block">
             <p class="d-inline-block logo">Faran</p>
           </a>
         </li>
 
         <li class="nav-item d-inline-block">
-          <a class="nav-link active" aria-current="page" href="#"><p>HOME</p></a>
+          <a class="nav-link active" aria-current="page" href="index.html"><p>HOME</p></a>
         </li>
         <li class="nav-item d-inline-block">
-          <a class="nav-link" href="#"><p>COMPARE</p></a>
+          <a class="nav-link" href="2comparisonPage.html"><p>COMPARE</p></a>
         </li>
         <li class="nav-item d-inline-block ">
-          <a class="nav-link" href="#"><p>FAVORITE</p></a>
+          <a class="nav-link" href="favorites.html"><p>FAVORITE</p></a>
         </li>
         <li class="nav-item d-inline-block login">
           <a class="nav-link" href="#">
@@ -50,33 +50,45 @@
 
   <header>
     <h1>Details: Salvador</h1>
-    
   </header>
 
   <main class="display">
-    <section>
-        <h2>Flight Details</h2>
-        <h3>CloudFy</h3>
-        <p>Flight Price: $1640.80</p>
-        <p>Flight Date: 05/04/2023</p>
-        <p>Class: First Class</p>
-        <p>Flight Duration: 2.44 hours</p>
-        <p>Flight Distance: 937.77 km</p>
-    </section>
+    <div class="container">
+      <div class="row">
+        <div class="card col-6">
+          <div class="card-header">
+            <h2>CloudFy</h2>
+          </div>
+          <div class="card-body">
+            <p>Flight Price: $1640.80</p>
+            <p>Flight Date: 05/04/2023</p>
+            <p>Class: First Class</p>
+            <p>Flight Duration: 2.44 hours</p>
+            <p>Flight Distance: 937.77 km</p>
+          </div>
+        </div>
 
-    <section>
-        <h2>Hotel Details</h2>
-        <h3>Hotel K</h3>
-        <p>Hotel Price: $263.41</p>
-        <p>Possible Days: 1-4</p>
-    </section>
+        <div class="card col-6">
+          <div class="card-header">
+            <h2>Hotel K</h2>
+          </div>
+          <div class="card-body">
+            <p>Hotel Price: $263.41</p>
+            <p>Check-in Date: 05/04/2023</p>
+            <p>Possible Days of Stay: 1-4 days</p>
+          </div>
+        </div>
+      </div>
 
-    <a class="btn btn-dark" href="home-search-details.html">View details</a>
-    
+      <section>
+        <a class="btn btn-dark" href="home-search-start.html">Go Back</a>
+      </section>
+    </div>
+
 
   </main>
 
-  <footer>
+  <footer class="fixed-bottom">
     <p>&copy; INFO 340 Project, by Amy Sun <a href="mailto:asun8@uw.edu"> (asun8@uw.edu) </a>, Xuemin Jessi Zeng<a href="mailto:xuemiz@uw.edu"> (xuemiz@uw.edu) </a>, Ella Kim<a href="mailto:jk925@uw.edu"> (jk925@uw.edu) </a>, Shirley Yao<a href="mailto:yuhuiyao@uw.edu"> (yuhuiyao@uw.edu) </a></p>
   </footer>
 
