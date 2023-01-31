@@ -71,7 +71,7 @@ header{
 }
 
 
-main{
+.display{
     display: flex;
     padding: 3em;
 }
@@ -131,6 +131,167 @@ footer {
     font-size: smaller;
     margin-left: .5rem;
 }
+
+/* for comparison page */
+  
+header h1 {
+    font-family: "Roboto", 'Arial';
+    color: black;
+    /* padding: .5em; */
+    text-align: center;
+    font-size: 40px;
+  }
+
+header p {
+    text-align: center;
+    color: #96a48b;
+  }
+
+  header{
+    color: black;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.two img {
+  height: 300px;
+  width: 400px;
+}
+
+.three img {
+  height: 300px;
+  width: 350px;
+}
+
+.flex-container { /* my flexbox container class */
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  display: flex;
+}
+
+/* price category */
+section h1 {
+  font-family: "Roboto", 'Arial';
+  padding: .5em;
+  color: black;
+  font-size: large;
+  text-align: left;
+}
+
+/* destination name */
+.large h1 {
+  font-size: 30px;
+  text-align: left;
+}
+
+/* icon images */
+.small img {
+  height: 50px;
+  width: 50px;
+}
+
+/* price font size */
+.small {
+  font-size: 15px;
+}
+
+/* small screens */
+@media (min-width: 598px){
+  .two img {
+    height: 250px;
+    width: 300px;
+  }
+  
+  .three img {
+    height: 200px;
+    width: 250px;
+  }
+
+  /* icon images */
+  .small img {
+    height: 60px;
+    width: 60px;
+  }
+
+   /* compare destinations */
+   header h1 {
+    font-size: 30px;
+   }
+
+   header p {
+    font-size: 15px;
+   }
+
+  /* destination name */
+  .large h1 {
+    font-size: 25px;
+    text-align: left;
+  }
+
+  /* price category */
+  section h1 {
+    font-size: 13px;
+  }
+
+  /* price font size should be bigger*/
+  .small {
+    font-size: 20px;
+  }
+  
+  /* nav bar height should be shorter */
+  nav a {
+      font-size: 0.5rem;
+  }
+
+  footer p{
+    font-size: 10px;
+  }
+}
+
+/* large screens */
+@media (min-width: 992px) {
+  .two img {
+    height: 380px;
+    width: 450px;
+  }
+  
+  .three img {
+    height: 210px;
+    width: 250px;
+  }
+
+  .small img {
+    height: 90px;
+    width: 90px;
+  }
+
+   /* compare destinations */
+   header h1 {
+    font-size: 40px;
+   }
+
+   header p {
+    font-size: 20px;
+   }
+
+   /* price category */
+  section h1 {
+    font-size: 20px;
+  }
+
+  /* price font size*/
+  .small {
+    font-size: 20px;
+  }
+  
+  nav a {
+      font-size: 1.5rem;
+  }}
+
+
+
+
 
 
 
