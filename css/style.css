@@ -130,16 +130,14 @@ img{
 }
 
 footer {
-    font-size: smaller;
+    font-size: 10px;
     margin-left: .5rem;
 }
 
 /* for comparison page */
   
 header h1 {
-    font-family: "Roboto", 'Arial';
     color: black;
-    /* padding: .5em; */
     text-align: center;
     font-size: 40px;
   }
@@ -149,10 +147,20 @@ header p {
     color: #96a48b;
   }
 
-  header{
+header{
     color: black;
     padding-top: 1.5rem;
     padding-bottom: 1rem;
+}
+
+/* destination chosen box */
+.box {
+  width:500px; 
+  height:50px; 
+  border:1px solid #000; 
+  margin: 0 auto; 
+  text-indent: 7px; 
+  margin-bottom: 30px;
 }
 
 .two img {
@@ -165,7 +173,7 @@ header p {
   width: 350px;
 }
 
-.flex-container { /* my flexbox container class */
+.flex-container {
   flex-grow: 1;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -173,8 +181,7 @@ header p {
 }
 
 /* price category */
-section h1 {
-  font-family: "Roboto", 'Arial';
+section h3 {
   padding: .5em;
   color: black;
   font-size: large;
@@ -182,7 +189,7 @@ section h1 {
 }
 
 /* destination name */
-.large h1 {
+.large h2 {
   font-size: 30px;
   text-align: left;
 }
@@ -194,8 +201,9 @@ section h1 {
 }
 
 /* price font size */
-.small {
-  font-size: 15px;
+.small p{
+  font-size: 17px;
+  margin-left: 1.2em;
 }
 
 /* small screens */
@@ -226,7 +234,7 @@ section h1 {
    }
 
   /* destination name */
-  .large h1 {
+  .large h2 {
     font-size: 25px;
     text-align: left;
   }
