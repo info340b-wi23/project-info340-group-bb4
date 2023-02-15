@@ -52,6 +52,10 @@ nav li{
     margin: 0 1rem;
 }
 
+nav {
+  background-color: #89AD8D;
+}
+
 .navbar-collapse {
     align-items: center;
 }
