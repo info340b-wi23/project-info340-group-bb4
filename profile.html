@@ -6,6 +6,8 @@
   <meta name="author" content="Amy Sun, Xuemin Jessi Zeng, Ella Kim, Shirley Yao">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Faran: Login</title>
+  <link rel="icon" type="image/x-icon" href="img/noun-world-travel-5074160.svg">
+  
   <!-- bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
@@ -18,38 +20,38 @@
 
 
 <body>
-  <!-- https://getbootstrap.com/docs/5.3/components/navbar/ -->
- 
-  <nav class="navbar" style="background-color: #89AD8D;">
-    <div class="container-fluid navbar-collapse collapse" id="basic-navbar-nav">
-      <ul>
-        <li>
-          <a class="navbar-brand" href="index.html">
-            <img src="img/noun-world-travel-5074160.svg" alt="Logo" width="60" height="60" class="d-inline-block">
-            <p class="d-inline-block logo">Faran</p>
-          </a>
-        </li>
-
-        <li class="nav-item d-inline-block">
-          <a class="nav-link active" aria-current="page" href="index.html"><p>HOME</p></a>
-        </li>
-        <li class="nav-item d-inline-block">
-          <a class="nav-link" href="2comparisonPage.html"><p>COMPARE</p></a>
-        </li>
-        <li class="nav-item d-inline-block ">
-          <a class="nav-link" href="favorites.html"><p>FAVORITE</p></a>
-        </li>
-        <li class="nav-item d-inline-block login">
-          <a class="nav-link" href="profile.html">
-            <img src="img/profile.svg" alt="Login" width="50" height="50" class="d-inline-block">
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-
   <header>
+    <!-- https://getbootstrap.com/docs/5.3/components/navbar/ -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img src="img/noun-world-travel-5074160.svg" alt="Logo" width="60" height="60" class="d-inline-block">
+          Faran
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="2comparisonPage.html">COMPARE</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="favorites.html">FAVORITE</a>
+            </li>
+            <li class="nav-item d-inline-block login">
+              <a class="nav-link active" aria-current="page" href="profile.html">
+                <img src="img/profile.svg" alt="Login" width="50" height="50" class="d-inline-block">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
     <h1 class="homepage">Login</h1>
   </header>
 
