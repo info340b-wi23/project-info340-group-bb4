@@ -1,252 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using create-react-app"/>
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
-<head>
-  <meta charset="UTF-8" >
-  <meta name="author" content="Amy Sun, Xuemin Jessi Zeng, Ella Kim, Shirley Yao">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Faran: Homepage</title>
-  <link rel="icon" type="image" href="img/noun-world-travel-5074160.svg"/>
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
 
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
   
-  <!-- bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-
-
-<body>
-  <header>
-    <!-- https://getbootstrap.com/docs/5.3/components/navbar/ -->
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
-          <img src="img/noun-world-travel-5074160.svg" alt="Logo" width="60" height="60" class="d-inline-block">
-          Faran
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html">HOME</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="2comparisonPage.html">COMPARE</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="favorites.html">FAVORITE</a>
-            </li>
-            <li class="nav-item d-inline-block login">
-              <a class="nav-link" href="profile.html">
-                <img src="img/profile.svg" alt="Login" width="50" height="50" class="d-inline-block">
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <h1 class="homepage">Find Your Trip</h1>
-  </header>
-
-  <main class="display">
-    <div class="row">
-      <div class="col-12">
-        <div class="find">
-          <div class="container card">
-            <form id="signUpForm" class="form card-body" novalidate>
-              <div class="row">
-                <!-- From -->
-                <div class="input-group row mb-3 col">
-                  <label for="fromInput" class="col-lg-1 row">From</label>
-                  <div class="col-lg-11">
-                    <input type="text" id="inputLGEx" class="form-control" required>
-                    <!-- <div class="invalid-feedback">Please provide a valid email</div> -->
-                  </div>
-                </div>
-      
-                <!-- To -->
-                <div class="input-group row mb-3 col">
-                  <label for="toInput" class="col-lg-1 row">To</label>
-                  <div class="col-lg-11">
-                    <input type="text" id="inputLGEx" class="form-control" required>
-                    <!-- <div id="passwordFeedback" class="invalid-feedback">Password must be at least 6 characters</div> -->
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <!-- Depart -->
-                <div class="input-group row mb-3 col">
-                  <label for="departInput" class="col-lg-1 row">Depart</label>
-                  <div class="col-lg-11">
-                    <input type="date" id="start" class="form-control" required>
-                    <!-- <div id="passwordConfirmFeedback" class="invalid-feedback"></div> -->
-                  </div>
-                </div>
-        
-                <!-- Return -->
-                <div class="input-group row mb-3 col">
-                  <label for="returnInput" class="col-lg-1 row">Return</label>
-                  <div class="col-lg-11">
-                    <input type="date" id="end" class="form-control" required>
-                    <!-- <div id="dobFeedback" class="invalid-feedback"></div> -->
-                  </div>
-                </div>
-        
-                <!-- Passinger # -->
-                <div class="input-group row mb-3 col">
-                  <label for="passingerInput" class="col-lg-1 row">Passinger#</label>
-                  <div class="col-lg-11">
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>Please select...</option>
-                      <option value="1">1 Passinger</option>
-                      <option value="2">2 Passingers</option>
-                      <option value="3">3 Passingers</option>
-                      <option value="4">4 Passingers</option>
-                      <option value="5">5 Passingers</option>
-                      <option value="6">6 Passingers</option>
-                      <option value="7">7 Passingers</option>
-                      <option value="8">8 Passingers</option>
-                      <option value="9">9 Passingers</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Other search options -->
-              <!-- https://getbootstrap.com/docs/5.3/forms/checks-radios/#inline -->
-              <div class="checkbox">
-                <p class="search-text">SEARCH OPTIONS</p>
-                
-                <div class="form-check form-check-inline search">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault">
-                    With Stays
-                  </label>
-                </div>
-      
-                <div class="form-check form-check-inline search">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault">
-                    With ...
-                  </label>
-                </div>
-                
-                <div class="form-check form-check-inline search">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault">
-                    With ..
-                  </label>
-                </div>
-      
-              </div>
-      
-              <!-- Submit -->
-              <div class="d-grid gap-2 col-6 mx-auto">
-                <button type="submit" class="btn btn-primary search-btn">Search</button>
-              </div>
-
-            </form>
-          </div> 
-
-        </div>
-      </div>
-
-
-      <!-- section 2 -->
-      <h2 class="examplePlace">Place You May Like</h1>
-      <div class="expCards col-12">
-        <div class="container">
-          <!-- Card 1 -->
-          <div class="row">
-            <div class="col-12 d-flex">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-3">
-                      <img class="pb-3" src="img/Barcelona.jpeg" alt="view in Barcelona">
-                    </div>
-                    <div class="col-sm">
-                      <h2 class="card-title">Barcelona</h2>
-                      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, fuga?</p>
-                      <a class="btn btn-dark" href="home-search-details.html">View details</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-
-            <!-- Card 2 -->
-            <div class="col-12 d-flex">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-3">
-                      <img class="pb-3" src="img/Hawaii.jpg" alt="view in Hawaii">
-                    </div>
-                    <div class="col-sm">
-                      <h2 class="card-title">Hawaii</h2>
-                      <p class="card-text">Quam, officiis ut adipisci pariatur veniam labore ipsum optio tenetur!</p>
-                      <a class="btn btn-dark" href="home-search-details.html">View details</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Card 3 -->
-            <div class="col-12 d-flex">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-3">
-                      <img class="pb-3" src="img/Architecture-of-Santorini.jpeg" alt="Architecture of Santorini">
-                    </div>
-                    <div class="col-sm">
-                      <h2 class="card-title">Santorini, Greece</h2>
-                      <p class="card-text">Reiciendis doloremque voluptas veniam repellendus quisquam deleniti tenetur quia a.</p>
-                      <a class="btn btn-dark" href="home-search-details.html">View details</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-
-            <!-- Card 4 -->
-            <div class="col-12 d-flex">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-3">
-                      <img class="pb-3" src="img/Rotterdam-skyline-Erasmus-bridge.jpeg" alt="view of Rotterdam, Netherlands">
-                    </div>
-                    <div class="col-sm">
-                      <h2 class="card-title">Rotterdam, Netherlands</h2>
-                      <p class="card-text">Maiores voluptate rem odit dolor temporibus asperiores maxime velit sapiente.</p>
-                      <a class="btn btn-dark" href="home-search-details.html">View details</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    <p class="footerp">
-      &copy; INFO 340 Project, by Amy Sun <a href="mailto:asun8@uw.edu"> (asun8@uw.edu) </a>, Xuemin Jessi Zeng<a href="mailto:xuemiz@uw.edu"> (xuemiz@uw.edu) </a>, Ella Kim<a href="mailto:jk925@uw.edu"> (jk925@uw.edu) </a>, Shirley Yao<a href="mailto:yuhuiyao@uw.edu"> (yuhuiyao@uw.edu) </a>
-    </p>
-    <p class="footerp">Images in this page were found on Google</p>
-  </footer>
-
-</body>
 </html>
