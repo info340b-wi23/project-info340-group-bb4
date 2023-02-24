@@ -4,6 +4,7 @@ import { React, useState } from 'react';
 import { NavBar } from './Navbar.js';
 import { Homepage } from './Homepage.js';
 import { ComparisonPage } from './ComparisonPage';
+import favoritesList from './FavoritesList.js';
 
 function App(props) {
 
@@ -14,7 +15,8 @@ function App(props) {
       </header>
       <main>
         {/* <Homepage/> */}
-        <ComparisonPage/>
+        {/* <ComparisonPage/> */}
+        <favoritesList />
       </main>
 
 
