@@ -3,8 +3,13 @@ import { React, useState } from 'react';
 
 import { NavBar } from './Navbar.js';
 import { Homepage } from './Homepage.js';
+import { HomeSearch } from './HomeSearch'
 import { ComparisonPage } from './ComparisonPage';
+<<<<<<< HEAD
 import favoritesList from './FavoritesList.js';
+=======
+import { DetailsPage } from './DetailsPage'
+>>>>>>> 8b9d197f400e94dcae8ac3ce88a0142fe78d5900
 
 function App(props) {
 
@@ -14,9 +19,16 @@ function App(props) {
         <NavBar/>
       </header>
       <main>
+<<<<<<< HEAD
         {/* <Homepage/> */}
         {/* <ComparisonPage/> */}
         <favoritesList />
+=======
+        <Homepage/> 
+        {/* <HomeSearch/> */}
+        {/* <ComparisonPage/> */}
+        {/* <DetailsPage/> */}
+>>>>>>> 8b9d197f400e94dcae8ac3ce88a0142fe78d5900
       </main>
 
 
