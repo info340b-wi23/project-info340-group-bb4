@@ -58,7 +58,7 @@ export function NavBar(props) {
                 </div>
             </nav> */}
 
-            <Navbar expand="lg" className="navbar">
+            <Navbar expand="md" className="navbar">
                 <div className="container-fluid">
                     <Navbar.Brand href="/">
                         <img src="img/noun-world-travel-5074160.svg" alt="Logo" width="60" height="60" className="d-inline-block" />
@@ -71,6 +71,11 @@ export function NavBar(props) {
                             {liArray}
                         </ul>
                         </Nav>
+                        <div className="nav-item d-inline-block login">
+                            <a className="nav-link" href="profile.html">
+                                <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/>
+                            </a>
+                        </div>
                     </Navbar.Collapse>
                     {/* <div className="nav-item d-inline-block login">
                         <a className="nav-link" href="profile.html">
