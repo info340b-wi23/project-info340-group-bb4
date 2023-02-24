@@ -1,6 +1,7 @@
 import React from 'react';
 
 export function Homepage(props) {
+  const currentpage = props.currentpage;
 
   return (
     <div>
