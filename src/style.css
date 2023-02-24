@@ -1,0 +1,329 @@
+/* general styling */
+/* * {
+    box-sizing: border-box;
+} */
+
+h1, h2, h3 {
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 0;
+    margin-bottom: .5rem;
+}
+
+h1{
+    padding: 1em;
+}
+
+p{
+    font-family: 'Quicksand', sans-serif; 
+}
+
+/* for navbar below*/
+.logo{
+    color: white;
+    font-size: 1.5em;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+}
+
+a.navbar-brand{
+    margin: 0;
+    padding: 0;
+}
+
+a.nav-link {
+    color: white;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.login{
+    color: white;
+    font-size: 1em;
+    text-decoration: none;
+    position: absolute;
+    right: 2rem;
+}
+
+nav li{
+    display: inline;
+    margin: 0 1rem;
+}
+
+.navbar-collapse {
+    align-items: center;
+}
+
+.input-group{
+    display: inline;
+}
+
+nav {
+  background-color: #89AD8D;
+  width: 100%;
+  padding: 0;
+}
+
+/* for navbar above */
+
+
+/* for index.html below */
+.homepage{
+    color: black;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    text-align: left;
+    font-family: 'Quicksand', sans-serif; 
+}
+
+.examplePlace{
+  color: black;
+  padding: 24px 30px 16px;
+  text-align: left;
+  font-family: 'Quicksand', sans-serif; 
+}
+
+.display{
+  display: flex;
+}
+
+.find, .expCards{
+  position:relative;
+  width: 100%;
+}
+
+.footerp{
+  font-size: 1rem;
+}
+
+.choose{
+  padding-bottom: 5rem;
+}
+
+#inputLGEx{
+  margin-left: 1rem;
+}
+
+.search-text{
+  margin-top: 1rem;
+}
+
+.search{
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  --bs-btn-bg: #89AD8D;
+  --bs-btn-border-color: none;
+  --bs-btn-hover-bg:#58725b ;
+}
+
+img{
+  max-width: 100%;
+}
+
+/* footer */
+footer {
+    font-size: 10px;
+    margin-left: .5rem;
+}
+/* index.html for above */
+
+
+
+/* for comparison page */
+header h1 {
+    color: black;
+    text-align: center;
+    font-size: 40px;
+  }
+
+header p {
+    text-align: center;
+    color: #96a48b;
+  }
+
+header{
+    color: black;
+    /* padding-top: 1.5rem; */
+    padding-bottom: 1rem;
+}
+
+/* destination chosen box */
+.box {
+  font-family: 'Quicksand', sans-serif;
+  width:500px; 
+  height:50px; 
+  border:1px solid #000; 
+  margin: 0 auto; 
+  text-indent: 7px; 
+  margin-bottom: 30px;
+}
+
+.two img {
+  height: 300px;
+  width: 400px;
+}
+
+.three img {
+  height: 300px;
+  width: 350px;
+}
+
+.flex-container {
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  display: flex;
+}
+
+/* price category */
+section h3 {
+  padding: .5em;
+  color: black;
+  font-size: large;
+  text-align: left;
+}
+
+/* destination name */
+.large h2 {
+  font-size: 30px;
+  text-align: left;
+}
+
+/* icon images */
+.small img {
+  height: 50px;
+  width: 50px;
+}
+
+/* price font size */
+.small p{
+  font-size: 17px;
+  margin-left: 1.2em;
+}
+
+/* small screens */
+@media (min-width: 598px){
+  .two img {
+    height: 250px;
+    width: 300px;
+  }
+  
+  .three img {
+    height: 200px;
+    width: 250px;
+  }
+
+  /* icon images */
+  .small img {
+    height: 60px;
+    width: 60px;
+  }
+
+   /* compare destinations */
+   header h1 {
+    font-size: 30px;
+   }
+
+   header p {
+    font-size: 15px;
+   }
+
+  /* destination name */
+  .large h2 {
+    font-size: 25px;
+    text-align: left;
+  }
+
+  /* price category */
+  section h1 {
+    font-size: 13px;
+  }
+
+  /* price font size should be bigger*/
+  .small {
+    font-size: 20px;
+  }
+  
+  /* nav bar height should be shorter */
+  nav a {
+      font-size: 0.5rem;
+  }
+
+  footer p{
+    font-size: 10px;
+  }
+}
+
+/* large screens */
+@media (min-width: 992px) {
+  .two img {
+    height: 380px;
+    width: 450px;
+  }
+  
+  .three img {
+    height: 210px;
+    width: 250px;
+  }
+
+  .small img {
+    height: 90px;
+    width: 90px;
+  }
+
+   /* compare destinations */
+   header h1 {
+    font-size: 40px;
+   }
+
+   header p {
+    font-size: 20px;
+   }
+
+   /* price category */
+  section h1 {
+    font-size: 20px;
+  }
+
+  /* price font size*/
+  .small {
+    font-size: 20px;
+  }
+  
+  nav a {
+      font-size: 1.5rem;
+  }
+}
+
+/* login page */
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+.h-custom {
+  height: calc(100% - 73px);
+}
+
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
+
+
+
+
+
+
+
+
