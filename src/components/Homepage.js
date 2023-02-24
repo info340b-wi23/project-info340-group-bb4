@@ -5,8 +5,8 @@ export function Homepage(props) {
 
   return (
     <div>
-      <header className="homepage">
-        <h1>Find Your Trip</h1>
+      <header>
+        <h1 className="homepage">Find Your Trip</h1>
       </header>
 
       <main>
@@ -20,7 +20,7 @@ export function Homepage(props) {
                     <div className="input-group row mb-3 col">
                       <label for="fromInput" className="col-lg-1 row">From</label>
                       <div className="col-lg-11">
-                        <input type="text" id="inputLGEx" className="form-control" required/>
+                        <input type="search" id="inputLGEx" className="form-control" required/>
                       </div>
                     </div>
           
@@ -28,7 +28,7 @@ export function Homepage(props) {
                     <div className="input-group row mb-3 col">
                       <label for="toInput" className="col-lg-1 row">To</label>
                       <div className="col-lg-11">
-                        <input type="text" id="inputLGEx" className="form-control" required/>
+                        <input type="search" id="inputLGEx" className="form-control" required/>
                       </div>
                     </div>
                   </div>
