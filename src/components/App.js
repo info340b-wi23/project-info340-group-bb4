@@ -3,7 +3,9 @@ import { React, useState } from 'react';
 
 import { NavBar } from './Navbar.js';
 import { Homepage } from './Homepage.js';
+import { HomeSearch } from './HomeSearch'
 import { ComparisonPage } from './ComparisonPage';
+import { DetailsPage } from './DetailsPage'
 
 function App(props) {
 
@@ -14,7 +16,9 @@ function App(props) {
       </header>
       <main>
         {/* <Homepage/> */}
+        {/* <HomeSearch/> */}
         <ComparisonPage/>
+        {/* <DetailsPage/>  */}
       </main>
 
 
