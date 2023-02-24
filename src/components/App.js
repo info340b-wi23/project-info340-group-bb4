@@ -3,7 +3,7 @@ import { React, useState } from 'react';
 
 import { NavBar } from './Navbar.js';
 import { Homepage } from './Homepage.js';
-import { comparisonPage } from './comparisonPage';
+import { ComparisonPage } from './ComparisonPage';
 
 function App(props) {
 
@@ -13,8 +13,8 @@ function App(props) {
         <NavBar/>
       </header>
       <main>
-        <Homepage/>
-        <comparisonPage/>
+        {/* <Homepage/> */}
+        <ComparisonPage/>
       </main>
 
 

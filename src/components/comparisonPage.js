@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function comparisonPage(props) {
+export function ComparisonPage(props) {
     return (
        <div>
         <header>   

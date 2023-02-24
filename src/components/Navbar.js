@@ -6,7 +6,7 @@ export function NavBar(props) {
     const {currentpage, changePage} = props;
 
     // const NAV_NAMES_ARRAY = [{name:'HOME', url:'/'},
-    // {name:'COMPARE', url:'/2comparisonPage.html'},
+    // {name:'COMPARE', url:'/comparisonPage.html'},
     // {name:'FAVORITE', url:'/favorites.html'}];
 
     const NAV_NAMES_ARRAY = ["HOME", "COMPARE","FAVORITE" ];
