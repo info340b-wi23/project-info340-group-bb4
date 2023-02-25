@@ -1,4 +1,5 @@
 import React from 'react';
+import destinationList from './CompareHelper.js';
 
 export function ComparisonPage(props) {
     return (
@@ -9,22 +10,11 @@ export function ComparisonPage(props) {
         </header>
 
         <main>
-            {/* <div className="box">Destinations chosen: Seattle, New York, <a href="3comparisonPage.html">Add a third destination</a>
-            </div> */}
+            <div className="box">Destinations chosen: Seattle, New York, <a href="3comparisonPage.html">Add a third destination</a>
+            </div>
             {/* <!-- first section: destination --> */}
             <section>
-                <div className="flex-container">
-                {/* <!-- Destination 1 --> */}
-                <div className="cards two">
-                    <h2>Seattle</h2>
-                    <img src="img/sea.jpeg" alt="Seattle" />         
-                </div>
-                {/* <!-- Destination 2 --> */}
-                <div className="cards two">
-                    <h2>New York</h2>
-                    <img src="img/nyc.jpeg" alt="New York City" />     
-                </div>
-                </div>
+                <destinationList />
             </section>
             {/* <!-- second section: average price for a week trip --> */}
             <section>
