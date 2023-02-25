@@ -204,6 +204,18 @@ section h3 {
   margin-left: 1.2em;
 }
 
+/* FOR FAVORITES PAGE */
+
+.card-img{
+  width: 400px;
+  /* padding: 1em; */
+  margin-left: 6em;
+}
+
+.col-sm-6 {
+  margin: 1.5em;
+}
+
 /* small screens */
 @media (min-width: 598px){
   .two img {
