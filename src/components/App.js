@@ -6,7 +6,7 @@ import { Homepage } from './Homepage.js';
 import { HomeSearch } from './HomeSearch'
 import { ComparisonPage } from './ComparisonPage';
 import { DetailsPage } from './DetailsPage'
-import { FavoritesCard } from './FavoritesList'
+import FavoritesPage  from './FavoritesPage.js';
 
 
 function App(props) {
@@ -21,7 +21,7 @@ function App(props) {
         {/* <HomeSearch/> */}
         {/* <ComparisonPage/> */}
         {/* <DetailsPage/> */}
-        {/* <FavoritesCard/> */}
+        {/* <FavoritesPage/> */}
         {/* <Destinations/> */}
         {/* <TravelList/> */}
       </main>

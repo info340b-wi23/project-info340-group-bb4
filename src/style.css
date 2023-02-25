@@ -5,7 +5,6 @@
 
 @import url(https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700);
 
-
 h1, h2, h3 {
     font-family: 'Quicksand', sans-serif;
     margin-top: 0;
@@ -205,6 +204,18 @@ section h3 {
 .small p{
   font-size: 17px;
   margin-left: 1.2em;
+}
+
+/* FOR FAVORITES PAGE */
+
+.card-img{
+  width: 400px;
+  /* padding: 1em; */
+  margin-left: 6em;
+}
+
+.col-sm-6 {
+  margin: 1.5em;
 }
 
 /* small screens */
