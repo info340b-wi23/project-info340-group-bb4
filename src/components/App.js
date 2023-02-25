@@ -17,13 +17,9 @@ function App(props) {
         <NavBar/>
       </header>
       <main>
-        <Homepage/> 
-        {/* <HomeSearch/> */}
+        {/* <Homepage/> */}
         {/* <ComparisonPage/> */}
         {/* <DetailsPage/> */}
-        {/* <FavoritesPage/> */}
-        {/* <Destinations/> */}
-        {/* <TravelList/> */}
       </main>
 
 
