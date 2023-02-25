@@ -7,6 +7,7 @@ import { HomeSearch } from './HomeSearch'
 import { ComparisonPage } from './ComparisonPage';
 import { DetailsPage } from './DetailsPage'
 import FavoritesPage  from './FavoritesPage.js';
+import { Login } from './Login';
 
 
 function App(props) {
@@ -17,13 +18,13 @@ function App(props) {
         <NavBar/>
       </header>
       <main>
-        <Homepage/> 
+        {/* <Homepage/>  */}
         {/* <HomeSearch/> */}
         {/* <ComparisonPage/> */}
         {/* <DetailsPage/> */}
         {/* <FavoritesPage/> */}
         {/* <Destinations/> */}
-        {/* <TravelList/> */}
+        <Login/>
       </main>
 
 
