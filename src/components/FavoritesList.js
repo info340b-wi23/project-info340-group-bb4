@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function favoritesCard(props){
+export function FavoritesCard(props){
    
     const favorite = props.location;
     //favorite.pinned = true
@@ -26,7 +26,7 @@ export default function favoritesList(props){
     let favoriteList = props.favorites;
     
     let favoriteCards = favoriteList.map((location) => {
-        return <favoritesCard key={location.name} location={location} />
+        return <FavoritesCard key={location.name} location={location} />
     });
 
     return(

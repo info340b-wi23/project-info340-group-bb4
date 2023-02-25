@@ -6,6 +6,8 @@ import { Homepage } from './Homepage.js';
 import { HomeSearch } from './HomeSearch'
 import { ComparisonPage } from './ComparisonPage';
 import { DetailsPage } from './DetailsPage'
+import { FavoritesCard } from './FavoritesList'
+
 
 function App(props) {
 
@@ -19,6 +21,9 @@ function App(props) {
         {/* <HomeSearch/> */}
         {/* <ComparisonPage/> */}
         {/* <DetailsPage/> */}
+        {/* <FavoritesCard/> */}
+        {/* <Destinations/> */}
+        {/* <TravelList/> */}
       </main>
 
 
