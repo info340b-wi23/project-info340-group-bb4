@@ -8,19 +8,21 @@ const EXAMPLE_COMPARE = [
 
 // 1
 // Show each destination along with picture
-function destinationCard(props) {
-    const destination = props.destination;
-
+function DestinationCard(props) {
+    const destination = props.destinationInfo;
+    return(
     <div className="cards two">
         <h2>{destination.name}</h2>
         <img src={destination.placeImg} alt={destination.name} />         
     </div>
+    )
 }
 
 // Map each destination to a list to show several destinations
-export default function destinationList(props) {
-    const destinationArray = compareData.map((destination) => (
-        <destinationCard key={destination.name} destination={destination} />
+export function DestinationList(props) {
+
+    let destinationArray = compareData.map((destination) => (
+         <DestinationCard key={destination.name} destinationInfo={destination} />
     ))
     return(
         <div className="flex-container">
@@ -32,19 +34,20 @@ export default function destinationList(props) {
 
 // 2
 // Show the average total cost for each destination
-function costCard(props) {
-    const destination = props.destination;
-
-    <div className="cards small">
-        <img src='img/dollar.png' alt='budget icon' /> 
-        <p>{destination.totalPrice}</p>
-    </div>
+function CostCard(props) {
+    const destination = props.destinationInfo;
+    return(
+        <div className="cards small">
+            <img src="img/dollar.png" alt="budget icon" /> 
+            <p>{destination.totalPrice}</p>
+        </div>
+    )
 }
 
 // Show the average total cost for multiple destinations
-export function costList(props) {
+export function CostList(props) {
     const costArray = compareData.map((destination) => (
-        <costCard key={destination.name} destination={destination} />
+        <CostCard key={destination.name} destinationInfo={destination} />
     ))
     return(
         <div className="flex-container">
@@ -55,19 +58,20 @@ export function costList(props) {
 
 //3
 // Show the average hotel cost for each destination
-function hotelCard(props) {
+function HotelCard(props) {
     const destination = props.destination;
-
-    <div className="cards small">
-        <img src='img/hotel.png' alt='hotel icon' /> 
-        <p>{destination.hotelPrice}</p>
-    </div>
+    return(
+        <div className="cards small">
+            <img src='img/hotel.png' alt='hotel icon' /> 
+            <p>{destination.hotelPrice}</p>
+        </div>
+    )
 }
 
 // Show the average hotel cost for multiple destinations
-export function hotelList(props) {
+export function HotelList(props) {
     const hotelArray = compareData.map((destination) => (
-        <hotelCard key={destination.name} destination={destination} />
+        <HotelCard key={destination.name} destination={destination} />
     ))
     return(
         <div className="flex-container">
@@ -79,19 +83,20 @@ export function hotelList(props) {
 
 // 4
 // Show the average flight cost for each destination
-function flightCard(props) {
+function FlightCard(props) {
     const destination = props.destination;
-
-    <div className="cards small">
-        <img src='img/flight.jpeg' alt='flight icon' /> 
-        <p>{destination.flightPrice}</p>
-    </div>
+    return(
+        <div className="cards small">
+            <img src='img/flight.jpeg' alt='flight icon' /> 
+            <p>{destination.flightPrice}</p>
+        </div>
+    )
 }
 
 // Show the average flight cost for multiple destinations
-export function flightList(props) {
+export function FlightList(props) {
     const flightArray = compareData.map((destination) => (
-        <flightCard key={destination.name} destination={destination} />
+        <FlightCard key={destination.name} destination={destination} />
     ))
     return(
         <div className="flex-container">
@@ -102,19 +107,20 @@ export function flightList(props) {
 
 // 5
 // Show the average flight cost for each destination
-function transportCard(props) {
+function TransportCard(props) {
     const destination = props.destination;
-
-    <div className="cards small">
-        <img src='img/bus.jpeg' alt='transport icon' /> 
-        <p>{destination.transportPrice}</p>
-    </div>
+    return(
+        <div className="cards small">
+            <img src='img/bus.jpeg' alt='transport icon' /> 
+            <p>{destination.transportPrice}</p>
+        </div>
+    )
 }
 
 // Show the average flight cost for multiple destinations
-export function transportList(props) {
+export function TransportList(props) {
     const transportArray = compareData.map((destination) => (
-        <transportCard key={destination.name} destination={destination} />
+        <TransportCard key={destination.name} destination={destination} />
     ))
     return(
         <div className="flex-container">

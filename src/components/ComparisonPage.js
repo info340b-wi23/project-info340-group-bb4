@@ -1,5 +1,10 @@
 import React from 'react';
-import destinationList from './CompareHelper.js';
+import {DestinationList} from './CompareHelper.js';
+import {CostList} from './CompareHelper.js';
+import {HotelList} from './CompareHelper.js';
+import {FlightList} from './CompareHelper.js';
+import {TransportList} from './CompareHelper.js';
+
 
 export function ComparisonPage(props) {
     return (
@@ -14,71 +19,27 @@ export function ComparisonPage(props) {
             </div>
             {/* <!-- first section: destination --> */}
             <section>
-                <destinationList />
+                <DestinationList />
             </section>
             {/* <!-- second section: average price for a week trip --> */}
             <section>
                 <h3>Average Travel Cost For a One-Week Trip</h3>
-                <div className="flex-container">
-                {/* <!-- Destination 1 --> */}
-                <div className="cards small">
-                    <img src="img/dollar.png" alt="budget sign" /> 
-                    <p>$800</p>
-                </div>
-                {/* <!-- Destination 2 --> */}
-                <div className="cards small">
-                    <img src="img/dollar.png" alt="budget sign" /> 
-                    <p>$1000</p>
-                </div>
-                </div>
+                <CostList />
             </section>
             {/* <!-- third section: average hotel price --> */}
             <section>
                 <h3>Average Hotel Price per Night</h3>
-                <div className="flex-container">
-                {/* <!-- Destination 1 --> */}
-                <div className="cards small">
-                    <img src="img/hotel.png" alt="hotel sign" /> 
-                    <p>$80</p>
-                </div>
-                {/* <!-- Destination 2 --> */}
-                <div className="cards small">
-                    <img src="img/hotel.png" alt="hotel sign" /> 
-                    <p>$100</p>
-                </div>
-                </div>
+                <HotelList />
             </section>
             {/* <!-- fourth section: average flight ticket --> */}
             <section>
                 <h3>Average Flight Ticket Price</h3>
-                <div className="flex-container">
-                {/* <!-- Destination 1 --> */}
-                <div className="cards small">
-                    <img src="img/flight.jpeg" alt="flight sign" /> 
-                    <p>$200</p>
-                </div>
-                {/* <!-- Destination 2 --> */}
-                <div className="cards small">
-                    <img src="img/flight.jpeg" alt="flight sign" /> 
-                    <p>$350</p>
-                </div>
-                </div>
+                <FlightList />
             </section>
             {/* <!-- fifth section: average hotel price --> */}
          <section>
                 <h3>Average Transportation Fee per Week</h3>
-            <div className="flex-container">
-                {/* <!-- Destination 1 --> */}
-                <div className="cards small">
-                    <img src="img/bus.jpeg" alt="public transportation sign" /> 
-                    <p>$80</p>
-                </div>
-                {/* <!-- Destination 2 --> */}
-                <div className="cards small">
-                    <img src="img/bus.jpeg" alt="public transportation sign" /> 
-                    <p>$100</p>
-                </div>
-            </div>
+                <TransportList />
         </section>
     </main>
 </div>
