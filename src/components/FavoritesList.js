@@ -18,7 +18,11 @@ export function FavoritesCard(props){
                     <p>Date Pinned: {favorite.pinDate}</p>
                     <a href="" type="button" className="btn btn-dark">View More Details</a>
                 </div>
-
+                <div className='col-sm-1'>
+                    <button className="btn like-button">
+                        <span className="material-icons" style={{ color: 'red' }}>♥</span>
+                    </button>
+                </div>
             </div>
         </div>
     );
