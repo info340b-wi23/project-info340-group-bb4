@@ -8,6 +8,7 @@ import { ComparisonPage } from './ComparisonPage';
 import { DetailsPage } from './DetailsPage'
 import FavoritesPage  from './FavoritesPage.js';
 import  Login  from './Login';
+import {SearchDataTable} from './SearchDataTable'
 
 import { Test } from './Test'
 
@@ -21,9 +22,10 @@ function App(props) {
       <main>
         {/* <Homepage/> */}
         {/* <HomeSearch/> */}
+        <SearchDataTable/>
         {/* <ComparisonPage/> */}
         {/* <DetailsPage/> */}
-        <FavoritesPage/> 
+        {/* <FavoritesPage/> */}
         {/* <Destinations/> */}
         {/* <Login/> */}
         {/* <Test/> */}

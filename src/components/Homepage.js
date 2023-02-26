@@ -1,40 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+
 import TravelList from './TravelList.js';
-import { DestSelectForm } from './DestSelectForm';
-import  DestDataCard from './DestDataCard';
 
 export function Homepage(props) {
-  const [filterFrom, setFilterFrom] = useState('');
-  const [filterDest, setFilterDest] = useState('');
-  const [filterHotel,setFilterHotel]  = useState(false);
-
-  const displayedData = props.travelData.filter((obj)=>{
-    if(filterDest === '' && filterFrom === '') {
-      return props.travelData;
-    } else {
-      if(filterHotel === true) {
-        return ((obj.hotel === filterDest) && (obj.hotel === filterFrom));
-      } 
-      // else {
-      //   return (obj.winner === filterDest);
-      // }
-    }
-  })
-
-  function applyFilter(from, dest, hotel) {
-    setFilterFrom(from);
-    setFilterDest(dest);
-    setFilterHotel(hotel);
-  }
-
-  //get sorted list of unique teamNames. reduce array of objects into array of strings, 
-  //convert to Set to get uniques, spread back into array, and sort 
-  const uniqueDest = [...new Set(props.travelData.reduce((all, current) => {
-    return all.concat([current.from, current.hotel]);
-  }, []))].sort();
-
-  // fbhdjskfghjkl;dfghjkl
-
+  const currentpage = props.currentpage;
   return (
     <div>
       <header>
@@ -42,13 +11,13 @@ export function Homepage(props) {
       </header>
 
       <main>
-        {/* <div className="row">
+        <div className="row">
           <div className="col-12">
             <div className="find">
               <div className="container card">
                 <form id="signUpForm" className="form card-body" novalidate>
                   <div className="row">
-
+                    {/* FROM */}
                     <div className="input-group row mb-3 col">
                       <label for="fromInput" className="col-lg-1 row">From</label>
                       <div className="col-lg-11">
@@ -56,6 +25,7 @@ export function Homepage(props) {
                       </div>
                     </div>
           
+                    {/* TO */}
                     <div className="input-group row mb-3 col">
                       <label for="toInput" className="col-lg-1 row">To</label>
                       <div className="col-lg-11">
@@ -65,6 +35,7 @@ export function Homepage(props) {
                   </div>
 
                   <div className="row">
+                    {/* Depart */}
                     <div className="input-group row mb-3 col">
                       <label for="departInput" className="col-lg-1 row">Depart</label>
                       <div className="col-lg-11">
@@ -72,6 +43,7 @@ export function Homepage(props) {
                       </div>
                     </div>
             
+                    {/* Return */}
                     <div className="input-group row mb-3 col">
                       <label for="returnInput" className="col-lg-1 row">Return</label>
                       <div className="col-lg-11">
@@ -79,6 +51,7 @@ export function Homepage(props) {
                       </div>
                     </div>
             
+                    {/* <!-- Passinger # --> */}
                     <div className="input-group row mb-3 col">
                       <label for="passingerInput" className="col-lg-1 row">Passenger #</label>
                       <div className="col-lg-11">
@@ -98,7 +71,8 @@ export function Homepage(props) {
                     </div>
                   </div>
                   
-
+                  {/* <!-- Other search options -->
+                  <!-- https://getbootstrap.com/docs/5.3/forms/checks-radios/#inline --> */}
                   <div className="checkbox">
                     <p className="search-text">SEARCH OPTIONS</p>
                     
@@ -124,6 +98,7 @@ export function Homepage(props) {
                     </div>
                   </div>
           
+                  {/* <!-- Submit --> */}
                   <div className="d-grid gap-2 col-6 mx-auto">
                     <button type="submit" className="btn btn-primary search-btn">Search</button>
                   </div>
@@ -132,13 +107,13 @@ export function Homepage(props) {
               </div> 
             </div>
           </div>
-        </div> */}
 
-        {/* section 1 */}
-        <DestSelectForm destOptions={uniqueDest} applyFilterCallback={applyFilter}/>
-        {/* <DestDataCard/> */}
-        {/* table? */}
-        <DestDataCard data={displayedData}/> 
+
+          {/* <!-- section 2 --> */}
+          {/* <TravelList/> */}
+
+
+        </div>
 
         {/* section 2 */}
         <h2 className="examplePlace">Place You May Like</h2>

@@ -9,8 +9,10 @@ const EXAMPLE_TRAVEL = [
 ];
 
 export function DetailsPage(props) {
+    {/*variable below is not used for now, but setting up for later when implement the details page with the dataset*/}
     const currentpage = props.currentpage
 
+    {/* for now, set it to the first in the results page for filtering */}
     let currLoc = EXAMPLE_TRAVEL[0]
 
     return (
