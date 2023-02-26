@@ -21,7 +21,7 @@ export function DetailsPage(props) {
             <main class="display">
                 <div class="container">
                     <div class="row">
-                        <div class="card col-12 col-sm-6">
+                        <div class="card mb-4 col-12 col-sm-6">
                         <div class="card-header">
                             <h2>{currLoc.flight}</h2>
                         </div>
@@ -34,7 +34,7 @@ export function DetailsPage(props) {
                         </div>
                         </div>
 
-                        <div class="card col-12 col-sm-6">
+                        <div class="card mb-4 col-12 col-sm-6">
                         <div class="card-header">
                             <h2>{currLoc.hotel}</h2>
                         </div>

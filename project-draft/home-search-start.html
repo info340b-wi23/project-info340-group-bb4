@@ -56,105 +56,105 @@
 
   <main class="display">
     <div class="row">
-      <div class="col">
-        <div class="container">
-          <section class="find">
-            <div class="choose">
-              <ul>
-
-                <div class="row">
-                  <li class="col-md-6 col-xl-3 col-sm-auto d-flex">
-                    <p>From</p>
-                    <div class="md-form form-lg">
-                      <input type="text" id="inputLGEx" class="form-control form-control-lg">
-                    </div>
-                    
-                    
-                  </li>
-
-
-                  <li class="col-md-6 col-xl-3 col-sm-auto d-flex">
-                    <p>To</p>
-                    <div class="md-form form-lg">
-                      <input type="text" id="inputLGEx" class="form-control form-control-lg">
-                    </div>
-                  </li>
-
-                  <li class="col-lg-2 d-flex col-sm-auto text-sm">
-                    <p>Depart</p>
-                    <div class="md-form form-lg">
-                      <input type="text" id="inputLGEx" class="form-control form-control-lg">
-                    </div>
-                  </li>
-
-                  <li class="col-lg-2 d-flex col-sm-auto text-sm">
-                    <p>Return</p>
-                    <div class="md-form form-lg">
-                      <input type="text" id="inputLGEx" class="form-control form-control-lg">
-                    </div>
-                  </li>
-
-                  <!-- <li class="col-lg-2 d-flex text-sm"><p>Passinger #</p></li> -->
-                  <li class="col-lg-2 d-flex col-sm-auto text-sm">
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>Passenger #</option>
-                      <option value="1">1 Passenger</option>
-                      <option value="2">2 Passengers</option>
-                      <option value="3">3 Passengers</option>
-                      <option value="4">4 Passengers</option>
-                      <option value="5">5 Passengers</option>
-                      <option value="6">6 Passengers</option>
-                      <option value="7">7 Passengers</option>
-                      <option value="8">8 Passengers</option>
-                      <option value="9">9 Passengers</option>
-                    </select>
-                  </li>
-
-
+      <div class="col-12">
+        <div class="find">
+          <div class="container card">
+            <form id="signUpForm" class="form card-body" novalidate>
+              <div class="row">
+                <!-- From -->
+                <div class="input-group row mb-3 col">
+                  <label for="fromInput" class="col-lg-1 row">From</label>
+                  <div class="col-lg-11">
+                    <input type="text" id="inputLGEx" class="form-control" required>
+                    <!-- <div class="invalid-feedback">Please provide a valid email</div> -->
+                  </div>
                 </div>
       
-              </ul>
-            </div>
+                <!-- To -->
+                <div class="input-group row mb-3 col">
+                  <label for="toInput" class="col-lg-1 row">To</label>
+                  <div class="col-lg-11">
+                    <input type="text" id="inputLGEx" class="form-control" required>
+                    <!-- <div id="passwordFeedback" class="invalid-feedback">Password must be at least 6 characters</div> -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <!-- Depart -->
+                <div class="input-group row mb-3 col">
+                  <label for="departInput" class="col-lg-1 row">Depart</label>
+                  <div class="col-lg-11">
+                    <input type="date" id="start" class="form-control" required>
+                    <!-- <div id="passwordConfirmFeedback" class="invalid-feedback"></div> -->
+                  </div>
+                </div>
+        
+                <!-- Return -->
+                <div class="input-group row mb-3 col">
+                  <label for="returnInput" class="col-lg-1 row">Return</label>
+                  <div class="col-lg-11">
+                    <input type="date" id="end" class="form-control" required>
+                    <!-- <div id="dobFeedback" class="invalid-feedback"></div> -->
+                  </div>
+                </div>
+        
+                <!-- Passinger # -->
+                <div class="input-group row mb-3 col">
+                  <label for="passingerInput" class="col-lg-1 row">Passinger#</label>
+                  <div class="col-lg-11">
+                    <select class="form-select" aria-label="Default select example">
+                      <option selected>Please select...</option>
+                      <option value="1">1 Passinger</option>
+                      <option value="2">2 Passingers</option>
+                      <option value="3">3 Passingers</option>
+                      <option value="4">4 Passingers</option>
+                      <option value="5">5 Passingers</option>
+                      <option value="6">6 Passingers</option>
+                      <option value="7">7 Passingers</option>
+                      <option value="8">8 Passingers</option>
+                      <option value="9">9 Passingers</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Other search options -->
+              <!-- https://getbootstrap.com/docs/5.3/forms/checks-radios/#inline -->
+              <div class="checkbox">
+                <p class="search-text">SEARCH OPTIONS</p>
+                
+                <div class="form-check form-check-inline search">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    With Stays
+                  </label>
+                </div>
       
-            <!-- https://getbootstrap.com/docs/5.3/forms/checks-radios/#inline -->
-            <div class="checkbox">
-              <ul>
-                <li><a>SEARCH OPTIONS</a></li>
-                <li>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                      With Stays
-                    </label>
-                  </div>
-                </li>
+                <div class="form-check form-check-inline search">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    With ...
+                  </label>
+                </div>
+                
+                <div class="form-check form-check-inline search">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    With ..
+                  </label>
+                </div>
+      
+              </div>
+      
+              <!-- Submit -->
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-primary search-btn">Search</button>
+              </div>
 
-                <li>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                      With ...
-                    </label>
-                  </div>
-                </li>
+            </form>
+          </div> 
 
-                <li>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                      With ..
-                    </label>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-
-            <div class="d-grid gap-2 col-6 mx-auto">
-              <button class="btn btn-primary search" aria-label="Search" type="button">Search</button>
-            </div>
-
-          </section>
         </div>
       </div>
 
@@ -164,7 +164,7 @@
           <!-- Card 1 -->
           <div class="row">
             <div class="col-12 d-flex">
-              <div class="card mb-4 w-100">
+              <div class="card mt-4 mb-4 w-100">
                 <div class="card-body">
                   <div class="row">
 
