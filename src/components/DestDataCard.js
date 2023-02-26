@@ -34,12 +34,12 @@ export default function DestDataCard(props){
     // sort
     const handleClick = (event) => {
         const clickedName = event.currentTarget.name;
-        if(clickedName != sortByCriteria){
+        if(clickedName !== sortByCriteria){
             setSortByCriteria(clickedName)
             setIsAscending(1);
             console.log("ascending");
         } else{
-            if (isAscending == 1){
+            if (isAscending === 1){
                 console.log("descending");
                 setIsAscending(2);
             } else {
@@ -50,7 +50,7 @@ export default function DestDataCard(props){
     };
 
     let sortedDataArray  = _.sortBy(props.travel, sortByCriteria);
-    if(sortByCriteria != null && isAscending != 1) {
+    if(sortByCriteria !== null && isAscending !== 1) {
       sortedDataArray = _.reverse(sortedDataArray);
     }
 
@@ -67,23 +67,23 @@ export default function DestDataCard(props){
               <tr>
                 <th>
                   From
-                  <SortButton name={"from"} active={sortByCriteria == "from"} onClick={handleClick} ascending={sortByCriteria == "from" && isAscending === 1}/>
+                  <SortButton name={"from"} active={sortByCriteria === "from"} onClick={handleClick} ascending={sortByCriteria === "from" && isAscending === 1}/>
                 </th>
                 <th className="text-end">
                   To
-                  <SortButton name="to" active={sortByCriteria == "to"} onClick={handleClick} ascending={sortByCriteria == "to" && isAscending === 1}/>
+                  <SortButton name="to" active={sortByCriteria === "to"} onClick={handleClick} ascending={sortByCriteria === "to" && isAscending === 1}/>
                 </th>
                 <th className="text-center">
                   Flight
-                  <SortButton name="flight" active={sortByCriteria == "flight"}  onClick={handleClick} ascending={sortByCriteria == "flight" && isAscending === 1}/>
+                  <SortButton name="flight" active={sortByCriteria === "flight"}  onClick={handleClick} ascending={sortByCriteria === "flight" && isAscending === 1}/>
                 </th>
                 <th>
                   Flight Price
-                  <SortButton name="flightprice" active={sortByCriteria == "flightprice"} onClick={handleClick} ascending={sortByCriteria == "flightprice" && isAscending === 1}/>
+                  <SortButton name="flightprice" active={sortByCriteria === "flightprice"} onClick={handleClick} ascending={sortByCriteria === "flightprice" && isAscending === 1}/>
                 </th>
                 <th>
                   Hotel Price
-                  <SortButton name="hotel_price" active={sortByCriteria == "hotel_price"} onClick={handleClick} ascending={sortByCriteria == "hotel_price" && isAscending === 1}/>
+                  <SortButton name="hotel_price" active={sortByCriteria === "hotel_price"} onClick={handleClick} ascending={sortByCriteria === "hotel_price" && isAscending === 1}/>
                 </th>
               </tr>
             </thead>

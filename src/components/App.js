@@ -20,9 +20,9 @@ function App(props) {
         <NavBar/>
       </header>
       <main>
-        {/* <Homepage/> */}
+        <Homepage/>
         {/* <HomeSearch/> */}
-        <SearchDataTable/>
+        {/* <SearchDataTable/> */}
         {/* <ComparisonPage/> */}
         {/* <DetailsPage/> */}
         {/* <FavoritesPage/> */}
