@@ -211,12 +211,29 @@ section h3 {
 .card-img{
   width: 400px;
   /* padding: 1em; */
-  margin-left: 6em;
+  /* margin-left: 10em; */
+  padding: 1em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .col-sm-6 {
   margin: 1.5em;
 }
+
+.favorites{
+  text-align: center;
+  margin: 1rem;
+}
+
+/* like-button */
+/* .like-button {
+  padding: 0;
+}
+.like-button .material-icons {
+  position:relative;
+  top:0px;
+} */
 
 /* small screens */
 @media (min-width: 598px){
