@@ -53,19 +53,19 @@ export function Homepage(props) {
             
                     {/* <!-- Passinger # --> */}
                     <div className="input-group row mb-3 col">
-                      <label for="passingerInput" className="col-lg-1 row">Passinger#</label>
+                      <label for="passingerInput" className="col-lg-1 row">Passenger #</label>
                       <div className="col-lg-11">
                         <select className="form-select" aria-label="Default select example">
                           <option selected>Please select...</option>
-                          <option value="1">1 Passinger</option>
-                          <option value="2">2 Passingers</option>
-                          <option value="3">3 Passingers</option>
-                          <option value="4">4 Passingers</option>
-                          <option value="5">5 Passingers</option>
-                          <option value="6">6 Passingers</option>
-                          <option value="7">7 Passingers</option>
-                          <option value="8">8 Passingers</option>
-                          <option value="9">9 Passingers</option>
+                          <option value="1">1 Passenger</option>
+                          <option value="2">2 Passengers</option>
+                          <option value="3">3 Passengers</option>
+                          <option value="4">4 Passengers</option>
+                          <option value="5">5 Passengers</option>
+                          <option value="6">6 Passengers</option>
+                          <option value="7">7 Passengers</option>
+                          <option value="8">8 Passengers</option>
+                          <option value="9">9 Passengers</option>
                         </select>
                       </div>
                     </div>

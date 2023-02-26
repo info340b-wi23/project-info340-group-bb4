@@ -18,11 +18,11 @@ function App(props) {
         <NavBar/>
       </header>
       <main>
-        <Homepage/> 
+        {/* <Homepage/> */}
         {/* <HomeSearch/> */}
         {/* <ComparisonPage/> */}
         {/* <DetailsPage/> */}
-        {/* <FavoritesPage/> */}
+        <FavoritesPage/> 
         {/* <Destinations/> */}
         {/* <Login/> */}
       </main>
