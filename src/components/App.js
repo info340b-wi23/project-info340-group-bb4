@@ -7,8 +7,9 @@ import { HomeSearch } from './HomeSearch'
 import { ComparisonPage } from './ComparisonPage';
 import { DetailsPage } from './DetailsPage'
 import FavoritesPage  from './FavoritesPage.js';
-import { Login } from './Login';
+import  Login  from './Login';
 
+import { Test } from './Test'
 
 function App(props) {
 
@@ -25,6 +26,7 @@ function App(props) {
         {/* <FavoritesPage/> */}
         {/* <Destinations/> */}
         {/* <Login/> */}
+        {/* <Test/> */}
       </main>
 
 
