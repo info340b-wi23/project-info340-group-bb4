@@ -1,12 +1,13 @@
 import React from 'react';
 
+import TravelList from './TravelList.js';
+
 export function Homepage(props) {
   const currentpage = props.currentpage;
-
   return (
     <div>
-      <header className="homepage">
-        <h1>Find Your Trip</h1>
+      <header>
+        <h1 className="homepage">Find Your Trip</h1>
       </header>
 
       <main>
@@ -20,7 +21,7 @@ export function Homepage(props) {
                     <div className="input-group row mb-3 col">
                       <label for="fromInput" className="col-lg-1 row">From</label>
                       <div className="col-lg-11">
-                        <input type="text" id="inputLGEx" className="form-control" required/>
+                        <input type="search" id="inputLGEx" className="form-control" required/>
                       </div>
                     </div>
           
@@ -28,7 +29,7 @@ export function Homepage(props) {
                     <div className="input-group row mb-3 col">
                       <label for="toInput" className="col-lg-1 row">To</label>
                       <div className="col-lg-11">
-                        <input type="text" id="inputLGEx" className="form-control" required/>
+                        <input type="search" id="inputLGEx" className="form-control" required/>
                       </div>
                     </div>
                   </div>
@@ -95,7 +96,6 @@ export function Homepage(props) {
                         With ..
                       </label>
                     </div>
-          
                   </div>
           
                   {/* <!-- Submit --> */}
@@ -105,93 +105,19 @@ export function Homepage(props) {
 
                 </form>
               </div> 
-
             </div>
           </div>
 
 
           {/* <!-- section 2 --> */}
-          <h2 className="examplePlace">Place You May Like</h2>
-          <div className="expCards col-12">
-            <div className="container">
-              {/* <!-- Card 1 --> */}
-              <div className="row">
-                <div className="col-12 d-flex">
-                  <div className="card mb-4">
-                    <div className="card-body">
-                      <div className="row">
-                        <div className="col-3">
-                          <img className="pb-3" src="img/Barcelona.jpeg" alt="view in Barcelona"/>
-                        </div>
-                        <div className="col-sm">
-                          <h2 className="card-title">Barcelona</h2>
-                          <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, fuga?</p>
-                          <a className="btn btn-dark" href="home-search-details.html">View details</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
+          {/* <TravelList/> */}
 
-                {/* <!-- Card 2 --> */}
-                <div className="col-12 d-flex">
-                  <div className="card mb-4">
-                    <div className="card-body">
-                      <div className="row">
-                        <div className="col-3">
-                          <img className="pb-3" src="img/Hawaii.jpg" alt="view in Hawaii"/>
-                        </div>
-                        <div className="col-sm">
-                          <h2 className="card-title">Hawaii</h2>
-                          <p className="card-text">Quam, officiis ut adipisci pariatur veniam labore ipsum optio tenetur!</p>
-                          <a className="btn btn-dark" href="home-search-details.html">View details</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* <!-- Card 3 --> */}
-                <div className="col-12 d-flex">
-                  <div className="card mb-4">
-                    <div className="card-body">
-                      <div className="row">
-                        <div className="col-3">
-                          <img className="pb-3" src="img/Architecture-of-Santorini.jpeg" alt="Architecture of Santorini"/>
-                        </div>
-                        <div className="col-sm">
-                          <h2 className="card-title">Santorini, Greece</h2>
-                          <p className="card-text">Reiciendis doloremque voluptas veniam repellendus quisquam deleniti tenetur quia a.</p>
-                          <a className="btn btn-dark" href="home-search-details.html">View details</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
 
-                {/* <!-- Card 4 --> */}
-                <div className="col-12 d-flex">
-                  <div className="card mb-4">
-                    <div className="card-body">
-                      <div className="row">
-                        <div className="col-3">
-                          <img className="pb-3" src="img/Rotterdam-skyline-Erasmus-bridge.jpeg" alt="view of Rotterdam, Netherlands"/>
-                        </div>
-                        <div className="col-sm">
-                          <h2 className="card-title">Rotterdam, Netherlands</h2>
-                          <p className="card-text">Maiores voluptate rem odit dolor temporibus asperiores maxime velit sapiente.</p>
-                          <a className="btn btn-dark" href="home-search-details.html">View details</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
+
+        {/* section 2 */}
+        <h2 className="examplePlace">Place You May Like</h2>
+        <TravelList/>
 
       </main>
     </div>
