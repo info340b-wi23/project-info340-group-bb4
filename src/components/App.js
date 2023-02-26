@@ -5,6 +5,7 @@ import { NavBar } from './Navbar.js';
 import { Homepage } from './Homepage.js';
 import { HomeSearch } from './HomeSearch'
 import { ComparisonPage } from './ComparisonPage';
+import { ThreeComparisonPage } from './ThreeComparePage';
 import { DetailsPage } from './DetailsPage'
 import FavoritesPage  from './FavoritesPage.js';
 import  Login  from './Login';
@@ -23,7 +24,8 @@ function App(props) {
         {/* <Homepage/> */}
         {/* <HomeSearch/> */}
         {/* <SearchDataTable/> */}
-        <ComparisonPage/>
+        {/* <ComparisonPage/> */}
+        <ThreeComparisonPage/>
         {/* <DetailsPage/> */}
         {/* <FavoritesPage/> */}
         {/* <Destinations/> */}
