@@ -62,14 +62,30 @@ export function DestSelectForm(props) {
     event.preventDefault();
     props.applyFilterCallback(selectFrom, searchOption);
   }
+  
+  const uniqueNamesTo = [...new Set(travelData.reduce((all, current) => {
+    return all.concat([current.to]);
+  }, []))].sort();
 
-  const optionElemsFrom = travelData.map((travelData) => {
-    return <option key={travelData.from} value={travelData => <div>{travelData.from}</div>}></option>
+  const uniqueNamesFrom = [...new Set(travelData.reduce((all, current) => {
+    return all.concat([current.from]);
+  }, []))].sort();
+
+  const optionElemsTo = uniqueNamesTo.map((name) => {
+    return <option key={name} value={name}>{name}</option>
   })
 
-  const optionElemsTo = travelData.map((travelData) => {
-    return <option key={travelData.to} value={travelData => <div>{travelData.to}</div>}></option>
+  const optionElemsFrom = uniqueNamesFrom.map((name) => {
+    return <option key={name} value={name}>{name}</option>
   })
+
+  // const optionElemsFrom = travelData.map((travelData) => {
+  //   return <option key={travelData.from} value={travelData => <div>{travelData.from}</div>}></option>
+  // })
+
+  // const optionElemsTo = travelData.map((travelData) => {
+  //   return <option key={travelData.to} value={travelData => <div>{travelData.to}</div>}></option>
+  // })
 
   // const optionElemsNum = numData.map((numData) => {
   //   return <option key={numData.id} value={numData => <div>{numData.string}</div>}></option>
