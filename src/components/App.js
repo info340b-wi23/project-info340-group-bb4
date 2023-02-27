@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-// import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import { NavBar } from './Navbar.js';
 import { Homepage } from './Homepage.js';
@@ -20,17 +20,19 @@ function App(props) {
       <header>
         <NavBar/>
       </header>
+
       <main>
-        {/* <Homepage/> */}
-        {/* <HomeSearch/> */}
-        {/* <SearchDataTable/> */}
-        {/* <ComparisonPage/> */}
-        <ThreeComparisonPage/>
-        {/* <DetailsPage/> */}
-        {/* <FavoritesPage/> */}
-        {/* <Destinations/> */}
-        {/* <Login/> */}
-        {/* <Test/> */}
+        <Routes>
+          <Route path="/" element={<HomeSearch/>}/>
+          <Route path="search" element={<SearchDataTable/>}/>
+
+          <Route path="comparisonPage" element={<ComparisonPage/>}/>
+          <Route path="3comparisonPage" element={<ThreeComparisonPage/>}/>
+
+          <Route path="favorites" element={<FavoritesPage/>}/>
+          <Route path='details' element={<DetailsPage/>}/>
+          <Route path='login' element={<Login/>}/>
+        </Routes>
       </main>
 
 

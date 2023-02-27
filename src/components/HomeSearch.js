@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // const EXAMPLE_TRAVEL = [
 //   { date: "05/04/2023", from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'CloudFy', flightprice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalprice: '1904.21', class: 'First Class'},
@@ -62,21 +63,21 @@ export function HomeSearch(props) {
                       </div>
                     </div>
             
-                    {/* <!-- Passinger # --> */}
+                    {/* <!-- Passenger # --> */}
                     <div className="input-group row mb-3 col">
-                      <label for="passingerInput" className="col-lg-1 row">Passinger#</label>
+                      <label for="passingerInput" className="col-lg-1 row">Passenger#</label>
                       <div className="col-lg-11">
                         <select className="form-select" aria-label="Default select example">
                           <option selected>Please select...</option>
-                          <option value="1">1 Passinger</option>
-                          <option value="2">2 Passingers</option>
-                          <option value="3">3 Passingers</option>
-                          <option value="4">4 Passingers</option>
-                          <option value="5">5 Passingers</option>
-                          <option value="6">6 Passingers</option>
-                          <option value="7">7 Passingers</option>
-                          <option value="8">8 Passingers</option>
-                          <option value="9">9 Passingers</option>
+                          <option value="1">1 Passenger</option>
+                          <option value="2">2 Passengers</option>
+                          <option value="3">3 Passengers</option>
+                          <option value="4">4 Passengers</option>
+                          <option value="5">5 Passengers</option>
+                          <option value="6">6 Passengers</option>
+                          <option value="7">7 Passengers</option>
+                          <option value="8">8 Passengers</option>
+                          <option value="9">9 Passengers</option>
                         </select>
                       </div>
                     </div>
@@ -112,7 +113,7 @@ export function HomeSearch(props) {
           
                   {/* <!-- Submit --> */}
                   <div className="d-grid gap-2 col-6 mx-auto">
-                    <button type="submit" className="btn btn-primary search-btn">Search</button>
+                    <button type="submit" className="btn btn-primary search-btn"><Link to="search"></Link>Search</button>
                   </div>
 
                 </form>

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import {DestinationList} from './CompareHelper.js';
 import {CostList} from './CompareHelper.js';
 import {HotelList} from './CompareHelper.js';
@@ -15,7 +17,7 @@ export function ComparisonPage(props) {
         </header>
 
         <main>
-            <div className="box">Destinations chosen: Seattle, New York, <a href="3comparisonPage.html">Add a third destination</a>
+            <div className="box">Destinations chosen: Seattle, New York, <Link to="/3comparisonPage">Add a third destination</Link>
             </div>
             {/* <!-- first section: destination --> */}
             <section>

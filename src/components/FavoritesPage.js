@@ -26,7 +26,6 @@ export default function FavoritesPage(props){
 
     return(
         <div>
-            {/* <NavBar /> */}
             <h2 className="favorites">Your Travel Bucket List</h2>
             <MapChart />
             <p className="favorites">Pin favorites on your search page and create the perfect travel bucket list for your future endeavors!</p>

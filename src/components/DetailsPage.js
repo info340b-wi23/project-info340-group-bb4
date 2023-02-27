@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const EXAMPLE_TRAVEL = [
     { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'CloudFy', flightprice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalprice: '1904.21', class: 'First Class'},
@@ -48,7 +49,7 @@ export function DetailsPage(props) {
                     </div>
 
                     <section>
-                        <a class="btn btn-dark">Go Back</a>
+                        <Link to="/favorites" class="btn btn-dark">Go Back</Link>
                     </section>
                 </div>
 

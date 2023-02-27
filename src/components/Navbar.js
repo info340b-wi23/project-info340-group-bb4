@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 
 export function NavBar(props) {
     const {currentpage, changePage} = props;
@@ -55,9 +56,9 @@ export function NavBar(props) {
                         </div> */}
                     </Navbar.Collapse>
                     <div className="nav-item d-inline-block login">
-                        <a className="nav-link" href="profile.html">
+                        <Link className="nav-link" to="/login">
                             <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </Navbar>

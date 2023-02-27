@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export function FavoritesCard(props){
    
@@ -16,7 +17,7 @@ export function FavoritesCard(props){
                     <p>Traveling From: {favorite.from}</p>
                     <h3>Total Cost for Travels: ${favorite.totalCost}</h3>
                     <p>Date Pinned: {favorite.pinDate}</p>
-                    <a href="" type="button" className="btn btn-dark">View More Details</a>
+                    <Link to="/details" type="button" className="btn btn-dark">View More Details</Link>
                 </div>
                 <div className='col-sm-1'>
                     <button className="btn like-button">
