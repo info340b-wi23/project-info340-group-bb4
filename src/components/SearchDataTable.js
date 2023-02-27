@@ -22,7 +22,7 @@ export function SearchDataTable(props) {
       setDisplayedData(rawDat);
     } else {
       let filterData = rawDat.filter((flight) => {
-        if(flight.to === to && flight.from === flight) {
+        if(flight.to === to && flight.from === from) {
           return true;
         } 
       });
@@ -34,7 +34,7 @@ export function SearchDataTable(props) {
   const rows = displayedData.map((flight) => {
     return <DestDataRow key={flight.date} flight={flight} />
   });
-  console.log(rows[0])
+  //console.log(rows[0])
 
   return (
     <div>
@@ -100,79 +100,117 @@ function FlightSelectForm(props) {
     props.applyFilterCallback(selectInputTo, selectInputFrom);
   }
 
+  const uniqueNamesTo = [...new Set(sortData.reduce((all, current) => {
+    return all.concat([current.to]);
+  }, []))].sort();
 
-    //get sorted list of unique teamNames. reduce array of objects into array of strings, 
+  const uniqueNamesFrom = [...new Set(sortData.reduce((all, current) => {
+    return all.concat([current.from]);
+  }, []))].sort();
+
+  //get sorted list of unique teamNames. reduce array of objects into array of strings, 
   //convert to Set to get uniques, spread back into array, and sort 
-  let uniqueNamesTo = [];
-  for(let i = 0; i < sortData.length; i++) {
-    if(!(uniqueNamesTo.includes(sortData[i].to))) {
-      uniqueNamesTo.push(sortData[i].to);
-    }
-  }
+  // let uniqueNamesTo = [];
+  // for(let i = 0; i < sortData.length; i++) {
+  //   if(!(uniqueNamesTo.includes(sortData[i].to))) {
+  //     uniqueNamesTo.push(sortData[i].to);
+  //   }
+  // }
+  
 
-  let uniqueNamesFrom = [];
-  for(let i = 0; i < sortData.length; i++) {
-    if(!(uniqueNamesFrom.includes(sortData[i].from))) {
-      uniqueNamesFrom.push(sortData[i].from);
-    }
-  }
+  // let uniqueNamesFrom = [];
+  // for(let i = 0; i < sortData.length; i++) {
+  //   if(!(uniqueNamesFrom.includes(sortData[i].from))) {
+  //     uniqueNamesFrom.push(sortData[i].from);
+  //   }
+  // }
 
-  const optionElemsTo = sortData.map((sortData) => {
-    return <option key={sortData.to} value={sortData => <div>{sortData.to}</div>}></option>
+  console.log(uniqueNamesTo)
+  const optionElemsTo = uniqueNamesTo.map((name) => {
+    return <option key={name} value={name}>{name}</option>
   })
 
-  const optionElemsFrom = sortData.map((sortData) => {
-    return <option key={sortData.from} value={sortData => <div>{sortData.from}</div>}></option>
+  const optionElemsFrom = uniqueNamesFrom.map((name) => {
+    return <option key={name} value={name}>{name}</option>
   })
+
+  console.log(optionElemsTo)
 
   return (
+    // <div>
+    //     <div className='row'>
+    //         <div className="input-group row align-items-center mb-3">
+    //             <label htmlFor='fromInput' className='col-lg-1 row'>From</label>
+    //             <div className="col-lg-11">
+    //                 <select type="search" id="inputLGEx" class="form-control" value={selectInputFrom} onChange={handleSelectFrom} required>
+    //                     <option value="">
+    //                         {/* <input/> */}
+    //                     </option>
+    //                     {optionElemsFrom}
+    //                 </select>
+    //             </div>
+    //         </div>
+    //         <div class="input-group row mb-3 col">
+    //             <label htmlFor="toInput" class="col-lg-1 row">To</label>
+    //             <div class="col-lg-11">
+    //                 <select type="search" id="inputLGEx" class="form-control" value={selectInputTo} onChange={handleSelectTo} required>
+    //                     <option value="">
+    //                         {/* <input/> */}
+    //                     </option>
+    //                     {optionElemsTo}
+    //                 </select>                
+    //             </div>
+    //         </div>
+    //     </div>
+    //     <div className="col-auto">
+    //         <button id="submitButton" type="submit" className="btn btn-warning" onClick={handleClick}>Search</button>
+    //     </div>
+    // </div>
+
     <div>
-        <div className='row'>
-            <div className="input-group row align-items-center mb-3">
-                <label htmlFor='fromInput' className='col-lg-1 row'>From</label>
-                <div className="col-lg-11">
-                    <select type="search" id="inputLGEx" class="form-control" value={selectInputTo} onChange={handleSelectTo} required>
-                        <option value="">
-                            {/* <input/> */}
-                        </option>
-                        {optionElemsTo}
-                    </select>
+      <div className='row'>
+        <div className='col-12'>
+          <div className='find'>
+            <div className='container card'>
+              <div id='signUpForm' className='form card-body'>
+                <div className='row'>
+                    <div className="input-group row  mb-3 col">
+                        <label htmlFor='fromInput' className='col-lg-1 row'>From</label>
+                        <div className="col-lg-11">
+                            <select type="search" id="inputLGEx" class="form-control" value={selectInputFrom} onChange={handleSelectFrom} required>
+                                <option value="">
+                                    {/* <input/> */}
+                                </option>
+                                {optionElemsFrom}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group row mb-3 col">
+                        <label htmlFor="toInput" class="col-lg-1 row">To</label>
+                        <div class="col-lg-11">
+                            <select type="search" id="inputLGEx" class="form-control" value={selectInputTo} onChange={handleSelectTo} required>
+                                <option value="">
+                                    {/* <input/> */}
+                                    {/* {optionElemsTo} */}
+                                </option>
+                                {optionElemsTo}
+                            </select>                
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="input-group row mb-3 col">
-                <label htmlFor="toInput" class="col-lg-1 row">To</label>
-                <div class="col-lg-11">
-                    <select type="search" id="inputLGEx" class="form-control" value={selectInputFrom} onChange={handleSelectFrom} required>
-                        <option value="">
-                            {/* <input/> */}
-                        </option>
-                        {optionElemsFrom}
-                    </select>                
+                <div className='row'>
                 </div>
+                <div className="d-grid gap-2 col-6 mx-auto">
+                  <button id="submitButton" type="submit" className="btn btn-warning" onClick={handleClick}>Search</button>
+
+                </div>
+              </div>
+              </div>
             </div>
-        </div>
-        <div className="col-auto">
-            <button id="submitButton" type="submit" className="btn btn-warning" onClick={handleClick}>Search</button>
+          </div>
         </div>
     </div>
 
-        // <div className="row align-items-center mb-3">
-    //   <div className="col-auto">
-    //     <select id="teamSelect" className="form-select" value={selectInputTo} onChange={handleSelectTo}>
-    //       <option value="">Show all teams</option>
-    //       {optionElemsTo}
-    //     </select>
-    //   </div>
-    //   <div className="col-auto">
-    //     <select id="teamSelect" className="form-select" value={selectInputFrom} onChange={handleSelectFrom}>
-    //       <option value="">Show all teams</option>
-    //       {optionElemsFrom}
-    //     </select>
-    //   </div>
-    //   <div className="col-auto">
-    //     <button id="submitButton" type="submit" className="btn btn-warning" onClick={handleClick}>Apply Filter</button>
-    //   </div>
-    // </div>
     
   );
 }
