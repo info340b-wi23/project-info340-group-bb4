@@ -21,8 +21,8 @@ function App(props) {
       </header>
 
       <main>
-        {/* <Homepage/> */}
-        {/* <SearchDataTable/> */}
+        {/* <Homepage/> */} 
+        {/* added in routing, does not work on view details portions of the results */}
         <Routes>
           <Route path="/" element={<Homepage/>}/>
           {/* please click the search button to navigate to the filter function in searchDataTale */}

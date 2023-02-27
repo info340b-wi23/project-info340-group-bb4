@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const EXAMPLE_TRAVEL = [
   { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'CloudFy', flightprice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalprice: '1904.21', class: 'First Class'},
@@ -70,7 +71,7 @@ function DestDataRow({ flight }) {
               <p class="card-text">Hotel Price: ${flight.hotelprice} </p>
               <h3 class="card-title">Flight: {flight.flight}</h3>
               <p class="card-text">Flight Price: ${flight.flightprice} (Class: {flight.class})</p>
-              <a class="btn btn-dark">View details</a>
+              <Link to="/details" type="button" className="btn btn-dark">View More Details</Link>
               <a class="btn btn-dark">Add to Favorites</a>
               <a class="btn btn-dark">Add to Comparison</a>
             </div>

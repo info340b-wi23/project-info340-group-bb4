@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export function DestCard(props) {
     const singleDest = props.single;
@@ -14,7 +15,7 @@ export function DestCard(props) {
                             <div className='col-sm'>
                                 <h2 className="card-title">{singleDest.name}</h2>
                                 <p className="card-text">{singleDest.description}</p>
-                                <a className="btn btn-dark" href="home-search-details.html">View details</a>
+                                <Link to="/details" type="button" className="btn btn-dark">View More Details</Link>
                             </div>
                         </div>
                     </div>
