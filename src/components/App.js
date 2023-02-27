@@ -24,8 +24,6 @@ function App(props) {
         {/* <Homepage/> */}
         <Routes>
           <Route path="/" element={<Homepage/>}/>
-          {/* <Route path="/" element={<HomeSearch/>}/> */}
-
           <Route path="search" element={<SearchDataTable/>}/>
 
           <Route path="comparisonPage" element={<ComparisonPage/>}/>
