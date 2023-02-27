@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TravelList from './TravelList.js';
 import { DestSelectForm } from './DestSelectForm';
-import  DestDataCard from './DestDataCard';
+// import  DestDataCard from './DestDataCard';
 
 // function SearchHelper(props){
 //   const [filterFrom, setFilterFrom] = useState('');
@@ -177,7 +177,8 @@ export function Homepage(props) {
 
         {/* section 1 */}
         <DestSelectForm destOptions={uniqueDest} applyFilterCallback={applyFilter}/>
-        <DestDataCard data={displayedData}/> 
+        {/* <DestDataCard data={displayedData}/>  */}
+        
         {/* <DestDataCard/> */}
 
         {/* section 2 */}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 export function DestSelectForm(props) {
@@ -16,6 +17,20 @@ export function DestSelectForm(props) {
 
   let travelData =EXAMPLE_TRAVEL;
 
+  const EXAMPLE_NUM_PPL = [
+    { id: 1, string: "1 Passinger" },
+    { id: 2, string: "2 Passinger" },
+    { id: 3, string: "3 Passinger" },
+    { id: 4, string: "5 Passinger" },
+    { id: 6, string: "6 Passinger" },
+    { id: 7, string: "7 Passinger" },
+    { id: 8, string: "8 Passinger" },
+    { id: 9, string: "9 Passinger" }
+  ]
+  
+  let numData =EXAMPLE_NUM_PPL;
+  
+
   // track From selected from the <select> input 
   const [selectFrom, setSelectFrom] = useState('');
 
@@ -25,12 +40,18 @@ export function DestSelectForm(props) {
   // track search option checkbox input -- hotel
   const [searchOption, setSearchOption] = useState(false);
 
+  const [selectNum, setSelectNum] = useState(false);
+
   const handleFromSelect = (event) => {
     setSelectFrom(event.target.value);
   }
 
   const handleToSelect = (event) => {
     setSelectTo(event.target.value);
+  }
+  
+  const handleNumSelect = (event) => {
+    setSelectNum(event.target.value);
   }
 
   const handleCheck = (event) => {
@@ -42,46 +63,91 @@ export function DestSelectForm(props) {
     props.applyFilterCallback(selectFrom, searchOption);
   }
 
-  const optionElems = travelData.map((travelData) => {
+  const optionElemsFrom = travelData.map((travelData) => {
     return <option key={travelData.from} value={travelData => <div>{travelData.from}</div>}></option>
+  })
+
+  const optionElemsTo = travelData.map((travelData) => {
+    return <option key={travelData.to} value={travelData => <div>{travelData.to}</div>}></option>
+  })
+
+  const optionElemsNum = numData.map((numData) => {
+    return <option key={numData.id} value={numData => <div>{numData.string}</div>}></option>
   })
 
   return(
     <div>
-        <div className='row'>
-            <div className="input-group row align-items-center mb-3">
-                <label htmlFor='fromInput' className='col-lg-1 row'>From</label>
-                <div className="col-lg-11">
-                    <select type="search" id="inputLGEx" class="form-control" value={selectFrom} onChange={handleFromSelect} required>
-                        <option value="">
-                            {/* <input/> */}
-                        </option>
-                        {optionElems}
-                    </select>
+      <div className='row'>
+        <div className='col-12'>
+          <div className='find'>
+            <div className='container card'>
+              <div id='signUpForm' className='form card-body'>
+                <div className='row'>
+                    <div className="input-group row  mb-3 col">
+                        <label htmlFor='fromInput' className='col-lg-1 row'>From</label>
+                        <div className="col-lg-11">
+                            <select type="search" id="inputLGEx" class="form-control" value={selectFrom} onChange={handleFromSelect} required>
+                                <option value="">
+                                    {/* <input/> */}
+                                </option>
+                                {optionElemsFrom}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group row mb-3 col">
+                        <label htmlFor="toInput" class="col-lg-1 row">To</label>
+                        <div class="col-lg-11">
+                            <select type="search" id="inputLGEx" class="form-control" value={selectTo} onChange={handleToSelect} required>
+                                <option value="">
+                                    {/* <input/> */}
+                                </option>
+                                {optionElemsTo}
+                            </select>                
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="input-group row mb-3 col">
-                <label htmlFor="toInput" class="col-lg-1 row">To</label>
-                <div class="col-lg-11">
-                    <select type="search" id="inputLGEx" class="form-control" value={selectTo} onChange={handleToSelect} required>
-                        <option value="">
-                            {/* <input/> */}
-                        </option>
-                        {optionElems}
-                    </select>                
+                <div className='row'>
+                  {/* depart */}
+                  <div className='input-group row mb-3 col'>
+                    <label htmlFor='departInput' className='col-lg-1 row'>Depart</label>
+                    <div className='col-lg-11'>
+                      <input type="date" id="start" className='form-control' required></input>
+                    </div>
+                  </div>
+                  {/* return */}
+                  <div className='input-group row mb-3 col'>
+                    <label htmlFor='returnInput' className='col-lg-1 row'>Return</label>
+                    <div className='col-lg-11'>
+                      <input type="date" id="end" className='form-control' required></input>
+                    </div>
+                  </div>
+                  {/* passigner num */}
+                  <div className='input-group row mb-3 col'>
+                    <label htmlFor='passingerInput' className='col-lg-1 row'>Passinger#</label>
+                    <div className='col-lg-11'>
+                      <select className="form-select" value={selectNum} onChange={handleNumSelect} required>
+                        <option value="">Please select...</option>
+                        {optionElemsNum}
+                      </select>  
+                    </div>
+                  </div>
+
                 </div>
-            </div>
-        </div>
-        <div className='row'>
-            <div className='col-auto'>
-                <div className='form-check'>
-                    <input id="flexCheckDefault" type="checkbox" className="form-check-input" checked={searchOption} onChange={handleCheck} />
-                    <label htmlFor="flexCheckDefault" className="form-check-label">With Hotel</label>
+                <div className='row'>
+                    <div className='col-auto'>
+                        <div className='form-check'>
+                            <input id="flexCheckDefault" type="checkbox" className="form-check-input" checked={searchOption} onChange={handleCheck} />
+                            <label htmlFor="flexCheckDefault" className="form-check-label">With Hotel</label>
+                        </div>
+                    </div>
                 </div>
+                <div className="col-auto">
+                  <button type="submit" className="btn btn-primary search-btn" onChange={handleCheck}><Link to="search"></Link>Search</button>
+                </div>
+              </div>
+              </div>
             </div>
-        </div>
-        <div className="col-auto">
-            <button id="submitButton" type="submit" className="btn btn-warning" onClick={handleClick}>Search</button>
+          </div>
         </div>
     </div>
   );
