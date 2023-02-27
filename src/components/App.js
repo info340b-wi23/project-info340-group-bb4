@@ -10,8 +10,6 @@ import FavoritesPage  from './FavoritesPage.js';
 import  Login  from './Login';
 import {SearchDataTable} from './SearchDataTable'
 
-import { Test } from './Test'
-
 function App(props) {
 
   return (
