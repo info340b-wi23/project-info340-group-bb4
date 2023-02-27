@@ -27,7 +27,7 @@ export function DestSelectForm(props) {
     { id: 8, string: "8 Passinger" },
     { id: 9, string: "9 Passinger" }
   ]
-  
+
   let numData =EXAMPLE_NUM_PPL;
   
 
@@ -141,7 +141,7 @@ export function DestSelectForm(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-auto">
+                <div className="d-grid gap-2 col-6 mx-auto">
                   <button type="submit" className="btn btn-primary search-btn" onChange={handleCheck}><Link to="search"></Link>Search</button>
                 </div>
               </div>
