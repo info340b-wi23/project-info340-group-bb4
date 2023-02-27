@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 
 import { NavBar } from './Navbar.js';
 import { Homepage } from './Homepage.js';
-import { HomeSearch } from './HomeSearch'
 import { ComparisonPage } from './ComparisonPage';
 import { ThreeComparisonPage } from './ThreeComparePage';
 import { DetailsPage } from './DetailsPage'
@@ -26,6 +25,7 @@ function App(props) {
         {/* <SearchDataTable/> */}
         <Routes>
           <Route path="/" element={<Homepage/>}/>
+          {/* please click the search button to navigate to the filter function in searchDataTale */}
           <Route path="search" element={<SearchDataTable/>}/>
 
           <Route path="comparisonPage" element={<ComparisonPage/>}/>

@@ -14,9 +14,9 @@ const EXAMPLE_TRAVEL = [
 
 export function SearchDataTable(props) {
   let rawDat = EXAMPLE_TRAVEL;
-  //Your work goes here
   let [displayedData, setDisplayedData] = useState(rawDat);
 
+  // set conditions for filtering 
   const applyFilter = (to, from) => {
     if(to === "" || from === "") {
       setDisplayedData(rawDat);
@@ -29,12 +29,11 @@ export function SearchDataTable(props) {
       setDisplayedData(filterData)
     }
   }
-  //console.log(displayedData)
+
   //convert data into rows
   const rows = displayedData.map((flight) => {
     return <DestDataRow key={flight.date} flight={flight} />
   });
-  //console.log(rows[0])
 
   return (
     <div>
@@ -58,14 +57,13 @@ export function SearchDataTable(props) {
 
 
 
-function DestDataRow({ flight }) { //game = props.game
-  //console.log(flight)
+function DestDataRow({ flight }) { 
+  //print each result in card
   return (
     <div class="col-12 d-flex">
-      <div class="card mb-4 w-100">
+      <div class="card mb-4 mt-4 w-100">
         <div class="card-body">
           <div class="row">
-            
             <div class="col">
               <h2 class="card-title">Total: ${flight.totalprice}</h2>
               <h3 class="card-title">Hotel: {flight.hotel}</h3>
@@ -83,10 +81,10 @@ function DestDataRow({ flight }) { //game = props.game
   );
 }
 
+// create and html the search navigation
 function FlightSelectForm(props) {
   let sortData = props.sortData;
 
-  //Your work goes here
   let [selectInputTo, setSelectInputTo] = useState("");
   let [selectInputFrom, setSelectInputFrom] = useState("");
 
@@ -108,23 +106,6 @@ function FlightSelectForm(props) {
     return all.concat([current.from]);
   }, []))].sort();
 
-  //get sorted list of unique teamNames. reduce array of objects into array of strings, 
-  //convert to Set to get uniques, spread back into array, and sort 
-  // let uniqueNamesTo = [];
-  // for(let i = 0; i < sortData.length; i++) {
-  //   if(!(uniqueNamesTo.includes(sortData[i].to))) {
-  //     uniqueNamesTo.push(sortData[i].to);
-  //   }
-  // }
-  
-
-  // let uniqueNamesFrom = [];
-  // for(let i = 0; i < sortData.length; i++) {
-  //   if(!(uniqueNamesFrom.includes(sortData[i].from))) {
-  //     uniqueNamesFrom.push(sortData[i].from);
-  //   }
-  // }
-
   console.log(uniqueNamesTo)
   const optionElemsTo = uniqueNamesTo.map((name) => {
     return <option key={name} value={name}>{name}</option>
@@ -137,36 +118,6 @@ function FlightSelectForm(props) {
   console.log(optionElemsTo)
 
   return (
-    // <div>
-    //     <div className='row'>
-    //         <div className="input-group row align-items-center mb-3">
-    //             <label htmlFor='fromInput' className='col-lg-1 row'>From</label>
-    //             <div className="col-lg-11">
-    //                 <select type="search" id="inputLGEx" class="form-control" value={selectInputFrom} onChange={handleSelectFrom} required>
-    //                     <option value="">
-    //                         {/* <input/> */}
-    //                     </option>
-    //                     {optionElemsFrom}
-    //                 </select>
-    //             </div>
-    //         </div>
-    //         <div class="input-group row mb-3 col">
-    //             <label htmlFor="toInput" class="col-lg-1 row">To</label>
-    //             <div class="col-lg-11">
-    //                 <select type="search" id="inputLGEx" class="form-control" value={selectInputTo} onChange={handleSelectTo} required>
-    //                     <option value="">
-    //                         {/* <input/> */}
-    //                     </option>
-    //                     {optionElemsTo}
-    //                 </select>                
-    //             </div>
-    //         </div>
-    //     </div>
-    //     <div className="col-auto">
-    //         <button id="submitButton" type="submit" className="btn btn-warning" onClick={handleClick}>Search</button>
-    //     </div>
-    // </div>
-
     <div>
       <div className='row'>
         <div className='col-12'>
@@ -174,24 +125,23 @@ function FlightSelectForm(props) {
             <div className='container card'>
               <div id='signUpForm' className='form card-body'>
                 <div className='row'>
+                  {/* from filter */}
                     <div className="input-group row  mb-3 col">
                         <label htmlFor='fromInput' className='col-lg-1 row'>From</label>
                         <div className="col-lg-11">
                             <select type="search" id="inputLGEx" class="form-control" value={selectInputFrom} onChange={handleSelectFrom} required>
                                 <option value="">
-                                    {/* <input/> */}
                                 </option>
                                 {optionElemsFrom}
                             </select>
                         </div>
                     </div>
+                    {/* from filter */}
                     <div class="input-group row mb-3 col">
                         <label htmlFor="toInput" class="col-lg-1 row">To</label>
                         <div class="col-lg-11">
                             <select type="search" id="inputLGEx" class="form-control" value={selectInputTo} onChange={handleSelectTo} required>
                                 <option value="">
-                                    {/* <input/> */}
-                                    {/* {optionElemsTo} */}
                                 </option>
                                 {optionElemsTo}
                             </select>                
@@ -200,6 +150,7 @@ function FlightSelectForm(props) {
                 </div>
                 <div className='row'>
                 </div>
+                {/* search filter */}
                 <div className="d-grid gap-2 col-6 mx-auto">
                   <button id="submitButton" type="submit" className="btn btn-warning" onClick={handleClick}>Search</button>
 
