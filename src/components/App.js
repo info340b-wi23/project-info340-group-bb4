@@ -23,7 +23,8 @@ function App(props) {
 
       <main>
         {/* <Homepage/> */}
-        <Routes>
+        <SearchDataTable/>
+        {/* <Routes>
           <Route path="/" element={<Homepage/>}/>
           <Route path="search" element={<SearchDataTable/>}/>
 
@@ -33,7 +34,7 @@ function App(props) {
           <Route path="favorites" element={<FavoritesPage/>}/>
           <Route path='details' element={<DetailsPage/>}/>
           <Route path='login' element={<Login/>}/>
-        </Routes>
+        </Routes> */}
       </main>
 
 

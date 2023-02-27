@@ -57,14 +57,14 @@ export function Homepage(props) {
       return travelData;
     } else {
       if(filterHotel === true) {
-        return ((obj.hotel === filterDest) && (obj.hotel === filterFrom));
+        return ((obj.to === filterDest) && (obj.from === filterFrom));
       } 
       else {
         return (obj.from === filterDest);
       }
     }
   })
-  console.log(displayedData)
+  //console.log(displayedData)
 
   function applyFilter(from, dest, hotel) {
     setFilterFrom(from);
