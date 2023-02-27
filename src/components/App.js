@@ -22,8 +22,9 @@ function App(props) {
       </header>
 
       <main>
+        {/* <Homepage/> */}
         <Routes>
-          <Route path="/" element={<HomeSearch/>}/>
+          <Route path="/" element={<Homepage/>}/>
           <Route path="search" element={<SearchDataTable/>}/>
 
           <Route path="comparisonPage" element={<ComparisonPage/>}/>
