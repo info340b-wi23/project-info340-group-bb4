@@ -11,6 +11,7 @@ import FavoritesPage  from './FavoritesPage.js';
 import  Login  from './Login';
 import {SearchDataTable} from './SearchDataTable'
 
+import { Test } from './Test'
 
 function App(props) {
 
@@ -25,8 +26,6 @@ function App(props) {
         <SearchDataTable/>
         {/* <Routes>
           <Route path="/" element={<Homepage/>}/>
-          {/* <Route path="/" element={<HomeSearch/>}/> */}
-
           <Route path="search" element={<SearchDataTable/>}/>
 
           <Route path="comparisonPage" element={<ComparisonPage/>}/>
