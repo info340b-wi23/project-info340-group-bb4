@@ -3,15 +3,12 @@ import { Route, Routes } from 'react-router-dom';
 
 import { NavBar } from './Navbar.js';
 import { Homepage } from './Homepage.js';
-import { HomeSearch } from './HomeSearch'
 import { ComparisonPage } from './ComparisonPage';
 import { ThreeComparisonPage } from './ThreeComparePage';
 import { DetailsPage } from './DetailsPage'
 import FavoritesPage  from './FavoritesPage.js';
 import  Login  from './Login';
 import {SearchDataTable} from './SearchDataTable'
-
-import { Test } from './Test'
 
 function App(props) {
 
@@ -22,8 +19,11 @@ function App(props) {
       </header>
 
       <main>
+        {/* <Homepage/> */} 
+        {/* added in routing, does not work on view details portions of the results */}
         <Routes>
-          <Route path="/" element={<HomeSearch/>}/>
+          <Route path="/" element={<Homepage/>}/>
+          {/* please click the search button to navigate to the filter function in searchDataTale */}
           <Route path="search" element={<SearchDataTable/>}/>
 
           <Route path="comparisonPage" element={<ComparisonPage/>}/>

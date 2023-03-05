@@ -1,4 +1,6 @@
 import React, { useState }  from 'react';
+// import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+
 
 export function validatePasswordMatch(){
     if(document.querySelector('#passwordInput').value != document.querySelector('#passwordConfirmInput').value){
@@ -10,28 +12,6 @@ export function validatePasswordMatch(){
     }
   
 }
-
-// let pw = document.querySelector('#passwordInput');
-// let pwConfirm = document.querySelector('#passwordConfirmInput');
-
-// pw.addEventListener('input', validatePasswordMatch);
-// pwConfirm.addEventListener('input', validatePasswordMatch);
-
-// let allInput = document.querySelectorAll('input');
-// allInput.forEach(function(item) {
-//   item.addEventListener('input', function() {
-//     if (document.querySelector('form').classList.contains('was-validated')) {
-//       document.querySelector('button').disabled = true;
-//     } else {
-//       document.querySelector('button').disabled = false;
-//     }
-// })});
-
-// if(typeof module !== 'undefined' && module.exports){
-//   /* eslint-disable */
-//   if(typeof validatePasswordMatch !== 'undefined') 
-//     module.exports.validatePasswordMatch = validatePasswordMatch;
-// }
 
 
 export default function Login(props) {
@@ -50,6 +30,7 @@ export default function Login(props) {
                                     <p className="lead fw-normal mb-0 me-3">Sign in with</p>
                                     <button type="button" className="btn btn-primary btn-floating mx-1">
                                         <i className="fab fa-google"></i>
+                                        {/* <FontAwesomeIcon icon="fa-brands fa-google" /> */}
                                     </button>
                                 </div>
                     
