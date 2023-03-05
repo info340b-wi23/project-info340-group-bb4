@@ -1,15 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import Heart from "react-heart"
 
 export function FavoritesCard(props){
    
     const favorite = props.location;
     //favorite.pinned = true
 
+    const [active, setActive] = useState(true)
+
     return(
         <div className='card mx-auto mb-4'>
             <div className="row">
-                <div className="col-sm favcard">
+                <div className="col-sm-4 favcard">
                     <img src={'img/'+favorite.img} className="card-img" />
                 </div>
                 <div className="col-sm-6">
@@ -17,12 +21,15 @@ export function FavoritesCard(props){
                     <p>Traveling From: {favorite.from}</p>
                     <h3>Total Cost for Travels: ${favorite.totalCost}</h3>
                     <p>Date Pinned: {favorite.pinDate}</p>
-                    <Link to="/details" type="button" className="btn btn-dark">View More Details</Link>
+                    <Link to="/details" type="button" className="btn btn-dark" aria-label="click to view more details">View More Details</Link>
                 </div>
-                <div className='col-sm-1'>
-                    <button className="btn like-button">
+                <div className='col-sm-1 mt-4'>
+                    {/* <button className="btn like-button">
                         <span className="material-icons" style={{ color: 'red' }}>♥</span>
-                    </button>
+                    </button> */}
+                    <div style={{ width: "2rem" }}>
+			            <Heart isActive={active} onClick={() => setActive(!active)} animationTrigger = "both" inactiveColor = "rgba(255,125,125,.75)" activeColor = "#e019ae" style = {{marginTop:'1rem'}} animationDuration = {0.1}/>
+		            </div>
                 </div>
             </div>
         </div>

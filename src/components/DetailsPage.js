@@ -21,14 +21,14 @@ export function DetailsPage(props) {
             <header>
                 <h1>Details: {currLoc.to}</h1>
             </header>
-            <main class="display">
-                <div class="container">
-                    <div class="row">
-                        <div class="card mb-4 col-12 col-sm-6">
-                        <div class="card-header">
+            <main className="display">
+                <div className="container">
+                    <div className="row">
+                        <div className="card mb-4 col-12 col-sm-6">
+                        <div className="card-header">
                             <h2>{currLoc.flight}</h2>
                         </div>
-                        <div class="card-body">
+                        <div className="card-body">
                             <p>Flight Price: ${currLoc.flightprice}</p>
                             <p>Flight Date: {currLoc.flight}</p>
                             <p>Class: {currLoc.flight}</p>
@@ -37,11 +37,11 @@ export function DetailsPage(props) {
                         </div>
                         </div>
 
-                        <div class="card mb-4 col-12 col-sm-6">
-                        <div class="card-header">
+                        <div className="card mb-4 col-12 col-sm-6">
+                        <div className="card-header">
                             <h2>{currLoc.hotel}</h2>
                         </div>
-                        <div class="card-body">
+                        <div className="card-body">
                             <p>Hotel Price: ${currLoc.hotelprice}</p>
                             <p>Check-in Date: {currLoc.date}</p>
                         </div>
@@ -49,7 +49,7 @@ export function DetailsPage(props) {
                     </div>
 
                     <section>
-                        <Link to="/favorites" class="btn btn-dark">Go Back</Link>
+                        <Link to="/favorites" className="btn btn-dark">Go Back</Link>
                     </section>
                 </div>
 

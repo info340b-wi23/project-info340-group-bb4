@@ -1,6 +1,5 @@
 import React from 'react';
 import FavoritesList from './FavoritesList.js';
-//import { NavBar } from './Navbar.js';
 import { ComposableMap, Geographies, Geography } from "react-simple-maps"
 
 
@@ -26,9 +25,10 @@ export default function FavoritesPage(props){
 
     return(
         <div>
-            <h2 className="favorites">Your Travel Bucket List</h2>
-            <MapChart />
-            <p className="favorites">Pin favorites on your search page and create the perfect travel bucket list for your future endeavors!</p>
+            <h2 className="favorites mb-6">Your Travel Bucket List</h2>
+            <p className="favorites">Pin favorites on your search page and create the perfect travel bucket list for your future endeavors! </p>
+            <p className="favorites">After you have traveled to one of your dream destinations, simply click the heart button to remove locations from your bucket list!</p>
+            {/* <MapChart /> */}
             <FavoritesList />
         </div>
     );
