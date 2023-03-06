@@ -24,7 +24,7 @@ function App(props) {
         <Routes>
           <Route path="/" element={<Homepage/>}/>
           {/* please click the search button to navigate to the filter function in searchDataTale */}
-          <Route path="search" element={<SearchDataTable/>}/>
+          <Route path="search/*" element={<SearchDataTable/>}/>
 
           <Route path="comparisonPage" element={<ComparisonPage/>}/>
           <Route path="3comparisonPage" element={<ThreeComparisonPage/>}/>

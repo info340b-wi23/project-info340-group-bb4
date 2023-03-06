@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Heart from "react-heart";
+import { DetailsPage } from './DetailsPage';
+import { Route, Routes } from 'react-router-dom';
 
 const EXAMPLE_TRAVEL = [
   { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'CloudFy', flightprice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalprice: '1904.21', class: 'First Class'},
@@ -13,7 +16,7 @@ const EXAMPLE_TRAVEL = [
 ];
 
 
-export function SearchDataTable(props) {
+export function SearchDataTable() {
   let rawDat = EXAMPLE_TRAVEL;
   let [displayedData, setDisplayedData] = useState(rawDat);
 
@@ -43,9 +46,11 @@ export function SearchDataTable(props) {
       </header>
       {/* section 1 */}
       <FlightSelectForm sortData={rawDat} applyFilterCallback={applyFilter}/>
-      <div class="col-12">
-        <div class="container">
-          <div class="row">
+      <div className="col-12">
+        <div className="container">
+          {/* need to figure out how to add search results thing to this - i can't access the to and from */}
+          <h2 className="text-center">Showing Results for Trips From {} to {}</h2>
+          <div className="row">
             {rows}
           </div>
         </div>
@@ -59,21 +64,31 @@ export function SearchDataTable(props) {
 
 
 function DestDataRow({ flight }) { 
+  //for the heart button
+  const [active, setActive] = useState(false);
+
   //print each result in card
   return (
-    <div class="col-12 d-flex">
-      <div class="card mb-4 mt-4 w-100">
-        <div class="card-body">
-          <div class="row">
-            <div class="col">
-              <h2 class="card-title">Total: ${flight.totalprice}</h2>
-              <h3 class="card-title">Hotel: {flight.hotel}</h3>
-              <p class="card-text">Hotel Price: ${flight.hotelprice} </p>
-              <h3 class="card-title">Flight: {flight.flight}</h3>
-              <p class="card-text">Flight Price: ${flight.flightprice} (Class: {flight.class})</p>
-              <Link to="/details" type="button" className="btn btn-dark">View More Details</Link>
-              <a class="btn btn-dark">Add to Favorites</a>
-              <a class="btn btn-dark">Add to Comparison</a>
+    <div className="col-12 d-flex">
+      <div className="card mb-4 mt-4 w-100">
+        <div className="card-body">
+          <div className="row">
+            <div className="col-sm-4">
+                <img src={'img/salvador.jpeg'} className="card-img" />
+            </div>
+            <div className="col">
+              <h2 className="card-title">{flight.to}</h2>
+              <p className="card-text">Traveling From: {flight.from}</p>
+              <h3 className="card-title">Total Cost for Travels: ${flight.totalprice}</h3>
+              <p className="card-text">Hotel: ${flight.hotelprice} ({flight.hotel})</p>
+              <p className="card-text">Flight: ${flight.flightprice} ({flight.flight})</p>
+              <Link to='/details' type="button" className="btn btn-dark">View More Details</Link>
+              <a className="btn btn-light">Add to Comparison</a>
+            </div>
+            <div className='col-sm-1 mt-4'>
+                <div style={{ width: "2rem" }}>
+			            <Heart isActive={active} onClick={() => setActive(!active)} animationTrigger = "both" inactiveColor = "rgba(255,125,125,.75)" activeColor = "red" style = {{marginTop:'1rem'}} animationDuration = {0.1}/>
+		            </div>
             </div>
           </div>
         </div>
@@ -107,7 +122,6 @@ function FlightSelectForm(props) {
     return all.concat([current.from]);
   }, []))].sort();
 
-  console.log(uniqueNamesTo)
   const optionElemsTo = uniqueNamesTo.map((name) => {
     return <option key={name} value={name}>{name}</option>
   })
@@ -116,7 +130,6 @@ function FlightSelectForm(props) {
     return <option key={name} value={name}>{name}</option>
   })
 
-  console.log(optionElemsTo)
 
   return (
     <div>
@@ -130,7 +143,7 @@ function FlightSelectForm(props) {
                     <div className="input-group row  mb-3 col">
                         <label htmlFor='fromInput' className='col-lg-1 row'>From</label>
                         <div className="col-lg-11">
-                            <select type="search" id="inputLGEx" class="form-control" value={selectInputFrom} onChange={handleSelectFrom} required>
+                            <select type="search" id="inputLGEx" className="form-control" value={selectInputFrom} onChange={handleSelectFrom} required>
                                 <option value="">
                                 </option>
                                 {optionElemsFrom}
@@ -138,10 +151,10 @@ function FlightSelectForm(props) {
                         </div>
                     </div>
                     {/* from filter */}
-                    <div class="input-group row mb-3 col">
-                        <label htmlFor="toInput" class="col-lg-1 row">To</label>
-                        <div class="col-lg-11">
-                            <select type="search" id="inputLGEx" class="form-control" value={selectInputTo} onChange={handleSelectTo} required>
+                    <div className="input-group row mb-3 col">
+                        <label htmlFor="toInput" className="col-lg-1 row">To</label>
+                        <div className="col-lg-11">
+                            <select type="search" id="inputLGEx" className="form-control" value={selectInputTo} onChange={handleSelectTo} required>
                                 <option value="">
                                 </option>
                                 {optionElemsTo}
