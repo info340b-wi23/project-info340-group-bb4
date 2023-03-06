@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 const EXAMPLE_TRAVEL = [
-    { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'CloudFy', flightprice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalprice: '1904.21', class: 'First Class'},
-    { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'FlyingDrops', flightprice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalprice: '1956.05', class: 'First Class' },
-    { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'Rainbow', flightprice: '1630.75', flightDur: '2.44', flightDist: '937.77', totalprice: '1894.16', class: 'First Class' },
-    { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'Rainbow', flightprice: '1367.88', flightDur: '2.44', flightDist: '937.77', totalprice: '1631.29', class: 'Premium' },
-    { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'CloudFy', flightprice: '1311.38', flightDur: '2.44', flightDist: '937.77', totalprice: '1574.79', class: 'Premium' }
+    { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalPrice: '1904.21', class: 'First Class'},
+    { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'FlyingDrops', flightPrice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalPrice: '1956.05', class: 'First Class' },
+    { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'Rainbow', flightPrice: '1630.75', flightDur: '2.44', flightDist: '937.77', totalPrice: '1894.16', class: 'First Class' },
+    { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'Rainbow', flightPrice: '1367.88', flightDur: '2.44', flightDist: '937.77', totalPrice: '1631.29', class: 'Premium' },
+    { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1311.38', flightDur: '2.44', flightDist: '937.77', totalPrice: '1574.79', class: 'Premium' }
 ];
 
 // button to make details go back to whichever page it was on, not just favorites/search page
@@ -38,7 +38,7 @@ export function DetailsPage(props) {
             <main className="display">
                 <div className="container">
                     <div className="row">
-                            <h2 className="text-center">Total Travel Price: ${currLoc.totalprice}</h2>
+                            <h2 className="text-center">Total Travel Price: ${currLoc.totalPrice}</h2>
                             <p className="text-center">date: {currLoc.date}</p>
                             <img src={'img/salvador.jpeg'} className="card-img mb-4" />
                     </div>
@@ -49,7 +49,7 @@ export function DetailsPage(props) {
                                 <h2>Flight: {currLoc.flight}</h2>
                             </div>
                             <div className="card-body">
-                                <p>Flight Price: ${currLoc.flightprice}</p>
+                                <p>Flight Price: ${currLoc.flightPrice}</p>
                                 <p>Flight Date: {currLoc.date}</p>
                                 <p>Class: {currLoc.class}</p>
                                 <p>Flight Duration: {currLoc.flightDur} hours</p>
@@ -61,7 +61,7 @@ export function DetailsPage(props) {
                                 <h2>Hotel: {currLoc.hotel}</h2>
                             </div>
                             <div className="card-body">
-                                <p>Hotel Price: ${currLoc.hotelprice}</p>
+                                <p>Hotel Price: ${currLoc.hotelPrice}</p>
                                 <p>Check-in Date: {currLoc.date}</p>
                             </div>
                         </div>

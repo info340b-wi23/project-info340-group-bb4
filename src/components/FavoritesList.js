@@ -44,9 +44,9 @@ export function FavoritesCard(props){
 export default function FavoritesList(props){
 
     const EXAMPLE_FAVORITES = [
-        {from: 'Florianopolis (SC)', to: 'Salvador (BH)', totalPrice: '1000', img:'salvador.jpeg', pinDate: '2-3-2020'},
-        {from: 'San Jose (US)', to: 'Beijing (CN)', totalPrice: '1200', img:'beijing.jpeg', pinDate: '2-3-2020'},
-        {from: 'Seattle (US)', to: 'Calgary (CA)', totalPrice: '1300', img:'calgary.jpeg', pinDate: '2-3-2020'},
+        {date:'5/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalPrice: '1904.21', class: 'First Class', img:'salvador.jpeg', pinDate: '2-3-2020'},
+        {date:'5/04/2023', from: 'San Jose (US)', to: 'Beijing (CN)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalPrice: '1904.21', class: 'First Class', img:'beijing.jpeg', pinDate: '2-3-2020'},
+        {date:'5/04/2023', from: 'Seattle (US)', to: 'Calgary (CA)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalPrice: '1904.21', class: 'First Class', img:'calgary.jpeg', pinDate: '2-3-2020'},
     ];
 
     //let favoriteList = props.favorites;
