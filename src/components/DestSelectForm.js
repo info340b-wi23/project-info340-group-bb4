@@ -18,14 +18,14 @@ export function DestSelectForm(props) {
   let travelData =EXAMPLE_TRAVEL;
 
   const EXAMPLE_NUM_PPL = [
-    { id: 1, string: "1 Passinger" },
-    { id: 2, string: "2 Passinger" },
-    { id: 3, string: "3 Passinger" },
-    { id: 4, string: "5 Passinger" },
-    { id: 6, string: "6 Passinger" },
-    { id: 7, string: "7 Passinger" },
-    { id: 8, string: "8 Passinger" },
-    { id: 9, string: "9 Passinger" }
+    { id: 1, string: "1 Passenger" },
+    { id: 2, string: "2 Passenger" },
+    { id: 3, string: "3 Passenger" },
+    { id: 4, string: "5 Passenger" },
+    { id: 6, string: "6 Passenger" },
+    { id: 7, string: "7 Passenger" },
+    { id: 8, string: "8 Passenger" },
+    { id: 9, string: "9 Passenger" }
   ]
 
   let numData =EXAMPLE_NUM_PPL;
