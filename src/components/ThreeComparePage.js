@@ -9,7 +9,7 @@ export function ThreeComparisonPage(props) {
         </header>
 
         <main>
-            <div className="box">Destinations chosen: Seattle, New York, <a href="3comparisonPage.html">Add a third destination</a>
+            <div className="box">Destinations chosen: Seattle, New York, <a href="2comparisonPage.html">Remove a destination</a>
             </div>
             {/* <!-- first section: destination --> */}
             <section>
