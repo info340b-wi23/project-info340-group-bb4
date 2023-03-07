@@ -7,7 +7,6 @@ import {HotelList} from './CompareHelper.js';
 import {FlightList} from './CompareHelper.js';
 import {TransportList} from './CompareHelper.js';
 
-
 export function ComparisonPage(props) {
     return (
        <div>
