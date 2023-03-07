@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import Heart from "react-heart";
 
 export function DestCard(props) {
+    //for the heart button
+    const [active, setActive] = useState(false);
     const singleDest = props.single;
     return(
         <div>
@@ -13,9 +16,15 @@ export function DestCard(props) {
                                 <img src={'img/'+singleDest.img} className='pb-3'/>
                             </div>
                             <div className='col-sm'>
-                                <h2 className="card-title">{singleDest.name}</h2>
-                                <p className="card-text">{singleDest.description}</p>
+                                <h2 className="card-title">{singleDest.to}</h2>
+                                <h3 className="card-title">Total Cost for Travels: ${singleDest.totalPrice}</h3>
+                                <p className="card-text">Traveling From: {singleDest.from}</p>
                                 <Link to="/details" type="button" className="btn btn-dark">View More Details</Link>
+                            </div>
+                            <div className='col-sm-1 mt-4'>
+                                <div style={{ width: "2rem" }}>
+			                        <Heart isActive={active} onClick={() => setActive(!active)} animationTrigger = "both" inactiveColor = "rgba(255,125,125,.75)" activeColor = "red" style = {{marginTop:'1rem'}} animationDuration = {0.1}/>
+		                        </div>
                             </div>
                         </div>
                     </div>
@@ -26,13 +35,18 @@ export function DestCard(props) {
 }
 
 export default function TravelList(props) {
-    const EXAMPLE_TRAVEL = [
-        { name: 'Barcelona', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, fuga?', img:'Barcelona.jpeg'},
-        { name: 'Hawaii', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, fuga?', img:'Hawaii.jpg'},
-        { name: 'Santorini, Greece', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, fuga?', img:'Architecture-of-Santorini.jpeg'},
-        { name: 'Rotterdam, Netherlands', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, fuga?', img:'Rotterdam-skyline-Erasmus-bridge.jpeg'}
-    ];
+    // const EXAMPLE_TRAVEL = [
+    //     { name: 'Barcelona', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, fuga?', img:'Barcelona.jpeg'},
+    //     { name: 'Hawaii', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, fuga?', img:'Hawaii.jpg'},
+    //     { name: 'Santorini, Greece', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, fuga?', img:'Architecture-of-Santorini.jpeg'},
+    //     { name: 'Rotterdam, Netherlands', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, fuga?', img:'Rotterdam-skyline-Erasmus-bridge.jpeg'}
+    // ];
 
+    const EXAMPLE_TRAVEL = [
+        { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Barcelona (BA)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalPrice: '1904.21', class: 'First Class', img:'Barcelona.jpeg'},
+        { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Hawaii (HI)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'FlyingDrops', flightPrice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalPrice: '1956.05', class: 'First Class',img:'Hawaii.jpg' },
+        { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Santorini (SA)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'Rainbow', flightPrice: '1630.75', flightDur: '2.44', flightDist: '937.77', totalPrice: '1894.16', class: 'First Class', img:'Architecture-of-Santorini.jpeg' },
+   ];
     let TravelList =EXAMPLE_TRAVEL;
     let destCard = TravelList.map((single) => {
         return <DestCard single={single} key={single.key}/>
