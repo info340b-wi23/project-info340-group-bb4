@@ -20,7 +20,7 @@ function App(props) {
 
       <main>
         {/* <Homepage/> */} 
-        {/* added in routing, does not work on view details portions of the results */}
+        {/* added in routing, does not work on add to favorites or compare in results of feature yet*/}
         <Routes>
           <Route path="/" element={<Homepage/>}/>
           {/* please click the search button to navigate to the filter function in searchDataTale */}
