@@ -165,8 +165,8 @@ margin-bottom: 30px;
 }
 
 .two img {
-height: 300px;
-width: 400px;
+height: 250px;
+width: 350px;
 }
 
 .three img {
@@ -243,12 +243,12 @@ margin-left: 1.2em;
 /* small screens */
 @media (min-width: 320px){
   .two img {
-    height: 100px;
-    width: 130px;
+    height: 60px;
+    width: 80px;
   }
   
   .three img {
-    height: 40px;
+    height: 50px;
     width: 70px;
   }
 
@@ -270,7 +270,7 @@ margin-left: 1.2em;
   /* destination chosen box */
   .box {
     font-family: 'Quicksand', sans-serif;
-    width:250px; 
+    width:25px; 
     height:30px; 
     border:1px solid #000; 
     margin: 0 auto; 
@@ -302,7 +302,7 @@ margin-left: 1.2em;
   }
 
   footer p{
-    font-size: 10px;
+    font-size: 5px;
   }
 }
 

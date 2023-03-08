@@ -16,7 +16,7 @@ export function ComparisonPage(props) {
         </header>
 
         <main>
-            <div className="box">Destinations chosen: Seattle, New York, <Link to="/3comparisonPage">Add a third destination</Link>
+            <div className="box">Destinations chosen: Seattle, New York, <Link to="/ThreeComparisonPage">Add a third destination</Link>
             </div>
             {/* <!-- first section: destination --> */}
             <section>
