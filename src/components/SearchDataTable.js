@@ -30,7 +30,7 @@ export function SearchDataTable() {
         if(flight.to === to && flight.from === from) {
           return true;
         } else {
-          
+          // change this 
         }
       });
       setDisplayedData(filterData)
