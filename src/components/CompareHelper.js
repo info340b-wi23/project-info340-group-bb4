@@ -105,27 +105,27 @@ export function FlightList(props) {
     )
 }
 
-// 5
-// Show the average flight cost for each destination
-function TransportCard(props) {
-    const destination = props.destination;
-    return(
-        <div className="cards small">
-            <img src='img/bus.jpeg' alt='transport icon' /> 
-            <p>{destination.transportPrice}</p>
-        </div>
-    )
-}
+// // 5
+// // Show the average transport cost for each destination
+// function TransportCard(props) {
+//     const destination = props.destination;
+//     return(
+//         <div className="cards small">
+//             <img src='img/bus.jpeg' alt='transport icon' /> 
+//             <p>{destination.transportPrice}</p>
+//         </div>
+//     )
+// }
 
-// Show the average flight cost for multiple destinations
-export function TransportList(props) {
-    const transportArray = compareData.map((destination) => (
-        <TransportCard key={destination.name} destination={destination} />
-    ))
-    return(
-        <div className="flex-container">
-            {transportArray} 
-        </div>
-    )
-}
+// // Show the average transport cost for multiple destinations
+// export function TransportList(props) {
+//     const transportArray = compareData.map((destination) => (
+//         <TransportCard key={destination.name} destination={destination} />
+//     ))
+//     return(
+//         <div className="flex-container">
+//             {transportArray} 
+//         </div>
+//     )
+// }
 

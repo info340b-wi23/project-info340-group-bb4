@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export function ThreeComparisonPage(props) {
     return (
@@ -9,8 +10,8 @@ export function ThreeComparisonPage(props) {
         </header>
 
         <main>
-            <div className="box">Destinations chosen: Seattle, New York, <a href="2comparisonPage.html">Remove a destination</a>
-            </div>
+            {/* <div className="box">Destinations chosen: Seattle, New York, <Link to="/comparisonPage">Remove a destination</Link>
+            </div> */}
             {/* <!-- first section: destination --> */}
             <section>
                 <DestinationList />
@@ -31,10 +32,10 @@ export function ThreeComparisonPage(props) {
                 <FlightList />
             </section>
             {/* <!-- fifth section: average hotel price --> */}
-         <section>
+         {/* <section>
                 <h3>Average Transportation Fee per Week</h3>
                 <TransportList />
-        </section>
+        </section> */}
     </main>
 </div>
     );
@@ -51,12 +52,29 @@ const EXAMPLE_COMPARE = [
 
   let compareData = EXAMPLE_COMPARE;
 
+// get the names of all of the destinations
+const names = [];
+for (let i = 0; i < compareData.length; i++) {
+    names.push(compareData[i].name);
+}
+
+
 // 1
 // Show each destination along with picture
 function DestinationCard(props) {
     const destination = props.destinationInfo;
     return(
     <div className="cards two">
+        <label for="menu">Choose a destination:</label>
+            <select>
+                {names.map((name) => (
+                    <option key={name} value={name}>{name}</option>
+                ))}
+            </select>
+         {/* <label for="menu">Choose a destination:</label>
+                     <select id="menu" name="menu">
+                        <option key="" value="destination">{names}</option>         
+                     </select> */}
         <h2>{destination.name}</h2>
         <img src={destination.placeImg} alt={destination.name} />         
     </div>
