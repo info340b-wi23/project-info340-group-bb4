@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Heart from "react-heart";
+<<<<<<< HEAD
 
 const EXAMPLE_TRAVEL = [
   { date: '05/04/2023', from: 'Aracaju (SE)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'CloudFy', flightprice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalprice: '1904.21', class: 'First Class'},
@@ -16,6 +17,29 @@ const EXAMPLE_TRAVEL = [
 
 export function SearchDataTable(props) {
   let rawDat = EXAMPLE_TRAVEL;
+=======
+// import { DetailsPage } from './DetailsPage';
+// import { Route, Routes } from 'react-router-dom';
+
+// const EXAMPLE_TRAVEL = [
+//   { date: '05/04/2023', from: 'Aracaju (SE)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'CloudFy', flightprice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalprice: '1904.21', class: 'First Class', days:'2'},
+//   { date: '05/30/2023', from: 'Brasilia (DF)', to: 'Recife (PE)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'FlyingDrops', flightprice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalprice: '1956.05', class: 'First Class', days:'1'},
+//   { date: '05/24/2023', from: 'Campo Grande (MS)', to: 'Sao Paulo (SP)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'Rainbow', flightprice: '1630.75', flightDur: '2.44', flightDist: '937.77', totalprice: '1894.16', class: 'First Class', days:'2' },
+//   { date: '05/26/2023', from: 'Florianopolis (SC)', to: 'Rio de Janeiro (RJ)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'Rainbow', flightprice: '1367.88', flightDur: '2.44', flightDist: '937.77', totalprice: '1631.29', class: 'Premium', days:'4'},
+//   { date: '05/12/2023', from: 'Natal (RN)', to: 'Campo Grande (MS)', hotel: 'Hotel J', hotelprice: '472.98', flight: 'BlueLine', flightprice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalprice: '1956.05', class: 'First Class', days:'3'},
+//   { date: '05/03/2023', from: 'Recife (PE)', to: 'Aracaju (SE)', hotel: 'Hotel J', hotelprice: '472.98', flight: 'BlueLine', flightprice: '1630.75', flightDur: '2.44', flightDist: '937.77', totalprice: '1894.16', class: 'First Class', days:'1'},
+//   { date: '05/28/2023', from: 'Rio de Janeiro (RJ)', to: 'Natal (RN)', hotel: 'Hotel J', hotelprice: '472.98', flight: 'BlueLine', flightprice: '1367.88', flightDur: '2.44', flightDist: '937.77', totalprice: '1631.29', class: 'Premium', days:'2'},
+//   { date: '05/28/2023', from: 'Salvador (BH)', to: 'Florianopolis (SC)', hotel: 'Hotel J', hotelprice: '472.98', flight: 'BlueLine', flightprice: '1367.88', flightDur: '2.44', flightDist: '937.77', totalprice: '1631.29', class: 'Premium', days:'3'},
+//   { date: '05/16/2023', from: 'Sao Paulo (SP)', to: 'Brasilia (DF)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'CloudFy', flightprice: '1311.38', flightDur: '2.44', flightDist: '937.77', totalprice: '1574.79', class: 'Premium', days:'4'}
+// ];
+
+import rawDat from '../data/hoteldata.json';
+//import rawDat from '../data/travel-sample.json';
+let fromDisp = "";
+let toDisp = "";
+
+export function SearchDataTable() {
+>>>>>>> 7c845438f5c7bc34b0d2b8f8d0a415848d9dc4c2
   let [displayedData, setDisplayedData] = useState(rawDat);
 
   //for favorites list
@@ -27,10 +51,15 @@ export function SearchDataTable(props) {
     } else {
       let filterData = rawDat.filter((flight) => {
         if(flight.to === to && flight.from === from) {
+          // console.log(flight.to);
+          // console.log(to);
+          // console.log(flight.from);
+          // console.log(from);
           return true;
-        } else {
-          // change this 
-        }
+        } 
+        // else {
+        //   return false;
+        // }
       });
       setDisplayedData(filterData)
     }
@@ -38,8 +67,33 @@ export function SearchDataTable(props) {
 
   //convert data into rows
   const rows = displayedData.map((flight) => {
+<<<<<<< HEAD
     return <DestDataRow key={flight.date+flight.to+flight.from} flight={flight} toggleFavorite={toggleFavorite}/>
+=======
+    console.log(flight);
+    return <DestDataRow key={flight.travelCode} flight={flight} />
+>>>>>>> 7c845438f5c7bc34b0d2b8f8d0a415848d9dc4c2
   });
+
+  if (rows.length == 0) {
+    return (
+      <div>
+      <header className="homepage">
+        <h1>Find Your Trip</h1>
+      </header>
+      {/* section 1 */}
+      <FlightSelectForm sortData={rawDat} applyFilterCallback={applyFilter}/>
+      <div className="col-12">
+        <div className="container">
+          <h2 className="text-center">Showing Results for Trips From {fromDisp} to {toDisp}:</h2>
+          <div className="row">
+            <h3 className="text-right">NO TRAVEL PLANS AVAILABLE: try a different combination of "From" and "To" locations</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    )
+  }
 
   return (
     <div>
@@ -50,8 +104,7 @@ export function SearchDataTable(props) {
       <FlightSelectForm sortData={rawDat} applyFilterCallback={applyFilter}/>
       <div className="col-12">
         <div className="container">
-          {/* need to figure out how to add search results thing to this - i can't access the to and from */}
-          <h2 className="text-center">Showing Results for Trips From {} to {}</h2>
+          <h2 className="text-center">Showing Results for Trips From {fromDisp} to {toDisp}:</h2>
           <div className="row">
             {rows}
           </div>
@@ -115,9 +168,11 @@ function FlightSelectForm(props) {
 
   const handleSelectTo = (event) => {
     setSelectInputTo(event.target.value);
+    toDisp = event.target.value;
   }
   const handleSelectFrom = (event) => {
     setSelectInputFrom(event.target.value)
+    fromDisp = event.target.value;
   }
   const handleClick = (event) => {
     props.applyFilterCallback(selectInputTo, selectInputFrom);
@@ -146,7 +201,7 @@ function FlightSelectForm(props) {
         <div className='col-12'>
           <div className='find'>
             <div className='container card'>
-              <div id='searchForm' className='form card-body'>
+              <div className='form card-body'>
                 <div className='row'>
                   {/* from filter */}
                     <div className="input-group row  mb-3 col">

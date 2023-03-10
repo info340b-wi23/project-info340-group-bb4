@@ -128,9 +128,18 @@ img{
 
 /* for footer */
 
-.footerp{
+/* .footerp{
   font-size: 1rem;
   margin-left: 2rem;
+} */
+
+footer p {
+  font-size: 20px;
+}
+
+/* for search page */
+h3.text-right {
+  color:red;
 }
 
 
@@ -170,8 +179,8 @@ width: 350px;
 }
 
 .three img {
-height: 300px;
-width: 350px;
+height: 550px;
+width: 500px;
 }
 
 .flex-container {
@@ -302,7 +311,7 @@ margin-left: 1.2em;
   }
 
   footer p{
-    font-size: 5px;
+    font-size: 7px;
   }
 }
 
@@ -362,6 +371,10 @@ margin-left: 1.2em;
   
   nav a {
       font-size: 1.5rem;
+  }
+
+  footer p {
+    font-size: 12px;
   }
 }
 

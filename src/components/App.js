@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 import { NavBar } from './Navbar.js';
 import { Homepage } from './Homepage.js';
@@ -57,6 +57,7 @@ function App(props) {
           <Route path="favorites" element={<FavoritesPage favoritesList={favoritesList} toggleFavorite={toggleFavorite}/>}/>
           <Route path='details' element={<DetailsPage/>}/>
           <Route path='login' element={<Login/>}/>
+          <Route path="*" element={<Navigate replace to="/"/>} />
         </Routes>
       </main>
 
