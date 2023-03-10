@@ -1,5 +1,8 @@
 import React from 'react';
+import { useState } from 'react'; 
+// import Select from 'react-select';
 import { Link } from 'react-router-dom';
+
 
 export function ThreeComparisonPage(props) {
     return (
@@ -13,6 +16,7 @@ export function ThreeComparisonPage(props) {
             {/* <div className="box">Destinations chosen: Seattle, New York, <Link to="/comparisonPage">Remove a destination</Link>
             </div> */}
             {/* <!-- first section: destination --> */}
+            {/* <MultiDropdown /> */}
             <section>
                 <DestinationList />
             </section>
@@ -45,39 +49,52 @@ export function ThreeComparisonPage(props) {
 
 // The Helper
 const EXAMPLE_COMPARE = [
-    { name: 'Seattle', placeImg: 'img/sea.jpeg', totalPrice: '$800', hotelPrice:'$80', flightPrice: '$200', transportPrice: '$80'},
-    { name: 'New York', placeImg: 'img/nyc.jpeg', totalPrice: '$1000', hotelPrice:'$100', flightPrice: '$350', transportPrice: '$100'},
-    { name: 'San Diego', placeImg: 'img/sd.jpeg', totalPrice: '$800', hotelPrice:'$80', flightPrice: '$200', transportPrice: '$80'}
+    { name: 'Seattle (WA)', placeImg: 'img/sea.jpeg', totalPrice: '$800', hotelPrice:'$80', flightPrice: '$200', transportPrice: '$80'},
+    { name: 'New York (NY)', placeImg: 'img/nyc.jpeg', totalPrice: '$1000', hotelPrice:'$100', flightPrice: '$350', transportPrice: '$100'},
+    { name: 'San Diego (CA)', placeImg: 'img/sd.jpeg', totalPrice: '$800', hotelPrice:'$80', flightPrice: '$200', transportPrice: '$80'}
   ];
 
   let compareData = EXAMPLE_COMPARE;
 
-// get the names of all of the destinations
-const names = [];
-for (let i = 0; i < compareData.length; i++) {
-    names.push(compareData[i].name);
-}
+  const names = EXAMPLE_COMPARE.map(item => item.name);
 
+
+// create the dropdown menu that allows users to select up to three destinations they want to compare
+// function dropDown() {
+//     return(
+//         <label for="menu">Choose a destination:</label>
+//             <select multiple>
+//                 {names.map((name) => (
+//                     <option key={name} value={name}>{name}</option>
+//                 ))}
+//             </select>
+//     )
+// }
+
+// create the muti-select dropdown 
+// function MultiDropdown() {
+//     const [, setSelectedOptions] = useState([]);
+  
+//     return (
+//       <Select
+//         options={options}
+//         value={selectedOptions}
+//         isMulti
+//         onChange={setSelectedOptions}
+//         classNamePrefix="react-select"
+//       />
+//     );
+//   }
 
 // 1
 // Show each destination along with picture
 function DestinationCard(props) {
     const destination = props.destinationInfo;
     return(
-    <div className="cards two">
-        <label for="menu">Choose a destination:</label>
-            <select>
-                {names.map((name) => (
-                    <option key={name} value={name}>{name}</option>
-                ))}
-            </select>
-         {/* <label for="menu">Choose a destination:</label>
-                     <select id="menu" name="menu">
-                        <option key="" value="destination">{names}</option>         
-                     </select> */}
-        <h2>{destination.name}</h2>
-        <img src={destination.placeImg} alt={destination.name} />         
-    </div>
+        <div className="cards three">
+            <h2>{destination.name}</h2>
+            <img src={destination.placeImg} alt={destination.name} />         
+        </div>
     )
 }
 
