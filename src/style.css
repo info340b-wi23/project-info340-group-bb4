@@ -137,6 +137,11 @@ footer p {
   font-size: 20px;
 }
 
+/* for search page */
+h3.text-right {
+  color:red;
+}
+
 
 /* for comparison page */
   
