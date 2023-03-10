@@ -1231,21 +1231,6 @@
   },
   {
     "travelCode": 46559,
-    "from": "Campo Grande (MS)",
-    "to": "Rio de Janeiro (RJ)",
-    "class": "firstClass",
-    "flightprice": 1754.17,
-    "flightDur": 2.09,
-    "flightDist": 806.48,
-    "flight": "Rainbow",
-    "date": "12/31/20",
-    "hotel": "Hotel CB",
-    "days": 2,
-    "hotelprice": 165.99,
-    "totalprice": 1920.16
-  },
-  {
-    "travelCode": 46559,
     "from": "Rio de Janeiro (RJ)",
     "to": "Campo Grande (MS)",
     "class": "firstClass",

@@ -31,6 +31,10 @@ export function SearchDataTable() {
     } else {
       let filterData = rawDat.filter((flight) => {
         if(flight.to === to && flight.from === from) {
+          // console.log(flight.to);
+          // console.log(to);
+          // console.log(flight.from);
+          // console.log(from);
           return true;
         } 
         // else {
@@ -43,6 +47,7 @@ export function SearchDataTable() {
 
   //convert data into rows
   const rows = displayedData.map((flight) => {
+    console.log(flight);
     return <DestDataRow key={flight.travelCode} flight={flight} />
   });
 
