@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Heart from "react-heart";
-import { DetailsPage } from './DetailsPage';
-import { Route, Routes } from 'react-router-dom';
 
 const EXAMPLE_TRAVEL = [
   { date: '05/04/2023', from: 'Aracaju (SE)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'CloudFy', flightprice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalprice: '1904.21', class: 'First Class'},
@@ -16,11 +14,12 @@ const EXAMPLE_TRAVEL = [
   { date: '05/16/2023', from: 'Sao Paulo (SP)', to: 'Brasilia (DF)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'CloudFy', flightprice: '1311.38', flightDur: '2.44', flightDist: '937.77', totalprice: '1574.79', class: 'Premium' }
 ];
 
-
-export function SearchDataTable() {
+export function SearchDataTable(props) {
   let rawDat = EXAMPLE_TRAVEL;
   let [displayedData, setDisplayedData] = useState(rawDat);
 
+  //for favorites list
+  let toggleFavorite = props.toggleFavorite;
   // set conditions for filtering 
   const applyFilter = (to, from) => {
     if(to === "" || from === "") {
@@ -39,7 +38,7 @@ export function SearchDataTable() {
 
   //convert data into rows
   const rows = displayedData.map((flight) => {
-    return <DestDataRow key={flight.date} flight={flight} />
+    return <DestDataRow key={flight.date+flight.to+flight.from} flight={flight} toggleFavorite={toggleFavorite}/>
   });
 
   return (
@@ -66,10 +65,17 @@ export function SearchDataTable() {
 
 
 
-function DestDataRow({ flight }) { 
+function DestDataRow(props) { 
   //for the heart button
+  let addFavorite = props.addFavorite;
+  let flight = props.flight;
   const [active, setActive] = useState(false);
 
+  const handleFavoriteClick = (event) => {
+    setActive(!active);
+    addFavorite(flight);
+    console.log('from destdatarow: should be adding card');
+};
   //print each result in card
   return (
     <div className="col-12 d-flex">
@@ -90,7 +96,7 @@ function DestDataRow({ flight }) {
             </div>
             <div className='col-sm-1 mt-4'>
                 <div style={{ width: "2rem" }}>
-			            <Heart isActive={active} onClick={() => setActive(!active)} animationTrigger = "both" inactiveColor = "rgba(255,125,125,.75)" activeColor = "red" style = {{marginTop:'1rem'}} animationDuration = {0.1}/>
+			            <Heart isActive={active} onClick={handleFavoriteClick} animationTrigger = "both" inactiveColor = "rgba(255,125,125,.75)" activeColor = "red" style = {{marginTop:'1rem'}} animationDuration = {0.1}/>
 		            </div>
             </div>
           </div>

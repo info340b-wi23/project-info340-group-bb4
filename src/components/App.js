@@ -8,9 +8,34 @@ import { ThreeComparisonPage } from './ThreeComparePage';
 import { DetailsPage } from './DetailsPage'
 import FavoritesPage  from './FavoritesPage.js';
 import  Login  from './Login';
-import {SearchDataTable} from './SearchDataTable'
+import {SearchDataTable} from './SearchDataTable';
+//import HOTEL_DATA from '../data/hoteldata.json';
 
 function App(props) {
+
+  const [favoritesList, setFavorites] = useState(['123']);
+
+  // const handleAddFavorite = (cardData) => {
+  //     console.log('carddata', cardData);
+  //     setFavorites([...favoritesList, cardData]);
+  //     console.log('added to favorites');
+  //     console.log(favoritesList);
+  // };
+
+  // const handleRemoveFavorite = (cardData) => {
+  //     console.log('before remove: ', favoritesList);
+  //     setFavorites(favoritesList.filter((favcard) => favcard !== cardData));
+  //     console.log('after remove: ', favoritesList);
+  // };
+    function toggleFavorite(card) {
+      if (favoritesList.includes(card)) {
+        setFavorites(favoritesList.filter(favorite => favorite !== card));
+        console.log('remove from favorites');
+      } else {
+        setFavorites([...favoritesList, card]);
+        console.log('add to favorites');
+      }
+    }
 
   return (
     <div>
@@ -24,12 +49,12 @@ function App(props) {
         <Routes>
           <Route path="/" element={<Homepage/>}/>
           {/* please click the search button to navigate to the filter function in searchDataTale */}
-          <Route path="search/*" element={<SearchDataTable/>}/>
+          <Route path="search/*" element={<SearchDataTable toggleFavorite={toggleFavorite}/>}/>
 
           <Route path="comparisonPage" element={<ComparisonPage/>}/>
           <Route path="3comparisonPage" element={<ThreeComparisonPage/>}/>
 
-          <Route path="favorites" element={<FavoritesPage/>}/>
+          <Route path="favorites" element={<FavoritesPage favoritesList={favoritesList} toggleFavorite={toggleFavorite}/>}/>
           <Route path='details' element={<DetailsPage/>}/>
           <Route path='login' element={<Login/>}/>
         </Routes>

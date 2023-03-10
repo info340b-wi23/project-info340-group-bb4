@@ -6,10 +6,16 @@ import Heart from "react-heart";
 export function FavoritesCard(props){
    
     const favorite = props.location;
-    //favorite.pinned = true
-
+    const toggleFavorite = props.toggleFavorite;
+    
     //for the heart button
     const [active, setActive] = useState(true);
+
+    //to remove favorite cards - IT WORKS!
+    const handleFavoriteClick = () => {
+        setActive(!active);
+        toggleFavorite(favorite);
+    };
 
     return(
         <div className="col-12 d-flex">
@@ -22,16 +28,13 @@ export function FavoritesCard(props){
                         <div className="col-sm-6">
                             <h2 className="card-title">{favorite.to}</h2>
                             <p>Traveling From: {favorite.from}</p>
-                            <h3>Total Cost for Travels: ${favorite.totalPrice}</h3>
-                            <p>Date Pinned: {favorite.pinDate}</p>
+                            <h3>Total Cost for Travels: ${favorite.totalprice}</h3>
+                            <p>Travel Date: {favorite.date}</p>
                             <Link to="/details" type="button" className="btn btn-dark" aria-label="click to view more details">View More Details</Link>
                         </div>
                         <div className='col-sm-1 mt-4'>
-                            {/* <button className="btn like-button">
-                                <span className="material-icons" style={{ color: 'red' }}>♥</span>
-                            </button> */}
                             <div style={{ width: "2rem" }}>
-                                <Heart isActive={active} onClick={() => setActive(!active)} animationTrigger = "both" inactiveColor = "rgba(255,125,125,.75)" activeColor = "red" style = {{marginTop:'1rem'}} animationDuration = {0.1}/>
+                                <Heart isActive={active} onClick={handleFavoriteClick} animationTrigger = "both" inactiveColor = "rgba(255,125,125,.75)" activeColor = "red" style = {{marginTop:'1rem'}} animationDuration = {0.1}/>
                             </div>
                         </div>
                     </div>
@@ -43,17 +46,22 @@ export function FavoritesCard(props){
 
 export default function FavoritesList(props){
 
-    const EXAMPLE_FAVORITES = [
-        {date:'5/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalPrice: '1904.21', class: 'First Class', img:'salvador.jpeg', pinDate: '2-3-2020'},
-        {date:'5/04/2023', from: 'San Jose (US)', to: 'Beijing (CN)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalPrice: '1904.21', class: 'First Class', img:'beijing.jpeg', pinDate: '2-3-2020'},
-        {date:'5/04/2023', from: 'Seattle (US)', to: 'Calgary (CA)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalPrice: '1904.21', class: 'First Class', img:'calgary.jpeg', pinDate: '2-3-2020'},
-    ];
+    // const EXAMPLE_FAVORITES = [
+    //     {date:'5/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalPrice: '1904.21', class: 'First Class', img:'salvador.jpeg', pinDate: '2-3-2020'},
+    //     {date: '05/30/2023', from: 'Brasilia (DF)', to: 'Recife (PE)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'FlyingDrops', flightprice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalPrice: '1956.05', class: 'First Class', img:'beijing.jpeg', pinDate: '2-3-2020'},
+    //     {date:'5/04/2023', from: 'Seattle (US)', to: 'Calgary (CA)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalPrice: '1904.21', class: 'First Class', img:'calgary.jpeg', pinDate: '2-3-2020'},
+    // ];
+    const removeFavorite = props.removeFavorite;
+    let fav = props.fav;
 
-    //let favoriteList = props.favorites;
-    let favoriteList = EXAMPLE_FAVORITES;
+    console.log('from favorites list:', fav);
+    // let favoriteList = EXAMPLE_FAVORITES;
 
-    let favoriteCards = favoriteList.map((location) => {
-        return <FavoritesCard key={location.key} location={location} />
+    let favoriteCards = fav.map((location) => {
+        return <FavoritesCard 
+            key={location.from+location.to+location.hotelprice+location.date} 
+            location={location} 
+            removeFavorite={removeFavorite} />
     });
 
     return(
