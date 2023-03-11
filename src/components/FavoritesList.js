@@ -15,6 +15,7 @@ export function FavoritesCard(props){
     const handleFavoriteClick = () => {
         setActive(!active);
         toggleFavorite(favorite);
+        console.log('handling favorite click');
     };
 
     return(
@@ -51,17 +52,25 @@ export default function FavoritesList(props){
     //     {date: '05/30/2023', from: 'Brasilia (DF)', to: 'Recife (PE)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'FlyingDrops', flightprice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalPrice: '1956.05', class: 'First Class', img:'beijing.jpeg', pinDate: '2-3-2020'},
     //     {date:'5/04/2023', from: 'Seattle (US)', to: 'Calgary (CA)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalPrice: '1904.21', class: 'First Class', img:'calgary.jpeg', pinDate: '2-3-2020'},
     // ];
-    const removeFavorite = props.removeFavorite;
-    let fav = props.fav;
+    const toggleFavorite = props.toggleFavorite;
+    let favList = props.fav;
+    console.log('from favoriteslist', favList);
+    
+    if(favList.length == 0){
+        return(
+            <div>
+                <h3 className='text-center'>No favorite locations added!</h3>
+                {/* add link to homesearch? */}
+            </div>
+        )
+    }
 
-    console.log('from favorites list:', fav);
-    // let favoriteList = EXAMPLE_FAVORITES;
 
-    let favoriteCards = fav.map((location) => {
+    let favoriteCards = favList.map((location) => {
         return <FavoritesCard 
             key={location.from+location.to+location.hotelprice+location.date} 
             location={location} 
-            removeFavorite={removeFavorite} />
+            toggleFavorite={toggleFavorite} />
     });
 
     return(

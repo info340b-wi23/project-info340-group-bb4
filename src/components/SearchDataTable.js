@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Heart from "react-heart";
-<<<<<<< HEAD
+import rawDat from '../data/hoteldata.json';
+
+let fromDisp = "";
+let toDisp = "";
 
 const EXAMPLE_TRAVEL = [
   { date: '05/04/2023', from: 'Aracaju (SE)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'CloudFy', flightprice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalprice: '1904.21', class: 'First Class'},
@@ -16,34 +19,12 @@ const EXAMPLE_TRAVEL = [
 ];
 
 export function SearchDataTable(props) {
-  let rawDat = EXAMPLE_TRAVEL;
-=======
-// import { DetailsPage } from './DetailsPage';
-// import { Route, Routes } from 'react-router-dom';
-
-// const EXAMPLE_TRAVEL = [
-//   { date: '05/04/2023', from: 'Aracaju (SE)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'CloudFy', flightprice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalprice: '1904.21', class: 'First Class', days:'2'},
-//   { date: '05/30/2023', from: 'Brasilia (DF)', to: 'Recife (PE)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'FlyingDrops', flightprice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalprice: '1956.05', class: 'First Class', days:'1'},
-//   { date: '05/24/2023', from: 'Campo Grande (MS)', to: 'Sao Paulo (SP)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'Rainbow', flightprice: '1630.75', flightDur: '2.44', flightDist: '937.77', totalprice: '1894.16', class: 'First Class', days:'2' },
-//   { date: '05/26/2023', from: 'Florianopolis (SC)', to: 'Rio de Janeiro (RJ)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'Rainbow', flightprice: '1367.88', flightDur: '2.44', flightDist: '937.77', totalprice: '1631.29', class: 'Premium', days:'4'},
-//   { date: '05/12/2023', from: 'Natal (RN)', to: 'Campo Grande (MS)', hotel: 'Hotel J', hotelprice: '472.98', flight: 'BlueLine', flightprice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalprice: '1956.05', class: 'First Class', days:'3'},
-//   { date: '05/03/2023', from: 'Recife (PE)', to: 'Aracaju (SE)', hotel: 'Hotel J', hotelprice: '472.98', flight: 'BlueLine', flightprice: '1630.75', flightDur: '2.44', flightDist: '937.77', totalprice: '1894.16', class: 'First Class', days:'1'},
-//   { date: '05/28/2023', from: 'Rio de Janeiro (RJ)', to: 'Natal (RN)', hotel: 'Hotel J', hotelprice: '472.98', flight: 'BlueLine', flightprice: '1367.88', flightDur: '2.44', flightDist: '937.77', totalprice: '1631.29', class: 'Premium', days:'2'},
-//   { date: '05/28/2023', from: 'Salvador (BH)', to: 'Florianopolis (SC)', hotel: 'Hotel J', hotelprice: '472.98', flight: 'BlueLine', flightprice: '1367.88', flightDur: '2.44', flightDist: '937.77', totalprice: '1631.29', class: 'Premium', days:'3'},
-//   { date: '05/16/2023', from: 'Sao Paulo (SP)', to: 'Brasilia (DF)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'CloudFy', flightprice: '1311.38', flightDur: '2.44', flightDist: '937.77', totalprice: '1574.79', class: 'Premium', days:'4'}
-// ];
-
-import rawDat from '../data/hoteldata.json';
-//import rawDat from '../data/travel-sample.json';
-let fromDisp = "";
-let toDisp = "";
-
-export function SearchDataTable() {
->>>>>>> 7c845438f5c7bc34b0d2b8f8d0a415848d9dc4c2
+  //let rawDat = EXAMPLE_TRAVEL;
   let [displayedData, setDisplayedData] = useState(rawDat);
 
   //for favorites list
   let toggleFavorite = props.toggleFavorite;
+
   // set conditions for filtering 
   const applyFilter = (to, from) => {
     if(to === "" || from === "") {
@@ -67,12 +48,7 @@ export function SearchDataTable() {
 
   //convert data into rows
   const rows = displayedData.map((flight) => {
-<<<<<<< HEAD
     return <DestDataRow key={flight.date+flight.to+flight.from} flight={flight} toggleFavorite={toggleFavorite}/>
-=======
-    console.log(flight);
-    return <DestDataRow key={flight.travelCode} flight={flight} />
->>>>>>> 7c845438f5c7bc34b0d2b8f8d0a415848d9dc4c2
   });
 
   if (rows.length == 0) {
@@ -120,13 +96,14 @@ export function SearchDataTable() {
 
 function DestDataRow(props) { 
   //for the heart button
-  let addFavorite = props.addFavorite;
+  let toggleFavorite = props.toggleFavorite;
   let flight = props.flight;
   const [active, setActive] = useState(false);
 
   const handleFavoriteClick = (event) => {
+    //event.preventDefault();
     setActive(!active);
-    addFavorite(flight);
+    toggleFavorite(flight);
     console.log('from destdatarow: should be adding card');
 };
   //print each result in card

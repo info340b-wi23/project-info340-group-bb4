@@ -1,41 +1,42 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 
 import { NavBar } from './Navbar.js';
 import { Homepage } from './Homepage.js';
 import { ComparisonPage } from './ComparisonPage';
 import { ThreeComparisonPage } from './ThreeComparePage';
-import { DetailsPage } from './DetailsPage'
+import { DetailsPage } from './DetailsPage';
 import FavoritesPage  from './FavoritesPage.js';
 import  Login  from './Login';
 import {SearchDataTable} from './SearchDataTable';
 //import HOTEL_DATA from '../data/hoteldata.json';
 
-function App(props) {
+function App() {
 
-  const [favoritesList, setFavorites] = useState(['123']);
+  const [favoritesList, setFavorites] = useState([]);
 
-  // const handleAddFavorite = (cardData) => {
-  //     console.log('carddata', cardData);
-  //     setFavorites([...favoritesList, cardData]);
-  //     console.log('added to favorites');
-  //     console.log(favoritesList);
-  // };
-
-  // const handleRemoveFavorite = (cardData) => {
-  //     console.log('before remove: ', favoritesList);
-  //     setFavorites(favoritesList.filter((favcard) => favcard !== cardData));
-  //     console.log('after remove: ', favoritesList);
-  // };
-    function toggleFavorite(card) {
-      if (favoritesList.includes(card)) {
-        setFavorites(favoritesList.filter(favorite => favorite !== card));
-        console.log('remove from favorites');
-      } else {
-        setFavorites([...favoritesList, card]);
-        console.log('add to favorites');
-      }
+  //useEffect
+  useEffect(() => {
+    const storedFavorites = localStorage.getItem('favoritesList');
+    if (storedFavorites) {
+      setFavorites(JSON.parse(storedFavorites));
     }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('favoritesList', JSON.stringify(favoritesList));
+  }, [favoritesList]);
+
+  function toggleFavorite(card) {
+    if (favoritesList.includes(card)) {
+      setFavorites(favoritesList.filter(favorite => favorite !== card));
+      console.log('remove from favorites');
+    } else {
+      setFavorites([...favoritesList, card]);
+      console.log('add to favorites');
+    }
+    console.log('from app: ', favoritesList);
+  }
 
   return (
     <div>
