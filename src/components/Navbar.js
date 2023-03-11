@@ -62,6 +62,11 @@ export function NavBar(props) {
                     </div>
                 </div>
             </Navbar>
+            {/* <div className="nav-item d-inline-block login">
+                <Link className="nav-link" to="/login">
+                    <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/>
+                </Link>
+            </div> */}
         </div>
 
     );

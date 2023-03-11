@@ -11,7 +11,7 @@ export function ComparisonPage(props) {
     return (
        <div>
         <header>   
-            <h1>Compare Destinations</h1>
+            <h1 className="compare">Compare Destinations</h1>
             <p>Choose two to three of your favorite destinations and let us help you decide!</p>
         </header>
 
