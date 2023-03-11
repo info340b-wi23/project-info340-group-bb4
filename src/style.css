@@ -100,10 +100,6 @@ nav {
   padding-bottom: 5rem;
 }
 
-#inputLGEx{
-  margin-left: 1rem;
-}
-
 .search-text{
   margin-top: 1rem;
 }
@@ -124,7 +120,7 @@ img{
   max-width: 100%;
 }
 
-/* index.html for above */
+/* end of index.html for above */
 
 /* for footer */
 
@@ -250,6 +246,20 @@ section h3 {
 } */
 
 
+/* login page */
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+.h-custom {
+  height: calc(100% - 73px);
+}
+
+
 @media(max-width: 767px){
   .login{
     display: none !important;
@@ -325,6 +335,7 @@ section h3 {
   }
 }
 
+
 /* large screens */
 @media (min-width: 992px) {
   .box {
@@ -389,19 +400,6 @@ section h3 {
   footer p {
     font-size: 12px;
   }
-}
-
-/* login page */
-.divider:after,
-.divider:before {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: #eee;
-}
-
-.h-custom {
-  height: calc(100% - 73px);
 }
 
 @media (max-width: 450px) {

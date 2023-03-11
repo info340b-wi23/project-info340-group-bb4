@@ -64,7 +64,6 @@ export function Homepage(props) {
       }
     }
   })
-  //console.log(displayedData)
 
   function applyFilter(from, dest, hotel) {
     setFilterFrom(from);

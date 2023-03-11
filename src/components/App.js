@@ -33,7 +33,6 @@ function App() {
     } else {
       setFavorites([...favoritesList, card]);
     }
-    console.log('from app: ', favoritesList);
   }
 
   return (
@@ -46,7 +45,9 @@ function App() {
         {/* <Homepage/> */} 
         {/* added in routing, does not work on add to favorites or compare in results of feature yet*/}
         <Routes>
-          <Route path="/" element={<Homepage/>}/>
+          <Route path="/" element={<Homepage/>}>
+            <Route path=":locTo" element={<DetailsPage/>}/>
+          </Route>
           {/* please click the search button to navigate to the filter function in searchDataTale */}
           <Route path="search/*" element={<SearchDataTable toggleFavorite={toggleFavorite}/>}/>
 
@@ -54,7 +55,7 @@ function App() {
           <Route path="3comparisonPage" element={<ThreeComparisonPage/>}/>
 
           <Route path="favorites" element={<FavoritesPage favoritesList={favoritesList} toggleFavorite={toggleFavorite}/>}/>
-          <Route path='details' element={<DetailsPage currTravel={'123'}/>}/>
+          {/* <Route path='details' element={<DetailsPage currTravel={'123'}/>}/> */}
           <Route path='login' element={<Login/>}/>
           <Route path="*" element={<Navigate replace to="/"/>} />
         </Routes>

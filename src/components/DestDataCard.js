@@ -37,10 +37,8 @@ export default function DestDataCard(props){
         if(clickedName !== sortByCriteria){
             setSortByCriteria(clickedName)
             setIsAscending(1);
-            console.log("ascending");
         } else{
             if (isAscending === 1){
-                console.log("descending");
                 setIsAscending(2);
             } else {
                 setIsAscending(null);

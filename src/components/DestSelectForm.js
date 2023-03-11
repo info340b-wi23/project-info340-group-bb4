@@ -102,7 +102,7 @@ export function DestSelectForm(props) {
                     <div className="input-group row  mb-3 col">
                         <label htmlFor='fromInput' className='col-lg-1 row'>From</label>
                         <div className="col-lg-11">
-                            <select type="search" id="inputLGEx" class="form-control" value={selectFrom} onChange={handleFromSelect} required>
+                            <select type="search" id="inputLGEx" className="form-control" value={selectFrom} onChange={handleFromSelect} required>
                                 <option value="">
                                     {/* <input/> */}
                                 </option>
@@ -110,10 +110,10 @@ export function DestSelectForm(props) {
                             </select>
                         </div>
                     </div>
-                    <div class="input-group row mb-3 col">
-                        <label htmlFor="toInput" class="col-lg-1 row">To</label>
-                        <div class="col-lg-11">
-                            <select type="search" id="inputLGEx" class="form-control" value={selectTo} onChange={handleToSelect} required>
+                    <div className="input-group row mb-3 col">
+                        <label htmlFor="toInput" className="col-lg-1 row">To</label>
+                        <div className="col-lg-11">
+                            <select type="search" id="inputLGEx" className="form-control" value={selectTo} onChange={handleToSelect} required>
                                 <option value="">
                                     {/* <input/> */}
                                     {/* {optionElemsTo} */}
@@ -150,7 +150,7 @@ export function DestSelectForm(props) {
                   </div> */}
                 </div>
                 <div className='row'>
-                  <p class="search-text">SEARCH OPTIONS</p>
+                  <p className="search-text">SEARCH OPTIONS</p>
                     <div className='col-auto'>
                         <div className='form-check checkbox'>
                           <input id="flexCheckDefault" type="checkbox" className="form-check-input" checked={searchOption} onChange={handleCheck} />
