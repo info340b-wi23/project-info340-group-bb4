@@ -100,6 +100,9 @@ function DestDataRow(props) {
   let flight = props.flight;
   const [active, setActive] = useState(false);
 
+  let img = flight.to;
+  img = img.substring(0, img.length-5);
+
   const handleFavoriteClick = (event) => {
     //event.preventDefault();
     setActive(!active);
@@ -113,7 +116,7 @@ function DestDataRow(props) {
         <div className="card-body">
           <div className="row">
             <div className="col-sm-4">
-                <img src={'img/salvador.jpeg'} className="card-img" />
+                <img src={'img/'+img+'.jpeg'} className="card-img" />
             </div>
             <div className="col">
               <h2 className="card-title">{flight.to}</h2>
