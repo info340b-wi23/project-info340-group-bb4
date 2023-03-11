@@ -15,7 +15,7 @@ function App() {
 
   const [favoritesList, setFavorites] = useState([]);
 
-  //useEffect
+  //useEffect for maintaining favorites list
   useEffect(() => {
     const storedFavorites = localStorage.getItem('favoritesList');
     if (storedFavorites) {
@@ -30,10 +30,8 @@ function App() {
   function toggleFavorite(card) {
     if (favoritesList.includes(card)) {
       setFavorites(favoritesList.filter(favorite => favorite !== card));
-      console.log('remove from favorites');
     } else {
       setFavorites([...favoritesList, card]);
-      console.log('add to favorites');
     }
     console.log('from app: ', favoritesList);
   }
@@ -56,7 +54,7 @@ function App() {
           <Route path="3comparisonPage" element={<ThreeComparisonPage/>}/>
 
           <Route path="favorites" element={<FavoritesPage favoritesList={favoritesList} toggleFavorite={toggleFavorite}/>}/>
-          <Route path='details' element={<DetailsPage/>}/>
+          <Route path='details' element={<DetailsPage currTravel={'123'}/>}/>
           <Route path='login' element={<Login/>}/>
           <Route path="*" element={<Navigate replace to="/"/>} />
         </Routes>

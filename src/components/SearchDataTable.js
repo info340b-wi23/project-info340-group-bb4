@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Heart from "react-heart";
 import rawDat from '../data/hoteldata.json';
+import { DetailsPage } from './DetailsPage';
 
 let fromDisp = "";
 let toDisp = "";
@@ -98,13 +99,13 @@ function DestDataRow(props) {
   //for the heart button
   let toggleFavorite = props.toggleFavorite;
   let flight = props.flight;
+
   const [active, setActive] = useState(false);
 
   let img = flight.to;
   img = img.substring(0, img.length-5);
 
-  const handleFavoriteClick = (event) => {
-    //event.preventDefault();
+  const handleFavoriteClick = () => {
     setActive(!active);
     toggleFavorite(flight);
     console.log('from destdatarow: should be adding card');
@@ -124,6 +125,7 @@ function DestDataRow(props) {
               <h3 className="card-title">Total Cost for Travels: ${flight.totalprice}</h3>
               <p className="card-text">Hotel: ${flight.hotelprice} ({flight.hotel})</p>
               <p className="card-text">Flight: ${flight.flightprice} ({flight.flight})</p>
+              {/* <DetailsPage currentpage={flight}/> */}
               <Link to='/details' type="button" className="btn btn-dark">View More Details</Link>
               <a className="btn btn-light">Add to Comparison</a>
             </div>

@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-
 const EXAMPLE_TRAVEL = [
     { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalPrice: '1904.21', class: 'First Class'},
     { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'FlyingDrops', flightPrice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalPrice: '1956.05', class: 'First Class' },
@@ -24,10 +22,10 @@ function BackButton() {
 
 export function DetailsPage(props) {
     {/*variable below is not used for now, but setting up for later when implement the details page with the dataset*/}
-    const currentpage = props.currentpage
+    const currLoc = props.currTravel;
 
     {/* for now, set it to the first in the results page for filtering, set up feature later */}
-    let currLoc = EXAMPLE_TRAVEL[0];
+    //let currLoc = EXAMPLE_TRAVEL[0];
 
     return (
         <div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TravelList from './TravelList.js';
 import { DestSelectForm } from './DestSelectForm';
-// import  DestDataCard from './DestDataCard';
+import rawDat from '../data/hoteldata.json';
 
 // function SearchHelper(props){
 //   const [filterFrom, setFilterFrom] = useState('');
@@ -183,7 +183,7 @@ export function Homepage(props) {
 
         {/* section 2 */}
         <h2 className="examplePlace">Place You May Like</h2>
-        <TravelList/>
+        <TravelList travelRec={rawDat}/>
 
       </main>
     </div>
