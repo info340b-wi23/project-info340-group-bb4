@@ -4,7 +4,7 @@ const EXAMPLE_COMPARE = [
     // { name: 'San Diego', placeImg: 'img/sd.jpeg', totalPrice: '$800', hotelPrice:'$80', flightPrice: '$200', transportPrice: '$80'}
   ];
 
-  let compareData = EXAMPLE_COMPARE;
+let compareData = EXAMPLE_COMPARE;
 
 // 1
 // Show each destination along with picture

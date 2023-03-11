@@ -1,17 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import {DestinationList} from './CompareHelper.js';
-import {CostList} from './CompareHelper.js';
-import {HotelList} from './CompareHelper.js';
-import {FlightList} from './CompareHelper.js';
+import {DestinationList, CostList, HotelList, FlightList} from './CompareHelper.js';
 import {TransportList} from './CompareHelper.js';
 
 export function ComparisonPage(props) {
     return (
        <div>
         <header>   
-            <h1>Compare Destinations</h1>
+            <h1 className="compare">Compare Destinations</h1>
             <p>Choose two to three of your favorite destinations and let us help you decide!</p>
         </header>
 

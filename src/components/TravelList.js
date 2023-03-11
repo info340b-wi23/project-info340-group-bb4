@@ -8,7 +8,6 @@ export function DestCard(props) {
     const singleDest = props.single;
 
     let img = singleDest.to;
-    img = img.substring(0, img.length-5);
 
     return(
         <div>
@@ -17,7 +16,7 @@ export function DestCard(props) {
                     <div className='card-body'>
                         <div className='row'>
                             <div className='col-3'>
-                                <img src={'img/'+img+'.jpeg'} className='pb-3'/>
+                                <img src={'img/'+img+'.jpeg'} className='pb-3' alt= {img}/>
                             </div>
                             <div className='col-sm'>
                                 <h2 className="card-title">{singleDest.to}</h2>

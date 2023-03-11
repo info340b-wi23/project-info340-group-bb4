@@ -1,9 +1,9 @@
-import React, { useState }  from 'react';
+import React  from 'react';
 // import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 
 export function validatePasswordMatch(){
-    if(document.querySelector('#passwordInput').value != document.querySelector('#passwordConfirmInput').value){
+    if(document.querySelector('#passwordInput').value !== document.querySelector('#passwordConfirmInput').value){
       document.querySelector('#passwordConfirmInput').setCustomValidity("Passwords do not match");
       document.querySelector("#passwordConfirmFeedback").textContent = "Passwords do not match";
     } else{
@@ -26,17 +26,17 @@ export default function Login(props) {
                         </div>
                         <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                             <form id="signUpForm" className="form" noValidate>
-                                <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                                {/* <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                                     <p className="lead fw-normal mb-0 me-3">Sign in with</p>
                                     <button type="button" className="btn btn-primary btn-floating mx-1">
                                         <i className="fab fa-google"></i>
-                                        {/* <FontAwesomeIcon icon="fa-brands fa-google" /> */}
+                                        {/* <FontAwesomeIcon icon="fa-brands fa-google" /> 
                                     </button>
-                                </div>
+                                </div> 
                     
                                 <div className="divider d-flex align-items-center my-4">
                                     <p className="text-center fw-bold mx-3 mb-0">Or</p>
-                                </div>
+                                </div> */}
                     
                                 {/* <!-- email --> */}
                                 <div className="input-group row mb-3">

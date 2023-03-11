@@ -33,10 +33,6 @@ export function SearchDataTable(props) {
     } else {
       let filterData = rawDat.filter((flight) => {
         if(flight.to === to && flight.from === from) {
-          // console.log(flight.to);
-          // console.log(to);
-          // console.log(flight.from);
-          // console.log(from);
           return true;
         } 
         // else {
@@ -52,7 +48,7 @@ export function SearchDataTable(props) {
     return <DestDataRow key={flight.date+flight.to+flight.from} flight={flight} toggleFavorite={toggleFavorite}/>
   });
 
-  if (rows.length == 0) {
+  if (rows.length === 0) {
     return (
       <div>
       <header className="homepage">
@@ -103,12 +99,10 @@ function DestDataRow(props) {
   const [active, setActive] = useState(false);
 
   let img = flight.to;
-  img = img.substring(0, img.length-5);
 
   const handleFavoriteClick = () => {
     setActive(!active);
     toggleFavorite(flight);
-    console.log('from destdatarow: should be adding card');
 };
   //print each result in card
   return (
@@ -117,7 +111,7 @@ function DestDataRow(props) {
         <div className="card-body">
           <div className="row">
             <div className="col-sm-4">
-                <img src={'img/'+img+'.jpeg'} className="card-img" />
+                <img src={'img/'+img+'.jpeg'} className="card-img" alt = {img}/>
             </div>
             <div className="col">
               <h2 className="card-title">{flight.to}</h2>

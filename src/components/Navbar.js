@@ -15,7 +15,6 @@ export function NavBar(props) {
 
     const handleClick = (event) => {
         event.preventDefault();
-        console.log(event.target);
         const chosenpage = event.target.name;
         changePage(chosenpage);
     }
@@ -24,11 +23,6 @@ export function NavBar(props) {
         const liElem = (
           <li className="nav-item" key={navNameString}>
             <Nav.Link className="nav-link" href={navNameString.url}>{navNameString.name}</Nav.Link>
-            {/* <a 
-              name={navNameString}
-              onClick={handleClick}
-              href={"/"+navNameString}>{navNameString}
-            </a> */}
           </li>
         )
         return liElem; //put it in the new array
@@ -39,7 +33,7 @@ export function NavBar(props) {
             <Navbar expand="md" className="navbar">
                 <div className="container-fluid">
                     <Navbar.Brand href="/">
-                        <img src="img/noun-world-travel-5074160.svg" alt="Logo" width="60" height="60" className="d-inline-block" />
+                        <img src="img/noun-world-travel-5074160.svg" alt="Logo" width="60" height="60" className="d-inline-block"/>
                         Faran
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarNav" />
@@ -62,6 +56,11 @@ export function NavBar(props) {
                     </div>
                 </div>
             </Navbar>
+            {/* <div className="nav-item d-inline-block login">
+                <Link className="nav-link" to="/login">
+                    <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/>
+                </Link>
+            </div> */}
         </div>
 
     );
