@@ -51,8 +51,8 @@ function App() {
           {/* please click the search button to navigate to the filter function in searchDataTale */}
           <Route path="search/*" element={<SearchDataTable toggleFavorite={toggleFavorite}/>}/>
 
-          <Route path="comparisonPage" element={<ComparisonPage/>}/>
-          <Route path="3comparisonPage" element={<ThreeComparisonPage/>}/>
+          {/* <Route path="comparisonPage" element={<ComparisonPage/>}/> */}
+          <Route path="comparisonPage" element={<ThreeComparisonPage/>}/>
 
           <Route path="favorites" element={<FavoritesPage favoritesList={favoritesList} toggleFavorite={toggleFavorite}/>}/>
           {/* <Route path='details' element={<DetailsPage currTravel={'123'}/>}/> */}
