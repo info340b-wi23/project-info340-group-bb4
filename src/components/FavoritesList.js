@@ -7,8 +7,6 @@ export function FavoritesCard(props){
    
     const favorite = props.location;
     const toggleFavorite = props.toggleFavorite;
-    let img = favorite.to;
-    img = img.substring(0, img.length-5);
 
     //for the heart button
     const [active, setActive] = useState(true);
@@ -25,7 +23,7 @@ export function FavoritesCard(props){
                 <div className="card-body">
                     <div className="row">
                         <div className="col-sm-4 favcard">
-                            <img src={'img/'+img+'.jpeg'} className="card-img" />
+                            <img src={'img/'+favorite.to+'.jpeg'} className="card-img" />
                         </div>
                         <div className="col-sm-6">
                             <h2 className="card-title">{favorite.to}</h2>
