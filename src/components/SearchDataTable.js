@@ -1,48 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Heart from "react-heart";
-import rawDat from '../data/hoteldata.json';
-import { DetailsPage } from './DetailsPage';
+import { Alert } from 'react-bootstrap';
 
 let fromDisp = "";
 let toDisp = "";
 
-const EXAMPLE_TRAVEL = [
-  { date: '05/04/2023', from: 'Aracaju (SE)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'CloudFy', flightprice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalprice: '1904.21', class: 'First Class'},
-  { date: '05/30/2023', from: 'Brasilia (DF)', to: 'Recife (PE)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'FlyingDrops', flightprice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalprice: '1956.05', class: 'First Class' },
-  { date: '05/24/2023', from: 'Campo Grande (MS)', to: 'Sao Paulo (SP)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'Rainbow', flightprice: '1630.75', flightDur: '2.44', flightDist: '937.77', totalprice: '1894.16', class: 'First Class' },
-  { date: '05/26/2023', from: 'Florianopolis (SC)', to: 'Rio de Janeiro (RJ)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'Rainbow', flightprice: '1367.88', flightDur: '2.44', flightDist: '937.77', totalprice: '1631.29', class: 'Premium' },
-  { date: '05/12/2023', from: 'Natal (RN)', to: 'Campo Grande (MS)', hotel: 'Hotel J', hotelprice: '472.98', flight: 'BlueLine', flightprice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalprice: '1956.05', class: 'First Class' },
-  { date: '05/03/2023', from: 'Recife (PE)', to: 'Aracaju (SE)', hotel: 'Hotel J', hotelprice: '472.98', flight: 'BlueLine', flightprice: '1630.75', flightDur: '2.44', flightDist: '937.77', totalprice: '1894.16', class: 'First Class' },
-  { date: '05/28/2023', from: 'Rio de Janeiro (RJ)', to: 'Natal (RN)', hotel: 'Hotel J', hotelprice: '472.98', flight: 'BlueLine', flightprice: '1367.88', flightDur: '2.44', flightDist: '937.77', totalprice: '1631.29', class: 'Premium' },
-  { date: '05/28/2023', from: 'Salvador (BH)', to: 'Florianopolis (SC)', hotel: 'Hotel J', hotelprice: '472.98', flight: 'BlueLine', flightprice: '1367.88', flightDur: '2.44', flightDist: '937.77', totalprice: '1631.29', class: 'Premium' },
-  { date: '05/16/2023', from: 'Sao Paulo (SP)', to: 'Brasilia (DF)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'CloudFy', flightprice: '1311.38', flightDur: '2.44', flightDist: '937.77', totalprice: '1574.79', class: 'Premium' }
-];
-
 export function SearchDataTable(props) {
-  //let rawDat = EXAMPLE_TRAVEL;
+  let rawDat = props.hotelData;
   let [displayedData, setDisplayedData] = useState(rawDat);
+  let [alertMessage, setAlertMessage] = useState(props.alertMessage);
 
   //for favorites list
   let toggleFavorite = props.toggleFavorite;
+  // useEffect(()=>{
+  //   fetch(fetchingUrl, 
+  //     {
+  //       headers : { 
+  //         'Content-Type': 'application/json',
+  //         'Accept': 'application/json'
+  //        }
+  //     }
+  //   )
+  //   .then((response) => {
+  //     return response.json();
+  //   })
+  //   .then((data) => {
+  //     if(data.resultCount === 0){
+  //       setAlertMessage("No results found.");
+  //     }
+  //     setDisplayedData(data.results);
+  //     console.log(data.results);
+  //   })
+  //   .catch((error) => {
+  //     setAlertMessage(error.message);
+  //   })
+  // },[setAlertMessage])
 
   // set conditions for filtering 
   const applyFilter = (to, from) => {
-    if(to === "" || from === "") {
+    if(to === "" && from === "") {
       setDisplayedData(rawDat);
     } else {
       let filterData = rawDat.filter((flight) => {
         if(flight.to === to && flight.from === from) {
           return true;
         } 
-        // else {
-        //   return false;
-        // }
       });
       setDisplayedData(filterData)
+      if (filterData.length == 0) {
+        setAlertMessage("NO TRAVEL PLANS AVAILABLE: try a different combination of 'From' and 'To' locations");
+      } else {
+        setAlertMessage(props.alertMessage);
+      }
     }
   }
-
   //convert data into rows
   const rows = displayedData.map((flight) => {
     return <DestDataRow key={flight.date+flight.to+flight.from} flight={flight} toggleFavorite={toggleFavorite}/>
@@ -60,7 +72,11 @@ export function SearchDataTable(props) {
         <div className="container">
           <h2 className="text-center">Showing Results for Trips From {fromDisp} to {toDisp}:</h2>
           <div className="row">
-            <h3 className="text-right">NO TRAVEL PLANS AVAILABLE: try a different combination of "From" and "To" locations</h3>
+            {/* display any error messages as dismissible alerts */}
+            {alertMessage &&
+              <Alert variant="danger" dismissible onClose={() => setAlertMessage(null)}>{alertMessage}</Alert>
+            }
+            {/* <h3 className="text-right">NO TRAVEL PLANS AVAILABLE: try a different combination of "From" and "To" locations</h3> */}
           </div>
         </div>
       </div>
@@ -77,6 +93,10 @@ export function SearchDataTable(props) {
       <FlightSelectForm sortData={rawDat} applyFilterCallback={applyFilter}/>
       <div className="col-12">
         <div className="container">
+          {/* display any error messages as dismissible alerts */}
+          {alertMessage &&
+            <Alert variant="danger" dismissible onClose={() => setAlertMessage(null)}>{alertMessage}</Alert>
+          }
           <h2 className="text-center">Showing Results for Trips From {fromDisp} to {toDisp}:</h2>
           <div className="row">
             {rows}
