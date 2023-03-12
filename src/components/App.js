@@ -1,6 +1,10 @@
 import { React, useState, useEffect } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 
+//import the function from the realtime database module
+import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database'
+import DEFAULT_USERS from '../data/users.json';
+
 import { NavBar } from './Navbar.js';
 import { Homepage } from './Homepage.js';
 import { ComparisonPage } from './ComparisonPage';
@@ -9,11 +13,66 @@ import { DetailsPage } from './DetailsPage';
 import FavoritesPage  from './FavoritesPage.js';
 import  Login  from './Login';
 import {SearchDataTable} from './SearchDataTable';
+import { CostList } from './CompareHelper.js';
 //import HOTEL_DATA from '../data/hoteldata.json';
 
 function App() {
-
   const [favoritesList, setFavorites] = useState([]);
+  const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[0]) //initially null;
+  console.log("rendering App with user", currentUser);
+
+  useEffect( () => {
+    //log in a default user
+    //loginUser(DEFAULT_USERS[1])
+
+    // onAuthStateChanged(getAuth(), function(firebaseUser) {
+    //   console.log("someone logged in or logged out!");
+    //   if(firebaseUser) { //not null, so signed in
+    //     //local changes
+    //     firebaseUser.userId = firebaseUser.uid;
+    //     firebaseUser.userName = firebaseUser.displayName;
+    //     firebaseUser.userImg = firebaseUser.photoURL || "/img/null.png";
+    //     console.log(firebaseUser);        
+    //   } 
+    //   else { //signed out
+    //     console.log("signed out!");
+    //   }
+    //   setCurrentUser(firebaseUser);
+    // })
+
+    //hook up a listener to Firebase
+    const db = getDatabase();
+    const allFavRef = ref(db, "allMessages");
+
+    //fetch message data from firebase
+    // onValue(allFavRef, function(snapshot) {
+    //   const allMessagesObj = snapshot.val();
+    //   const objKeys = Object.keys(allMessagesObj);
+    //   const objArray = objKeys.map((keyString) => {
+    //     allMessagesObj[keyString].key = keyString;
+    //     return allMessagesObj[keyString];
+        
+    //   })
+    //   setMessageObjArray(objArray); //update state & rerender
+    // });
+  }, []);
+
+  const loginUser = (userObj) =>{
+    console.log("logging in as", userObj.userName);
+    setCurrentUser(userObj)
+  }
+
+  const addFav = (userObj, card) => {
+    const newFav = {
+      "userId": userObj.userId,
+      "userName": userObj.userName,
+      "card": card,
+    }
+    const db = getDatabase();
+    const allFavRef = ref(db, "allFav");
+    firebasePush(allFavRef, newFav);
+  }
+
 
   //useEffect for maintaining favorites list
   useEffect(() => {
@@ -54,9 +113,24 @@ function App() {
           {/* <Route path="comparisonPage" element={<ComparisonPage/>}/> */}
           <Route path="comparisonPage" element={<ThreeComparisonPage/>}/>
 
-          <Route path="favorites" element={<FavoritesPage favoritesList={favoritesList} toggleFavorite={toggleFavorite}/>}/>
+          <Route path="favorites" element={<FavoritesPage currentUser={currentUser} favoritesList={favoritesList} toggleFavorite={toggleFavorite}/>}/>
+
+          {/* <Route element={<ProtectedPage currentUser={currentUser} />} >
+            <Route path="chat/:channelName?" element={
+              <ChatPage 
+                currentUser={currentUser} 
+                favArray={favoritesList}
+                howToAddFav={addFav}
+                />
+            } /> */}
+            {/* <Route path="profile" element={<ProfilePage currentUser={currentUser} />}/> */}
+          {/* </Route> */}
+
+
+
+
           {/* <Route path='details' element={<DetailsPage currTravel={'123'}/>}/> */}
-          <Route path='login' element={<Login/>}/>
+          <Route path='login' element={<Login currentUser={currentUser} loginUserFunction={loginUser} />} />
           <Route path="*" element={<Navigate replace to="/"/>} />
         </Routes>
       </main>
