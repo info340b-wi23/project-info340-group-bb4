@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 //import CSS
 import 'bootstrap/dist/css/bootstrap.css';
 import './style.css';
-
+import 'whatwg-fetch'
 
 
 // Import the functions you need from the SDKs you need

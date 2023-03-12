@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
+import { Alert } from 'react-bootstrap';
 
 //import the function from the realtime database module
 import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database'
@@ -19,6 +20,8 @@ import { CostList } from './CompareHelper.js';
 function App() {
   const [favoritesList, setFavorites] = useState([]);
   const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[0]) //initially null;
+  const [hotelData, setHotelData] = useState([]);
+  const [alertMessage, setAlertMessage] = useState(null);
   console.log("rendering App with user", currentUser);
 
   useEffect( () => {
@@ -94,6 +97,35 @@ function App() {
     }
   }
 
+  const getData=()=>{
+    let fetchingUrl = 'data/hoteldata.json';
+    fetch(fetchingUrl
+      ,{
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         }
+      }
+      )
+      .then((response) => {
+        // console.log(response)
+        return response.json();
+      })
+      .then((data) => {
+        if(data.resultCount == 0){
+          setAlertMessage("No results found.");
+        }
+        // console.log(data)
+        setHotelData(data);
+      })
+      .catch((error) => {
+        setAlertMessage(error.message);
+      })
+  }
+  useEffect(()=>{
+    getData()
+  },[])
+
   return (
     <div>
       <header>
@@ -108,7 +140,7 @@ function App() {
             <Route path=":locTo" element={<DetailsPage/>}/>
           </Route>
           {/* please click the search button to navigate to the filter function in searchDataTale */}
-          <Route path="search/*" element={<SearchDataTable toggleFavorite={toggleFavorite}/>}/>
+          <Route path="search/*" element={<SearchDataTable hotelData = {hotelData} alertMessage = {alertMessage} toggleFavorite={toggleFavorite}/>}/>
 
           {/* <Route path="comparisonPage" element={<ComparisonPage/>}/> */}
           <Route path="comparisonPage" element={<ThreeComparisonPage/>}/>
