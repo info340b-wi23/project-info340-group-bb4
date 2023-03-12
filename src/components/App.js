@@ -10,12 +10,10 @@ import DEFAULT_USERS from '../data/users.json';
 import { NavBar } from './Navbar.js';
 import { Homepage } from './Homepage.js';
 import { ComparisonPage } from './ComparisonPage';
-import { ThreeComparisonPage } from './ThreeComparePage';
 import { DetailsPage } from './DetailsPage';
 import FavoritesPage  from './FavoritesPage.js';
 import  Login  from './Login';
 import {SearchDataTable} from './SearchDataTable';
-import { CostList } from './CompareHelper.js';
 //import HOTEL_DATA from '../data/hoteldata.json';
 
 
@@ -144,8 +142,8 @@ function App(props) {
           {/* please click the search button to navigate to the filter function in searchDataTale */}
           <Route path="search/*" element={<SearchDataTable hotelData = {hotelData} alertMessage = {alertMessage} toggleFavorite={toggleFavorite}/>}/>
 
-          {/* <Route path="comparisonPage" element={<ComparisonPage/>}/> */}
-          <Route path="comparisonPage" element={<ThreeComparisonPage/>}/>
+         
+          <Route path="comparisonPage" element={<ComparisonPage/>}/>
 
           <Route path="favorites" element={<FavoritesPage currentUser={currentUser} favoritesList={favoritesList} toggleFavorite={toggleFavorite}/>}/>
 
