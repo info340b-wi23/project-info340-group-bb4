@@ -46,12 +46,7 @@ export function FavoritesCard(props){
 }
 
 export default function FavoritesList(props){
-
-    // const EXAMPLE_FAVORITES = [
-    //     {date:'5/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalPrice: '1904.21', class: 'First Class', img:'salvador.jpeg', pinDate: '2-3-2020'},
-    //     {date: '05/30/2023', from: 'Brasilia (DF)', to: 'Recife (PE)', hotel: 'Hotel K', hotelprice: '263.41', flight: 'FlyingDrops', flightprice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalPrice: '1956.05', class: 'First Class', img:'beijing.jpeg', pinDate: '2-3-2020'},
-    //     {date:'5/04/2023', from: 'Seattle (US)', to: 'Calgary (CA)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalPrice: '1904.21', class: 'First Class', img:'calgary.jpeg', pinDate: '2-3-2020'},
-    // ];
+    
     const toggleFavorite = props.toggleFavorite;
     let favList = props.fav;
     
