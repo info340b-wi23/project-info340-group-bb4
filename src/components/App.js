@@ -1,8 +1,10 @@
 import { React, useState, useEffect } from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate, Outlet } from 'react-router-dom';
 
 //import the function from the realtime database module
 import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database'
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import INITIAL_HISTORY from '../data/hoteldata.json'
 import DEFAULT_USERS from '../data/users.json';
 
 import { NavBar } from './Navbar.js';
@@ -16,8 +18,9 @@ import {SearchDataTable} from './SearchDataTable';
 import { CostList } from './CompareHelper.js';
 //import HOTEL_DATA from '../data/hoteldata.json';
 
-function App() {
-  const [favoritesList, setFavorites] = useState([]);
+
+function App(props) {
+  const [favoritesList, setFavorites] = useState([INITIAL_HISTORY]);
   const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[0]) //initially null;
   console.log("rendering App with user", currentUser);
 
@@ -25,36 +28,36 @@ function App() {
     //log in a default user
     //loginUser(DEFAULT_USERS[1])
 
-    // onAuthStateChanged(getAuth(), function(firebaseUser) {
-    //   console.log("someone logged in or logged out!");
-    //   if(firebaseUser) { //not null, so signed in
-    //     //local changes
-    //     firebaseUser.userId = firebaseUser.uid;
-    //     firebaseUser.userName = firebaseUser.displayName;
-    //     firebaseUser.userImg = firebaseUser.photoURL || "/img/null.png";
-    //     console.log(firebaseUser);        
-    //   } 
-    //   else { //signed out
-    //     console.log("signed out!");
-    //   }
-    //   setCurrentUser(firebaseUser);
-    // })
+    onAuthStateChanged(getAuth(), function(firebaseUser) {
+      console.log("someone logged in or logged out!");
+      if(firebaseUser) { //not null, so signed in
+        //local changes
+        firebaseUser.userId = firebaseUser.uid;
+        firebaseUser.userName = firebaseUser.displayName;
+        firebaseUser.userImg = firebaseUser.photoURL || "/img/null.png";
+        console.log(firebaseUser);        
+      } 
+      else { //signed out
+        console.log("signed out!");
+      }
+      setCurrentUser(firebaseUser);
+    })
 
     //hook up a listener to Firebase
     const db = getDatabase();
-    const allFavRef = ref(db, "allMessages");
+    const allFavRef = ref(db, "allFav");
 
     //fetch message data from firebase
-    // onValue(allFavRef, function(snapshot) {
-    //   const allMessagesObj = snapshot.val();
-    //   const objKeys = Object.keys(allMessagesObj);
-    //   const objArray = objKeys.map((keyString) => {
-    //     allMessagesObj[keyString].key = keyString;
-    //     return allMessagesObj[keyString];
+    onValue(allFavRef, function(snapshot) {
+      const allFavObj = snapshot.val();
+      const objKeys = Object.keys(allFavObj);
+      const objArray = objKeys.map((keyString) => {
+        allFavObj[keyString].key = keyString;
+        return allFavObj[keyString];
         
-    //   })
-    //   setMessageObjArray(objArray); //update state & rerender
-    // });
+      })
+      setFavorites(objArray); //update state & rerender
+    });
   }, []);
 
   const loginUser = (userObj) =>{
@@ -115,16 +118,16 @@ function App() {
 
           <Route path="favorites" element={<FavoritesPage currentUser={currentUser} favoritesList={favoritesList} toggleFavorite={toggleFavorite}/>}/>
 
-          {/* <Route element={<ProtectedPage currentUser={currentUser} />} >
-            <Route path="chat/:channelName?" element={
-              <ChatPage 
+          <Route element={<ProtectedPage currentUser={currentUser} />} >
+            <Route path="fav/:userName?" element={
+              <FavoritesPage 
                 currentUser={currentUser} 
                 favArray={favoritesList}
                 howToAddFav={addFav}
                 />
-            } /> */}
+            } />
             {/* <Route path="profile" element={<ProfilePage currentUser={currentUser} />}/> */}
-          {/* </Route> */}
+          </Route>
 
 
 
@@ -145,6 +148,19 @@ function App() {
     </div>
     
   );
+}
+
+function ProtectedPage(props) {
+  //...determine if user is logged in
+  if(props.currentUser === null) { //not undefined at all (no user)
+    return <Navigate to="/signin"/>
+  }
+  else if(props.currentUser.userId === null){ //starting null user
+    return <p>Spinner</p>;
+  }
+  else { //otherwise, show the child route content
+    return <Outlet />
+  }
 }
 
 export default App;
