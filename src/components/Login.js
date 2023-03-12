@@ -1,6 +1,10 @@
 import React  from 'react';
 // import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
+import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth'
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'; //install option 1
+import DEFAULT_USERS from '../data/users.json';
+
 
 export function validatePasswordMatch(){
     if(document.querySelector('#passwordInput').value !== document.querySelector('#passwordConfirmInput').value){
