@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './style.css';
 
 
-
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -16,16 +15,16 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBUObxWidbsGdscV96Yn6RLJP8rN2WBE7A",
-  authDomain: "faran-travel.firebaseapp.com",
-  projectId: "faran-travel",
-  storageBucket: "faran-travel.appspot.com",
-  messagingSenderId: "685416530739",
-  appId: "1:685416530739:web:a93bde7d7834c1990ab446"
+  apiKey: "AIzaSyDNjdkXUjEhRU2vSqMjZMQ4s-3Ge5F2Pd0",
+  authDomain: "project-info340-group-bb4.firebaseapp.com",
+  databaseURL: "https://project-info340-group-bb4-default-rtdb.firebaseio.com",
+  projectId: "project-info340-group-bb4",
+  storageBucket: "project-info340-group-bb4.appspot.com",
+  messagingSenderId: "381421838786",
+  appId: "1:381421838786:web:b8e4bbc9e61c4b5d7c365b"
 };
 
 // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
 initializeApp(firebaseConfig);
 
 
