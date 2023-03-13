@@ -59,38 +59,16 @@ export function NavBar(props) {
                         </Nav>
     
                     </Navbar.Collapse>
-                    <div className="nav-item d-inline-block login">
+                    <div className="login">
+                    {currentUser ? (
+                        <button className="btn btn-secondary" onClick={handleSignOut}>Sign Out</button> )
+                        : (
                         <Link className="nav-link d-inline-block" to="/login">
                             <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/>
                         </Link>
-                        {currentUser && currentUser.userId &&
-                        <>
-                            {/* <Link className="nav-link d-inline-block" to="/login">
-                                <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/>
-                            </Link> */}
-                            <button className="btn btn-secondary d-inline-block" onClick={handleSignOut}>Sign Out</button>
-                        </>
-                    }
+                        )}
                     </div>
-                    {!currentUser || !currentUser.userId &&
-                        <NavLink className="nav-link d-inline-block" to="/login">
-                            {/* <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/> */}
-                            Sign In
-                        </NavLink>
-                    }
 
-
-                    {/* <div>
-                        {currentUser ? (
-                            <button className=" bt primary-bt" onClick={handleSignOut}>Sign Out</button> )
-                            : (
-                                <div className="nav-item d-inline-block login">
-                                    <Link className="nav-link d-inline-block" to="/login">
-                                        <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/>
-                                    </Link>
-                                </div>
-                            )}
-                    </div> */}
                 </div>
             </Navbar>
         </div>
