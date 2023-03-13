@@ -1,0 +1,11 @@
+[
+    { "name": "Salvador (BH)", "placeImg": "img/salvador.jpeg", "totalPrice": 1904.21, "hotelPrice":"$263.41", "flightPrice": 1640.80},
+    { "name": "Recife (PE)", "placeImg": "img/Recife.jpeg", "totalPrice": 1956.05, "hotelPrice":263.41, "flightPrice": 1692.64},
+    { "name": "Sao Paulo (SP)", "placeImg": "img/Sao Paulo.jpeg", "totalPrice": 1894.16, "hotelPrice":"$263.41", "flightPrice": 1630.75},
+    { "name": "Rio de Janeiro (RJ)", "placeImg": "img/Rio de Janeiro.jpeg", "totalPrice": 1631.29, "hotelPrice":472.98, "flightPrice": 1367.88},
+    { "name": "Campo Grande (MS)", "placeImg": "img/Campo Grande.jpeg", "totalPrice": 1956.05, "hotelPrice":472.98, "flightPrice": 1692.64},
+    { "name": "Aracaju (SE)", "placeImg": "img/Aracaju.jpeg", "totalPrice": 1894.16, "hotelPrice":472.98, "flightPrice": 1630.75},
+    { "name": "Natal (RN)", "placeImg": "img/Natal.jpeg", "totalPrice": 1631.29, "hotelPrice":472.98, "flightPrice": 1367.88},
+    { "name": "Florianopolis (SC)", "placeImg": "img/Florianopolis.jpeg", "totalPrice": 1631.29, "hotelPrice":472.98, "flightPrice": 1367.88},
+    { "name": "Brasilia (DF)", "placeImg": "img/Brasilia.jpeg", "totalPrice": 1574.79, "hotelPrice":263.41, "flightPrice": 1311.38} 
+  ]
