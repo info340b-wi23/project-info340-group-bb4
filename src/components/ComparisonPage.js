@@ -7,6 +7,7 @@ export function ComparisonPage(props) {
     const [originalData, setOriginalData] = useState([]);
   
     // access to orginal data
+    // note for data: comparedata extracts from our raw dataset (hoteldata). It represents the typical price of each unique destination.
     useEffect(() => {
       let url = '/data/comparedata.json';
       fetch(url)
@@ -35,24 +36,24 @@ export function ComparisonPage(props) {
       <div>
         <header> 
           <h1>Compare Destinations</h1>
-          <p>Choose up to five of your favorite destinations and let us help you decide!</p>
+          <p>Choose up to four of your favorite destinations and let us help you decide!</p>
         </header>
         <main>
           <MultiDropdown setCompareData={setCompareData} originalData={originalData} handleSelectChange={handleSelectChange} />
           <section>
             <DestinationList compareData={compareData} />
           </section>
-          {/* <!-- second section: average price for a week trip --> */}
+          {/* <!-- second section: typical price for a week trip --> */}
           <section>
             <h3>Typical Travel Cost For a One-Week Trip</h3>
             <CostList compareData={compareData} />
           </section>
-          {/* <!-- third section: average hotel price --> */}
+          {/* <!-- third section: typical hotel price --> */}
           <section>
             <h3>Typical Hotel Price per Night</h3>
             <HotelList compareData={compareData} />
           </section>
-          {/* <!-- fourth section: average flight ticket --> */}
+          {/* <!-- fourth section: typical flight ticket --> */}
           <section>
             <h3>Typical Flight Ticket Price</h3>
             <FlightList compareData={compareData} />
@@ -71,10 +72,10 @@ export function ComparisonPage(props) {
     const options = originalData.map(destination => ({ value: destination.name, label: destination.name }));
   
     const handleMultiSelectChange = (selectedOptions) => {
-        // limit user to select up to 5 options
-        if (selectedOptions.length > 5) {
-            selectedOptions.splice(5);
-            // set showWarning to true if user tries to select more than 5 options
+        // limit user to select up to 4 options (for better formatting reason)
+        if (selectedOptions.length > 4) {
+            selectedOptions.splice(4);
+            // set showWarning to true if user tries to select more than 4 options
             setShowWarning(true);
             return;
         }
@@ -86,6 +87,7 @@ export function ComparisonPage(props) {
     return (
         <div>
           <Select
+            className="multi-dropdown"
             options={options}
             value={selectedOptions}
             isMulti
@@ -93,8 +95,8 @@ export function ComparisonPage(props) {
             placeholder="Select destinations to compare..."
           />
           {showWarning && (
-            <div>
-              You can only select up to 5 destinations to compare.
+            <div className="warning">
+              You can only select up to 4 destinations to compare!
             </div>
           )}
         </div>
@@ -106,7 +108,7 @@ export function ComparisonPage(props) {
 function DestinationCard(props) {
    const destination = props.destinationInfo;
    return(
-       <div className="cards three">
+       <div className="cards">
            <h2>{destination.name}</h2>
            <img src={destination.placeImg} alt={destination.name} />        
        </div>
