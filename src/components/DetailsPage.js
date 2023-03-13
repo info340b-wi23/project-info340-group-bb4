@@ -49,7 +49,7 @@ export function DetailsPage(props) {
                     <div className="row">
                             <h2 className="text-center">Total Travel Price: ${currLoc.totalPrice}</h2>
                             <p className="text-center">date: {currLoc.date}</p>
-                            <img src={'img/salvador.jpeg'} className="card-img mb-4" alt= "Salvador scene"/>
+                            <img src={'img/'+currLoc.to+'.jpeg'} className="card-img mb-4" alt= "Salvador scene"/>
                     </div>
                     {/* start of cards for flight and hotel details */}
                     <div className="row">
