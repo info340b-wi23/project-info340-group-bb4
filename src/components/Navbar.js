@@ -1,9 +1,18 @@
 import React from "react";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { getAuth, signOut } from 'firebase/auth';
+
+const DEFAULT_USERS = [
+    { userId: null, userName: "Log Out", userImg: '/img/null.png' }, //null user
+    { userId: "penguin", userName: "Penguin", userImg: '/img/Penguin.png' },
+    { userId: "parrot", userName: "Parrot", userImg: '/img/Parrot.png' },
+    { userId: "zebra", userName: "Zebra", userImg: '/img/Zebra.png' },
+  ]
 
 export function NavBar(props) {
+    const currentUser = props.currentUser;
     const {currentpage, changePage} = props;
 
     const NAV_NAMES_ARRAY = [{name:'HOME', url:'/'},
@@ -11,6 +20,11 @@ export function NavBar(props) {
     {name:'FAVORITE', url:'/favorites'}];
 
     // const NAV_NAMES_ARRAY = ["HOME", "COMPARE","FAVORITE" ];
+
+    const handleSignOut = (event) => {
+        console.log("Signing out");
+        signOut(getAuth());
+    }
 
 
     const handleClick = (event) => {
@@ -43,24 +57,20 @@ export function NavBar(props) {
                             {liArray}
                         </ul>
                         </Nav>
-                        {/* <div className="nav-item d-inline-block login">
-                            <a className="nav-link" href="profile.html">
-                                <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/>
-                            </a>
-                        </div> */}
+    
                     </Navbar.Collapse>
-                    <div className="nav-item d-inline-block login">
-                        <Link className="nav-link" to="/login">
+                    <div className="login">
+                    {currentUser ? (
+                        <button className="btn btn-secondary" onClick={handleSignOut}>Sign Out</button> )
+                        : (
+                        <Link className="nav-link d-inline-block" to="/login">
                             <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/>
                         </Link>
+                        )}
                     </div>
+
                 </div>
             </Navbar>
-            {/* <div className="nav-item d-inline-block login">
-                <Link className="nav-link" to="/login">
-                    <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/>
-                </Link>
-            </div> */}
         </div>
 
     );

@@ -80,11 +80,48 @@ nav {
   font-family: 'Quicksand', sans-serif; 
 }
 
+.homeT{
+  color: #58725b;
+  font-weight: 800;
+}
+
 .examplePlace{
   color: black;
   padding: 24px 30px 16px;
   text-align: left;
   font-family: 'Quicksand', sans-serif; 
+}
+
+.exampleP{
+  padding: 0px 30px 16px;
+  font-size: 1.5em;
+}
+
+.homeBox{
+  border: .2rem dashed #89AD8D;
+  border-radius: 1rem;
+  padding: 1rem 1rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.goFav{
+  align-items: center;
+  display: flex;
+}
+
+.homepageText{
+  text-align: center;
+}
+
+.illustration-container{
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.faran{
+  width: 70%;
 }
 
 .display{

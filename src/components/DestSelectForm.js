@@ -124,44 +124,7 @@ export function DestSelectForm(props) {
                     </div>
                 </div>
                 <div className='row'>
-                  {/* depart */}
-                  {/* <div className='input-group row mb-3 col'>
-                    <label htmlFor='departInput' className='col-lg-1 row'>Depart</label>
-                    <div className='col-lg-11'>
-                      <input type="date" id="start" className='form-control' required></input>
-                    </div>
-                  </div> */}
-                  {/* return */}
-                  {/* <div className='input-group row mb-3 col'>
-                    <label htmlFor='returnInput' className='col-lg-1 row'>Return</label>
-                    <div className='col-lg-11'>
-                      <input type="date" id="end" className='form-control' required></input>
-                    </div>
-                  </div> */}
-                  {/* passigner num */}
-                  {/* <div className='input-group row mb-3 col'>
-                    <label htmlFor='passingerInput' className='col-lg-1 row'>Passinger#</label>
-                    <div className='col-lg-11'>
-                      <select className="form-select" value={selectNum} onChange={handleNumSelect} required>
-                        <option value="">Please select...</option>
-                        {optionElemsNum}
-                      </select>  
-                    </div>
-                  </div> */}
-                </div>
-                <div className='row'>
-                  <p className="search-text">SEARCH OPTIONS</p>
-                    <div className='col-auto'>
-                        <div className='form-check checkbox'>
-                          <input id="flexCheckDefault" type="checkbox" className="form-check-input" checked={searchOption} onChange={handleCheck} />
-                          <label htmlFor="flexCheckDefault" className="form-check-label">With Hotel</label>
-                        </div>
-                    </div>
-                </div>
-                <div className="d-grid gap-2 col-6 mx-auto">
-                  {/* <button type="submit" className="btn btn-primary search-btn" onChange={handleCheck}><Link to="search"></Link>Search</button> */}
                   <Link to="search" type="button" className="btn btn-primary search-btn" onChange={handleCheck}>Search</Link>
-
                 </div>
               </div>
               </div>

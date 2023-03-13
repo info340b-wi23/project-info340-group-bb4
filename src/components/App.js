@@ -14,19 +14,17 @@ import { DetailsPage } from './DetailsPage';
 import FavoritesPage  from './FavoritesPage.js';
 import  Login  from './Login';
 import {SearchDataTable} from './SearchDataTable';
-//import HOTEL_DATA from '../data/hoteldata.json';
-
 
 function App(props) {
-  const [favoritesList, setFavorites] = useState([INITIAL_HISTORY]);
-  const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[0]) //initially null;
+  const [favoritesList, setFavorites] = useState([]);
+  const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[1]) //initially null;
   const [hotelData, setHotelData] = useState([]);
   const [alertMessage, setAlertMessage] = useState(null);
   console.log("rendering App with user", currentUser);
 
   useEffect( () => {
     //log in a default user
-    //loginUser(DEFAULT_USERS[1])
+    loginUser(DEFAULT_USERS[1])
 
     onAuthStateChanged(getAuth(), function(firebaseUser) {
       console.log("someone logged in or logged out!");
@@ -34,13 +32,15 @@ function App(props) {
         //local changes
         firebaseUser.userId = firebaseUser.uid;
         firebaseUser.userName = firebaseUser.displayName;
-        firebaseUser.userImg = firebaseUser.photoURL || "/img/null.png";
+        firebaseUser.userEmail = firebaseUser.email;
+        setCurrentUser(firebaseUser);
+        console.log("sign in as", firebaseUser.displayName);
         console.log(firebaseUser);        
       } 
       else { //signed out
         console.log("signed out!");
+        setCurrentUser('');
       }
-      setCurrentUser(firebaseUser);
     })
 
     //hook up a listener to Firebase
@@ -48,28 +48,52 @@ function App(props) {
     const allFavRef = ref(db, "allFav");
 
     //fetch message data from firebase
-    onValue(allFavRef, function(snapshot) {
+    onValue(allFavRef, function(snapshot){
       const allFavObj = snapshot.val();
       const objKeys = Object.keys(allFavObj);
       const objArray = objKeys.map((keyString) => {
-        allFavObj[keyString].key = keyString;
-        return allFavObj[keyString];
-        
+        const favObj = allFavObj[keyString];
+        favObj.key = keyString;
+        return favObj;
       })
       setFavorites(objArray); //update state & rerender
-    });
+});
+
   }, []);
+
+
+
+  if(currentUser && favoritesList !== undefined && favoritesList.length > 0){
+    const sortedFavList = favoritesList
+    .filter((favLObj) => {
+      return favLObj.userEmail === currentUser.userEmail;
+      })
+  }
+
+  useEffect(() => {
+    console.log("test");
+    if(currentUser == null){
+      return;
+    }
+    const db = getDatabase();
+    const currentUserDataRef = ref(db, "userData/"+currentUser.userId);
+    onValue(currentUserDataRef, (snapshot) => {
+      const value = snapshot.val();
+      console.log(value);
+    })
+  }, [currentUser])
+
 
   const loginUser = (userObj) =>{
     console.log("logging in as", userObj.userName);
     setCurrentUser(userObj)
   }
 
-  const addFav = (userObj, card) => {
+  const addFav = (userObj) => {
     const newFav = {
       "userId": userObj.userId,
       "userName": userObj.userName,
-      "card": card,
+      // "card": userObj.userFav
     }
     const db = getDatabase();
     const allFavRef = ref(db, "allFav");
@@ -85,9 +109,11 @@ function App(props) {
     }
   }, []);
 
+
   useEffect(() => {
     localStorage.setItem('favoritesList', JSON.stringify(favoritesList));
   }, [favoritesList]);
+
 
   function toggleFavorite(card) {
     if (favoritesList.includes(card)) {
@@ -137,16 +163,17 @@ function App(props) {
         {/* <Homepage/> */} 
         {/* added in routing, does not work on add to favorites or compare in results of feature yet*/}
         <Routes>
-          <Route path="/" element={<Homepage/>}>
-            <Route path=":locTo" element={<DetailsPage/>}/>
-          </Route>
+          <Route path="/" element={<Homepage/>}/>
+            {/* <Route path=":locTo" element={<DetailsPage/>}/>
+          </Route> */}
           {/* please click the search button to navigate to the filter function in searchDataTale */}
           <Route path="search/*" element={<SearchDataTable hotelData = {hotelData} alertMessage = {alertMessage} toggleFavorite={toggleFavorite}/>}/>
-
-
+          <Route path="details" element={<DetailsPage/>}/>
           <Route path="comparisonPage" element={<ComparisonPage/>}/>
 
-          <Route path="favorites" element={<FavoritesPage currentUser={currentUser} favoritesList={favoritesList} toggleFavorite={toggleFavorite}/>}/>
+          <Route path='login' element={<Login currentUser={currentUser} loginUserFunction={loginUser} />} />
+
+          {/* <Route path="favorites" element={<FavoritesPage currentUser={currentUser} favoritesList={favoritesList} toggleFavorite={toggleFavorite}/>}/> */}
 
           <Route element={<ProtectedPage currentUser={currentUser} />} >
             <Route path="fav/:userName?" element={
@@ -156,14 +183,11 @@ function App(props) {
                 howToAddFav={addFav}
                 />
             } />
-            {/* <Route path="profile" element={<ProfilePage currentUser={currentUser} />}/> */}
+            <Route path="favorites" element={<FavoritesPage currentUser={currentUser} />}/>
           </Route>
 
-
-
-
           {/* <Route path='details' element={<DetailsPage currTravel={'123'}/>}/> */}
-          <Route path='login' element={<Login currentUser={currentUser} loginUserFunction={loginUser} />} />
+          
           <Route path="*" element={<Navigate replace to="/"/>} />
         </Routes>
       </main>
@@ -174,6 +198,7 @@ function App(props) {
             &copy; INFO 340 Project, by Amy Sun <a href="mailto:asun8@uw.edu"> (asun8@uw.edu) </a>, Xuemin Jessi Zeng<a href="mailto:xuemiz@uw.edu"> (xuemiz@uw.edu) </a>, Ella Kim<a href="mailto:jk925@uw.edu"> (jk925@uw.edu) </a>, Shirley Yao<a href="mailto:yuhuiyao@uw.edu"> (yuhuiyao@uw.edu) </a>
         </p>
         <p className="footerp">Images in this page were found on Google</p>
+        <p className="footerp">Data from <a href="https://www.kaggle.com/datasets/leomauro/argodatathon2019?resource=download&select=hotels.csv">Kaggle</a></p>
       </footer>
     </div>
     
@@ -182,8 +207,8 @@ function App(props) {
 
 function ProtectedPage(props) {
   //...determine if user is logged in
-  if(props.currentUser === null) { //not undefined at all (no user)
-    return <Navigate to="/signin"/>
+  if(props.currentUser.userName === null) { //not undefined at all (no user)
+    return <Navigate to="/login"/>
   }
   else if(props.currentUser.userId === null){ //starting null user
     return <p>Spinner</p>;
