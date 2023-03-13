@@ -1,8 +1,12 @@
 import React from 'react';
 import FavoritesList from './FavoritesList.js';
 
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { updateProfile } from 'firebase/auth'
+
 
 export default function FavoritesPage(props){
+    
     let favoritesList = props.favoritesList;
     const toggleFavorite = props.toggleFavorite;
 

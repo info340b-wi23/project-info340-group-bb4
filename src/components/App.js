@@ -156,11 +156,8 @@ function App(props) {
                 howToAddFav={addFav}
                 />
             } />
-            {/* <Route path="profile" element={<ProfilePage currentUser={currentUser} />}/> */}
+            <Route path="profile-fav" element={<FavoritesPage currentUser={currentUser} />}/>
           </Route>
-
-
-
 
           {/* <Route path='details' element={<DetailsPage currTravel={'123'}/>}/> */}
           <Route path='login' element={<Login currentUser={currentUser} loginUserFunction={loginUser} />} />
@@ -183,10 +180,7 @@ function App(props) {
 function ProtectedPage(props) {
   //...determine if user is logged in
   if(props.currentUser === null) { //not undefined at all (no user)
-    return <Navigate to="/signin"/>
-  }
-  else if(props.currentUser.userId === null){ //starting null user
-    return <p>Spinner</p>;
+    return <Navigate to="/login"/>
   }
   else { //otherwise, show the child route content
     return <Outlet />
