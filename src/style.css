@@ -178,6 +178,10 @@ header p {
   color: #96a48b;
 }
 
+.center{
+  text-align: center;
+}
+
 header{
   color: black;
   padding-bottom: 1rem;
