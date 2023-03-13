@@ -14,8 +14,6 @@ import { DetailsPage } from './DetailsPage';
 import FavoritesPage  from './FavoritesPage.js';
 import  Login  from './Login';
 import {SearchDataTable} from './SearchDataTable';
-//import HOTEL_DATA from '../data/hoteldata.json';
-
 
 function App(props) {
   const [favoritesList, setFavorites] = useState([INITIAL_HISTORY]);
@@ -137,27 +135,30 @@ function App(props) {
         {/* <Homepage/> */} 
         {/* added in routing, does not work on add to favorites or compare in results of feature yet*/}
         <Routes>
-          <Route path="/" element={<Homepage/>}>
-            <Route path=":locTo" element={<DetailsPage/>}/>
-          </Route>
+          <Route path="/" element={<Homepage/>}/>
+            {/* <Route path=":locTo" element={<DetailsPage/>}/>
+          </Route> */}
           {/* please click the search button to navigate to the filter function in searchDataTale */}
           <Route path="search/*" element={<SearchDataTable hotelData = {hotelData} alertMessage = {alertMessage} toggleFavorite={toggleFavorite}/>}/>
 
-         
+          <Route path="details" element={<DetailsPage/>}/>
           <Route path="comparisonPage" element={<ComparisonPage/>}/>
 
           <Route path="favorites" element={<FavoritesPage currentUser={currentUser} favoritesList={favoritesList} toggleFavorite={toggleFavorite}/>}/>
 
           <Route element={<ProtectedPage currentUser={currentUser} />} >
-            <Route path="favorites/:userName?" element={
+            <Route path="fav/:userName?" element={
               <FavoritesPage 
                 currentUser={currentUser} 
                 favArray={favoritesList}
                 howToAddFav={addFav}
                 />
             } />
-            <Route path="profile-fav" element={<FavoritesPage currentUser={currentUser} />}/>
+            {/* <Route path="profile" element={<ProfilePage currentUser={currentUser} />}/> */}
           </Route>
+
+
+
 
           {/* <Route path='details' element={<DetailsPage currTravel={'123'}/>}/> */}
           <Route path='login' element={<Login currentUser={currentUser} loginUserFunction={loginUser} />} />
@@ -180,11 +181,11 @@ function App(props) {
 function ProtectedPage(props) {
   //...determine if user is logged in
   if(props.currentUser === null) { //not undefined at all (no user)
-    return <Navigate to="/login"/>
+    return <Navigate to="/signin"/>
   }
-  // else if(props.currentUser.userId === null){ //starting null user
-  //   return <p>Spinner</p>;
-  // }
+  else if(props.currentUser.userId === null){ //starting null user
+    return <p>Spinner</p>;
+  }
   else { //otherwise, show the child route content
     return <Outlet />
   }
