@@ -1,10 +1,18 @@
 import React from 'react';
-import { useState, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import Select from 'react-select';
 
 
 export function ComparisonPage(props) {
   const [compareData, setCompareData] = useState([]);
+
+//   useEffect(() => {
+//     fetch('../data/comparedata.json')
+//       .then(response => response.json())
+//       .then(data => setCompareData(data))
+//       .catch(error => console.error(error));
+//   }, []);
+
   return (
      <div>
       <header> 
@@ -43,16 +51,18 @@ export function ComparisonPage(props) {
 
 
 // The Helper
+
 const EXAMPLE_COMPARE = [
-  { name: 'Seattle (WA)', placeImg: 'img/sea.jpeg', totalPrice: '$800', hotelPrice:'$80', flightPrice: '$200', transportPrice: '$80'},
-  { name: 'New York (NY)', placeImg: 'img/nyc.jpeg', totalPrice: '$1000', hotelPrice:'$100', flightPrice: '$350', transportPrice: '$100'},
-  { name: 'San Diego (CA)', placeImg: 'img/sd.jpeg', totalPrice: '$800', hotelPrice:'$80', flightPrice: '$200', transportPrice: '$80'},
-  { name: 'Rotterdam (NL)', placeImg: 'img/rotterdam.jpeg', totalPrice: '$800', hotelPrice:'$80', flightPrice: '$200', transportPrice: '$80'},
-  { name: 'Beijing (CN)', placeImg: 'img/beijing.jpeg', totalPrice: '$800', hotelPrice:'$80', flightPrice: '$200', transportPrice: '$80'},
-  { name: 'Barcelona (ES)', placeImg: 'img/Barcelona.jpeg', totalPrice: '$800', hotelPrice:'$80', flightPrice: '$200', transportPrice: '$80'},
-  { name: 'Honolulu (HI)', placeImg: 'img/Hawaii.jpg', totalPrice: '$800', hotelPrice:'$80', flightPrice: '$200', transportPrice: '$80'},
-  { name: 'Calgary (CA)', placeImg: 'img/calgary.jpeg', totalPrice: '$800', hotelPrice:'$80', flightPrice: '$200', transportPrice: '$80'}
-];
+    { name: 'Salvador (BH)', placeImg: 'img/salvador.jpeg', totalPrice: '$1904.21', hotelPrice:'$263.41', flightPrice: '$1640.80'},
+    { name: 'Recife (PE)', placeImg: 'img/Recife.jpeg', totalPrice: '$1956.05', hotelPrice:'$263.41', flightPrice: '$1692.64'},
+    { name: 'Sao Paulo (SP)', placeImg: 'img/Sao Paulo.jpeg', totalPrice: '$1894.16', hotelPrice:'$263.41', flightPrice: '$1630.75'},
+    { name: 'Rio de Janeiro (RJ)', placeImg: 'img/Rio de Janeiro.jpeg', totalPrice: '$1631.29', hotelPrice:'$472.98', flightPrice: '$1367.88'},
+    { name: 'Campo Grande (MS)', placeImg: 'img/Campo Grande.jpeg', totalPrice: '$1956.05', hotelPrice:'$472.98', flightPrice: '$1692.64'},
+    { name: 'Aracaju (SE)', placeImg: 'img/Aracaju.jpeg', totalPrice: '$1894.16', hotelPrice:'$472.98', flightPrice: '$1630.75'},
+    { name: 'Natal (RN)', placeImg: 'img/Natal.jpeg', totalPrice: '$1631.29', hotelPrice:'$472.98', flightPrice: '$1367.88'},
+    { name: 'Florianopolis (SC)', placeImg: 'img/Florianopolis.jpeg', totalPrice: '$1631.29', hotelPrice:'$472.98', flightPrice: '$1367.88'},
+    { name: 'Brasilia (DF)', placeImg: 'img/Brasilia.jpeg', totalPrice: '$1574.79', hotelPrice:'$263.41', flightPrice: '$1311.38'} 
+  ];
 
 
 const options = EXAMPLE_COMPARE.map(destination => ({ value: destination.name , label: destination.name }));
@@ -60,6 +70,7 @@ const options = EXAMPLE_COMPARE.map(destination => ({ value: destination.name , 
 
 function MultiDropdown({ setCompareData }) {
    const [selectedOptions, setSelectedOptions] = useState([]);
+
    const handleSelectChange = (selectedOptions) => {
       // remove any duplicates from the selected options
       const uniqueSelectedOptions = Array.from(new Set(selectedOptions.map((option) => option.value)))
@@ -81,56 +92,6 @@ function MultiDropdown({ setCompareData }) {
       />
    );
 }
-
-
-// function MultiDropdown({ setCompareData }) {
-//    const [selectedOptions, setSelectedOptions] = useState([]);
-
-
-//    const handleSelectChange = (selectedOptions) => {
-//     setSelectedOptions(selectedOptions);
-//   };
-//    const addToCompareData = useCallback(() => {
-//        //get the option (destination name) from users
-//        const selectedValues = selectedOptions.map((option) => option.value);
-//        //if the selected option from users equals to the name of the destination, add that place's data into compareData
-//        const selectedPlaces = EXAMPLE_COMPARE.filter((place) =>
-//          selectedValues.includes(place.name)
-//        );
-//        setCompareData((prevData) => [...prevData, ...selectedPlaces]);
-//      }, [selectedOptions]);
-
-
-// const addToCompareData = useCallback(() => {
-//     //get the option (destination name) from users
-//     const selectedValues = selectedOptions.map((option) => option.value);
-//     //if the selected option from users equals to the name of the destination, add that place's data into compareData
-//     const selectedPlaces = EXAMPLE_COMPARE.filter((place) =>
-//       selectedValues.includes(place.name)
-//     );
- //     // remove any duplicates from selected places
-//     const uniqueSelectedPlaces = selectedPlaces.filter((place, index, self) =>
-//       index === self.findIndex((p) => p.name === place.name)
-//     );
- //     setCompareData((prevData) => [...prevData, ...uniqueSelectedPlaces]);
-//   }, [selectedOptions]);
-
-
-
-
-//  return (
-//    <div>
-//      <h2>Select your destinations:</h2>
-//      <Select
-//        isMulti
-//        options={options}
-//        onChange={handleSelectChange}
-//        value={selectedOptions}
-//      />
-//      <button onClick={addToCompareData}>Add to Compare</button>
-//    </div>
-//  );
-//  }
 
 
 // 1
