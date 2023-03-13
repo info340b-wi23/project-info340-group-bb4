@@ -143,7 +143,7 @@ function App(props) {
           {/* please click the search button to navigate to the filter function in searchDataTale */}
           <Route path="search/*" element={<SearchDataTable hotelData = {hotelData} alertMessage = {alertMessage} toggleFavorite={toggleFavorite}/>}/>
 
-         
+
           <Route path="comparisonPage" element={<ComparisonPage/>}/>
 
           <Route path="favorites" element={<FavoritesPage currentUser={currentUser} favoritesList={favoritesList} toggleFavorite={toggleFavorite}/>}/>
