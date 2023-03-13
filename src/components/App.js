@@ -198,6 +198,7 @@ function App(props) {
             &copy; INFO 340 Project, by Amy Sun <a href="mailto:asun8@uw.edu"> (asun8@uw.edu) </a>, Xuemin Jessi Zeng<a href="mailto:xuemiz@uw.edu"> (xuemiz@uw.edu) </a>, Ella Kim<a href="mailto:jk925@uw.edu"> (jk925@uw.edu) </a>, Shirley Yao<a href="mailto:yuhuiyao@uw.edu"> (yuhuiyao@uw.edu) </a>
         </p>
         <p className="footerp">Images in this page were found on Google</p>
+        <p className="footerp">Data from <a href="https://www.kaggle.com/datasets/leomauro/argodatathon2019?resource=download&select=hotels.csv">Kaggle</a></p>
       </footer>
     </div>
     
