@@ -46,9 +46,10 @@ export function SearchDataTable(props) {
         if(flight.to === to && flight.from === from) {
           return true;
         } 
+        return false;
       });
       setDisplayedData(filterData)
-      if (filterData.length == 0) {
+      if (filterData.length === 0) {
         setAlertMessage("NO TRAVEL PLANS AVAILABLE: try a different combination of 'From' and 'To' locations");
       } else {
         setAlertMessage(props.alertMessage);
@@ -137,7 +138,7 @@ function DestDataRow(props) {
               <p className="card-text">Hotel: ${flight.hotelprice} ({flight.hotel})</p>
               <p className="card-text">Flight: ${flight.flightprice} ({flight.flight})</p>
               {/* <DetailsPage currentpage={flight}/> */}
-              <Link to='/details' type="button" className="btn btn-dark">View More Details</Link>
+              <Link to={'/details'} type="button" className="btn btn-dark">View More Details</Link>
               {/* <a className="btn btn-light">Add to Comparison</a> */}
             </div>
             <div className='col-sm-1 mt-4'>

@@ -1,10 +1,19 @@
 import React from "react";
+import _ from 'lodash';
+
+// THIS PAGE IS NOT A FEATURE, SO RATHER THAN FOCUSING ON MAKING IT WORK FOR EVERY VALUE IN OUR DATA SET, WE USE
+// AN EXAMPLE DATASET OF WHAT IT WOULD SHOW- AS INSTRUCTIED IN SECTION TO NOT MAKE THIS DYNAMIC AND PERSONAL FOR EACH VIEW DETAIL
+
 const EXAMPLE_TRAVEL = [
-    { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalPrice: '1904.21', class: 'First Class'},
-    { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'FlyingDrops', flightPrice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalPrice: '1956.05', class: 'First Class' },
-    { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'Rainbow', flightPrice: '1630.75', flightDur: '2.44', flightDist: '937.77', totalPrice: '1894.16', class: 'First Class' },
-    { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'Rainbow', flightPrice: '1367.88', flightDur: '2.44', flightDist: '937.77', totalPrice: '1631.29', class: 'Premium' },
-    { date: '05/04/2023', from: 'Florianopolis (SC)', to: 'Salvador (BH)', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1311.38', flightDur: '2.44', flightDist: '937.77', totalPrice: '1574.79', class: 'Premium' }
+    { date: '05/04/2023', from: 'Natal', to: 'Aracaju', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalPrice: '1904.21', class: 'First Class'},
+    { date: '05/04/2023', from: 'Natal', to: 'Brasilia', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'FlyingDrops', flightPrice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalPrice: '1956.05', class: 'First Class' },
+    { date: '05/04/2023', from: 'Natal', to: 'Campo Grande', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'Rainbow', flightPrice: '1630.75', flightDur: '2.44', flightDist: '937.77', totalPrice: '1894.16', class: 'First Class' },
+    { date: '05/04/2023', from: 'Natal', to: 'Florianopolis', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'Rainbow', flightPrice: '1367.88', flightDur: '2.44', flightDist: '937.77', totalPrice: '1631.29', class: 'Premium' },
+    { date: '05/04/2023', from: 'Natal', to: 'Recife', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'FlyingDrops', flightPrice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalPrice: '1956.05', class: 'First Class' },
+    { date: '05/04/2023', from: 'Natal', to: 'Rio de Janeiro', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'Rainbow', flightPrice: '1630.75', flightDur: '2.44', flightDist: '937.77', totalPrice: '1894.16', class: 'First Class' },
+    { date: '05/04/2023', from: 'Natal', to: 'Salvador', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'FlyingDrops', flightPrice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalPrice: '1956.05', class: 'First Class' },
+    { date: '05/04/2023', from: 'Natal', to: 'Sao Paulo', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'Rainbow', flightPrice: '1630.75', flightDur: '2.44', flightDist: '937.77', totalPrice: '1894.16', class: 'First Class' },
+    { date: '05/04/2023', from: 'Salvador', to: 'Natal', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1311.38', flightDur: '2.44', flightDist: '937.77', totalPrice: '1574.79', class: 'Premium' }
 ];
 
 // button to make details go back to whichever page it was on, not just favorites/search page
@@ -21,11 +30,13 @@ function BackButton() {
 }
 
 export function DetailsPage(props) {
-    {/*variable below is not used for now, but setting up for later when implement the details page with the dataset*/}
-    const currLoc = props.currTravel;
 
-    {/* for now, set it to the first in the results page for filtering, set up feature later */}
-    //let currLoc = EXAMPLE_TRAVEL[0];
+    // pretend that this is the location taken in as a param from the view more details 
+    const toLoc = "Florianopolis";
+
+    // pretend we loaded external data (NOT DONE BECAUSE OF EXPLANATION AT TOP)
+    let currLoc = _.find(EXAMPLE_TRAVEL, {to: toLoc})
+    if(!currLoc) return <h2>No location specified</h2> // to catch errors
 
     return (
         <div>
@@ -38,12 +49,12 @@ export function DetailsPage(props) {
                     <div className="row">
                             <h2 className="text-center">Total Travel Price: ${currLoc.totalPrice}</h2>
                             <p className="text-center">date: {currLoc.date}</p>
-                            <img src={'img/salvador.jpeg'} className="card-img mb-4" alt= "Salvador scene"/>
+                            <img src={'img/'+currLoc.to+'.jpeg'} className="card-img mb-4" alt= "Salvador scene"/>
                     </div>
+                    {/* start of cards for flight and hotel details */}
                     <div className="row">
                         <div className="card mx-5 col-sm">
                             <div className="card-header">
-                                {/* i want to add icons here */}
                                 <h2>Flight: {currLoc.flight}</h2>
                             </div>
                             <div className="card-body">
@@ -75,3 +86,4 @@ export function DetailsPage(props) {
 
     )
 }
+
