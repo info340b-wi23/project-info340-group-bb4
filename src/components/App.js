@@ -139,7 +139,7 @@ function App(props) {
         return response.json();
       })
       .then((data) => {
-        if(data.resultCount == 0){
+        if(data.resultCount === 0){
           setAlertMessage("No results found.");
         }
         // console.log(data)
