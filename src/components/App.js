@@ -153,6 +153,8 @@ function App(props) {
     getData()
   },[])
 
+  console.log('from app', favoritesList);
+
   return (
     <div>
       <header>
@@ -179,11 +181,12 @@ function App(props) {
             <Route path="fav/:userName?" element={
               <FavoritesPage 
                 currentUser={currentUser} 
+                toggleFavorite={toggleFavorite}
                 favArray={favoritesList}
                 howToAddFav={addFav}
                 />
             } />
-            <Route path="favorites" element={<FavoritesPage currentUser={currentUser} />}/>
+            <Route path="favorites" element={<FavoritesPage currentUser={currentUser} toggleFavorite={toggleFavorite} favArray={favoritesList}/>}/>
           </Route>
 
           {/* <Route path='details' element={<DetailsPage currTravel={'123'}/>}/> */}
