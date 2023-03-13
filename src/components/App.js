@@ -149,7 +149,7 @@ function App(props) {
           <Route path="favorites" element={<FavoritesPage currentUser={currentUser} favoritesList={favoritesList} toggleFavorite={toggleFavorite}/>}/>
 
           <Route element={<ProtectedPage currentUser={currentUser} />} >
-            <Route path="fav/:userName?" element={
+            <Route path="favorites/:userName?" element={
               <FavoritesPage 
                 currentUser={currentUser} 
                 favArray={favoritesList}
@@ -182,6 +182,9 @@ function ProtectedPage(props) {
   if(props.currentUser === null) { //not undefined at all (no user)
     return <Navigate to="/login"/>
   }
+  // else if(props.currentUser.userId === null){ //starting null user
+  //   return <p>Spinner</p>;
+  // }
   else { //otherwise, show the child route content
     return <Outlet />
   }
