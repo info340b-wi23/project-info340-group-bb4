@@ -53,7 +53,7 @@ export function ComparisonPage(props) {
 // The Helper
 
 const EXAMPLE_COMPARE = [
-    { name: 'Salvador (BH)', placeImg: 'img/salvador.jpeg', totalPrice: '$1904.21', hotelPrice:'$263.41', flightPrice: '$1640.80'},
+    { name: 'Salvador (BH)', placeImg: 'img/Salvador.jpeg', totalPrice: '$1904.21', hotelPrice:'$263.41', flightPrice: '$1640.80'},
     { name: 'Recife (PE)', placeImg: 'img/Recife.jpeg', totalPrice: '$1956.05', hotelPrice:'$263.41', flightPrice: '$1692.64'},
     { name: 'Sao Paulo (SP)', placeImg: 'img/Sao Paulo.jpeg', totalPrice: '$1894.16', hotelPrice:'$263.41', flightPrice: '$1630.75'},
     { name: 'Rio de Janeiro (RJ)', placeImg: 'img/Rio de Janeiro.jpeg', totalPrice: '$1631.29', hotelPrice:'$472.98', flightPrice: '$1367.88'},
