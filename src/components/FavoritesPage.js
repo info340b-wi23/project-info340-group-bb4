@@ -1,6 +1,5 @@
 import React from 'react';
 import FavoritesList from './FavoritesList.js';
-// import { ComposableMap, Geographies, Geography } from "react-simple-maps"
 
 
 export default function FavoritesPage(props){

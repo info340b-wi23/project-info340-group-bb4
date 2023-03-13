@@ -115,10 +115,7 @@ function DestDataRow(props) {
   //for the heart button
   let toggleFavorite = props.toggleFavorite;
   let flight = props.flight;
-
   const [active, setActive] = useState(false);
-
-  let img = flight.to;
 
   const handleFavoriteClick = () => {
     setActive(!active);
@@ -131,7 +128,7 @@ function DestDataRow(props) {
         <div className="card-body">
           <div className="row">
             <div className="col-sm-4">
-                <img src={'img/'+img+'.jpeg'} className="card-img" alt = {img}/>
+                <img src={'img/'+flight.to+'.jpeg'} className="card-img" alt = {flight.to}/>
             </div>
             <div className="col">
               <h2 className="card-title">{flight.to}</h2>
@@ -141,7 +138,7 @@ function DestDataRow(props) {
               <p className="card-text">Flight: ${flight.flightprice} ({flight.flight})</p>
               {/* <DetailsPage currentpage={flight}/> */}
               <Link to='/details' type="button" className="btn btn-dark">View More Details</Link>
-              <a className="btn btn-light">Add to Comparison</a>
+              {/* <a className="btn btn-light">Add to Comparison</a> */}
             </div>
             <div className='col-sm-1 mt-4'>
                 <div style={{ width: "2rem" }}>

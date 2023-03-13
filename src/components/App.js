@@ -93,6 +93,7 @@ function App(props) {
     if (favoritesList.includes(card)) {
       setFavorites(favoritesList.filter(favorite => favorite !== card));
     } else {
+      if (favoritesList.includes(card)) return;
       setFavorites([...favoritesList, card]);
     }
   }
