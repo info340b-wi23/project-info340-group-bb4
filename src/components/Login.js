@@ -39,7 +39,6 @@ export default function Login(props) {
         return <Navigate to="/favorites" />
     }
 
-
     const handleClick = (event) => {
     const whichUser = event.currentTarget.name //access button, not image
     console.log(whichUser);

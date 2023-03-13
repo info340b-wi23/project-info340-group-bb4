@@ -1,7 +1,7 @@
 import React from "react";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth';
 
 const DEFAULT_USERS = [
@@ -57,20 +57,30 @@ export function NavBar(props) {
                             {liArray}
                         </ul>
                         </Nav>
-                        {/* <div className="nav-item d-inline-block login">
-                            <a className="nav-link" href="profile.html">
-                                <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/>
-                            </a>
-                        </div> */}
+    
                     </Navbar.Collapse>
-                    {/* <div className="nav-item d-inline-block login">
+                    <div className="nav-item d-inline-block login">
                         <Link className="nav-link d-inline-block" to="/login">
                             <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/>
-                        </Link> */}
-                        {/* <button className="btn btn-secondary d-inline-block" onClick={handleSignOut}>Sign Out</button> */}
-                    {/* </div> */}
+                        </Link>
+                        {currentUser && currentUser.userId &&
+                        <>
+                            {/* <Link className="nav-link d-inline-block" to="/login">
+                                <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/>
+                            </Link> */}
+                            <button className="btn btn-secondary d-inline-block" onClick={handleSignOut}>Sign Out</button>
+                        </>
+                    }
+                    </div>
+                    {!currentUser || !currentUser.userId &&
+                        <NavLink className="nav-link d-inline-block" to="/login">
+                            {/* <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/> */}
+                            Sign In
+                        </NavLink>
+                    }
 
-                    <div>
+
+                    {/* <div>
                         {currentUser ? (
                             <button className=" bt primary-bt" onClick={handleSignOut}>Sign Out</button> )
                             : (
@@ -79,9 +89,8 @@ export function NavBar(props) {
                                         <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/>
                                     </Link>
                                 </div>
-                            // <button className="bt primary-bt"><a href="/login" className="login">Login</a></button>
                             )}
-                    </div>
+                    </div> */}
                 </div>
             </Navbar>
         </div>
