@@ -24,6 +24,10 @@ export function NavBar(props) {
     const handleSignOut = (event) => {
         console.log("Signing out");
         signOut(getAuth());
+        // event.preventDefault();
+        // localStorage.clear();
+        // this.setState({loggedIn : false });
+        // this.props.history.push("/");
     }
 
 
@@ -43,6 +47,57 @@ export function NavBar(props) {
     })
 
     return (
+    //     <div>
+    //     <Navbar expand="md" className="navbar">
+    //         <div className="container-fluid">
+    //             <Navbar.Brand href="/">
+    //                 <img src="img/noun-world-travel-5074160.svg" alt="Logo" width="60" height="60" className="d-inline-block"/>
+    //                 Faran
+    //             </Navbar.Brand>
+    //             <Navbar.Toggle aria-controls="navbarNav" />
+    //             <Navbar.Collapse id="navbarNav">
+    //                 <Nav>
+    //                     <ul className="nav">
+    //                         <li className="nav-item">
+    //                             <NavLink className="nav-link" to="/">Home</NavLink>
+    //                         </li>
+    //                         <li className="nav-item">
+    //                             <NavLink className="nav-link" to="/comparisonPage">COMPARE</NavLink>
+    //                         </li>
+    //                         <li className="nav-item">
+    //                             <NavLink className="nav-link" to="/favorites">FAVORITE</NavLink>
+    //                         </li>
+    //                         {currentUser && currentUser.userId && 
+    //                         <>
+    //                             <li className="nav-item">
+    //                             <button className="btn btn-secondary ms-2" onClick={handleSignOut}>Sign Out</button>
+    //                             </li>
+    //                         </>
+    //                         }
+    //                         {!currentUser || !currentUser.userId &&
+    //                             <li className="nav-item">
+    //                                 <NavLink className="nav-link" to="/signin">
+    //                                 {/* <img src={currentUser.userImg} alt={currentUser.userName + " avatar"} /> */}
+    //                                 Sign In
+    //                                 </NavLink>
+    //                             </li>
+    //                         }
+    //                     </ul>
+    //                 </Nav>
+    //             </Navbar.Collapse>
+    //             {/* <div className="login">
+    //             {currentUser ? (
+    //                 <button className="btn btn-secondary" onClick={handleSignOut}>Sign Out</button> )
+    //                 : (
+    //                 <Link className="nav-link d-inline-block" to="/login">
+    //                     <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/>
+    //                 </Link>
+    //                 )}
+    //             </div> */}
+
+    //         </div>
+    //     </Navbar>
+    // </div>
         <div>
             <Navbar expand="md" className="navbar">
                 <div className="container-fluid">
@@ -53,11 +108,25 @@ export function NavBar(props) {
                     <Navbar.Toggle aria-controls="navbarNav" />
                     <Navbar.Collapse id="navbarNav">
                         <Nav>
-                        <ul className="navbar-nav">
-                            {liArray}
-                        </ul>
+                            <ul className="navbar-nav">
+                                {liArray}
+
+                                {/* {currentUser && currentUser.userId && 
+                                <>
+                                    <li className="nav-item">
+                                        <button className="btn btn-secondary ms-2" onClick={handleSignOut}>Sign Out</button>
+                                    </li>
+                                </>
+                                }
+                                {!currentUser || !currentUser.userId &&
+                                <li className="nav-item">
+                                    <NavLink className="nav-link" to="/login">
+                                        <img src="img/profile.svg" alt="Login" width="50" height="50" className="d-inline-block"/>
+                                    </NavLink>
+                                </li>
+                                } */}
+                            </ul>
                         </Nav>
-    
                     </Navbar.Collapse>
                     <div className="login">
                     {currentUser ? (
@@ -68,7 +137,6 @@ export function NavBar(props) {
                         </Link>
                         )}
                     </div>
-
                 </div>
             </Navbar>
         </div>

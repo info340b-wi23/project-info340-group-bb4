@@ -7,6 +7,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import INITIAL_HISTORY from '../data/hoteldata.json'
 import DEFAULT_USERS from '../data/users.json';
 
+// import { NavHead } from './Nav';
 import { NavBar } from './Navbar.js';
 import { Homepage } from './Homepage.js';
 import { ComparisonPage } from './ComparisonPage';
@@ -17,14 +18,14 @@ import {SearchDataTable} from './SearchDataTable';
 
 function App(props) {
   const [favoritesList, setFavorites] = useState([]);
-  const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[1]) //initially null;
+  const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[0]) //initially null;
   const [hotelData, setHotelData] = useState([]);
   const [alertMessage, setAlertMessage] = useState(null);
   console.log("rendering App with user", currentUser);
 
   useEffect( () => {
     //log in a default user
-    loginUser(DEFAULT_USERS[1])
+    // loginUser(DEFAULT_USERS[1])
 
     onAuthStateChanged(getAuth(), function(firebaseUser) {
       console.log("someone logged in or logged out!");
@@ -158,7 +159,7 @@ function App(props) {
   return (
     <div>
       <header>
-        <NavBar/>
+        <NavBar currentUser={currentUser}/>
       </header>
 
       <main>
