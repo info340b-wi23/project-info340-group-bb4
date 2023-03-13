@@ -37,11 +37,11 @@ export function Homepage(props) {
         {/* <DestSelectForm destOptions={uniqueDest} applyFilterCallback={applyFilter}/> */}
         
         <div className="container row">
-          <div className='illustration-container col'>
+          <div className='illustration-container col-6'>
             <img className="faran" src="img/noun-world-travel-5074160.svg" alt="faran logo"/>
           </div>
-          <div className="container col goFav">
-            <div className="d-grid gap-2 col-6 mx-auto">
+          <div className="container col goFav col-6">
+            <div className="d-grid gap-2 mx-auto">
               <h2 className='homepageText'>Had a Travel Plan?</h2>
               <Link to="favorites" type="button" className="btn btn-primary">Go To Your Travel List!</Link>
             </div>

@@ -100,7 +100,8 @@ nav {
 .homeBox{
   border: .2rem dashed #89AD8D;
   border-radius: 1rem;
-  padding: 1rem 0;
+  padding: 1rem 1rem;
+  margin-top: 2rem;
   margin-bottom: 3rem;
 }
 
