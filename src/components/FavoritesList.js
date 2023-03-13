@@ -48,19 +48,20 @@ export function FavoritesCard(props){
 export default function FavoritesList(props){
     
     const toggleFavorite = props.toggleFavorite;
-    let favList = props.fav;
-    
-    if(favList.length === 0){
+    let favArray = props.favArray;
+    console.log('from favorites', favArray);
+
+    if(favArray.length === 0){
         return(
             <div>
                 <h3 className='text-center'>No favorite locations added!</h3>
-                {/* add link to homesearch? */}
+                {/* <Link to="/" type="button" className="btn text-center" aria-label="navigate back to homepage">Start your search here.</Link> */}
             </div>
         )
     }
 
 
-    let favoriteCards = favList.map((location) => {
+    let favoriteCards = favArray.map((location) => {
         return <FavoritesCard 
             key={location.from+location.to+location.hotelprice+location.date} 
             location={location} 
