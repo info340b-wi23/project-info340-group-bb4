@@ -5,7 +5,6 @@ import FavoritesList from './FavoritesList.js';
 export default function FavoritesPage(props){
     let favArray = props.favArray;
     const toggleFavorite = props.toggleFavorite;
-    console.log('from favpage', favArray)
 
     return(
         <div>

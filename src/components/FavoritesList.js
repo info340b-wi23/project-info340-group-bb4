@@ -12,7 +12,7 @@ export function FavoritesCard(props){
     //for the heart button
     const [active, setActive] = useState(true);
 
-    //to remove favorite cards - IT WORKS!
+    //to remove favorite cards
     const handleFavoriteClick = () => {
         setActive(!active);
         toggleFavorite(favorite);
@@ -49,13 +49,11 @@ export default function FavoritesList(props){
     
     const toggleFavorite = props.toggleFavorite;
     let favArray = props.favArray;
-    console.log('from favorites', favArray);
 
     if(favArray.length === 0){
         return(
             <div>
                 <h3 className='text-center'>No favorite locations added!</h3>
-                {/* <Link to="/" type="button" className="btn text-center" aria-label="navigate back to homepage">Start your search here.</Link> */}
             </div>
         )
     }

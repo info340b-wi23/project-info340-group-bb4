@@ -136,14 +136,12 @@ function App(props) {
       }
       )
       .then((response) => {
-        // console.log(response)
         return response.json();
       })
       .then((data) => {
         if(data.resultCount === 0){
           setAlertMessage("No results found.");
         }
-        // console.log(data)
         setHotelData(data);
       })
       .catch((error) => {
@@ -153,8 +151,6 @@ function App(props) {
   useEffect(()=>{
     getData()
   },[])
-
-  console.log('from app', favoritesList);
 
   return (
     <div>
