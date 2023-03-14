@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Routes, Navigate, Outlet } from 'react-router-dom';
 
 //import the function from the realtime database module
@@ -7,7 +7,6 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import INITIAL_HISTORY from '../data/hoteldata.json'
 import DEFAULT_USERS from '../data/users.json';
 
-// import { NavHead } from './Nav';
 import { NavBar } from './Navbar.js';
 import { Homepage } from './Homepage.js';
 import { ComparisonPage } from './ComparisonPage';
@@ -17,7 +16,7 @@ import  Login  from './Login';
 import {SearchDataTable} from './SearchDataTable';
 
 function App(props) {
-  const [favoritesList, setFavorites] = useState([]);
+  const [favoritesList, setFavorites] = useState([INITIAL_HISTORY]);
   const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[0]) //initially null;
   const [hotelData, setHotelData] = useState([]);
   const [alertMessage, setAlertMessage] = useState(null);
@@ -41,22 +40,21 @@ function App(props) {
 
     //hook up a listener to Firebase
     const db = getDatabase();
-    const allFavRef = ref(db, "allFav");
+    const allFavRef = ref(db, "travel");
 
     //fetch message data from firebase
     onValue(allFavRef, function(snapshot){
       const allFavObj = snapshot.val();
-      const objKeys = Object.keys(allFavObj);
+      // console.log(allFavObj);
+      const objKeys = Object.keys(allFavObj); //null
       const objArray = objKeys.map((keyString) => {
-        const favObj = allFavObj[keyString];
-        favObj.key = keyString;
-        return favObj;
+        allFavObj[keyString].key = keyString;
+        return allFavObj[keyString];
       })
       setFavorites(objArray); //update state & rerender
-});
+    });
 
   }, []);
-
 
 
   if(currentUser && favoritesList !== undefined && favoritesList.length > 0){
@@ -82,14 +80,27 @@ function App(props) {
     setCurrentUser(userObj)
   }
 
-  const addFav = (userObj) => {
+  const addFav = (userObj, code, from, to, fClass, price, dur, dist, flight, date, hotel, day, hprice, totalp) => {
     const newFav = {
       "userId": userObj.userId,
       "userName": userObj.userName,
-      // "card": userObj.userFav
+      "travelCode": code,
+      "from": from,
+      "to": to,
+      "class": fClass,
+      "flightprice": price,
+      "flightDur": dur,
+      "flightDist": dist,
+      "flight": flight,
+      "date": date,
+      "hotel": hotel,
+      "days": day,
+      "hotelprice": hprice,
+      "totalprice": totalp
     }
     const db = getDatabase();
-    const allFavRef = ref(db, "allFav");
+    const allFavRef = ref(db, "travel");
+    // firebaseSet(allFavRef, newFav);
     firebasePush(allFavRef, newFav);
   }
 
@@ -167,15 +178,7 @@ function App(props) {
           {/* <Route path="favorites" element={<FavoritesPage currentUser={currentUser} favoritesList={favoritesList} toggleFavorite={toggleFavorite}/>}/> */}
 
           <Route element={<ProtectedPage currentUser={currentUser} />} >
-            <Route path="fav/:userName?" element={
-              <FavoritesPage 
-                currentUser={currentUser} 
-                toggleFavorite={toggleFavorite}
-                favArray={favoritesList}
-                howToAddFav={addFav}
-                />
-            } />
-            <Route path="favorites" element={<FavoritesPage currentUser={currentUser} toggleFavorite={toggleFavorite} favArray={favoritesList}/>}/>
+            <Route path="favorites" element={<FavoritesPage currentUser={currentUser} toggleFavorite={toggleFavorite} favArray={favoritesList} howToAddFav={addFav}/>}/>
           </Route>
 
           {/* <Route path='details' element={<DetailsPage currTravel={'123'}/>}/> */}
