@@ -41,13 +41,6 @@ function App(props) {
   }, []);
 
 
-  if(currentUser && favoritesList !== undefined && favoritesList.length > 0){
-    const sortedFavList = favoritesList
-    .filter((favLObj) => {
-      return favLObj.userEmail === currentUser.userEmail;
-      })
-  }
-
   useEffect(() => {
     if(currentUser == null){
       return;
@@ -56,7 +49,14 @@ function App(props) {
     const currentUserDataRef = ref(db, "userData/"+currentUser.userId);
     onValue(currentUserDataRef, (snapshot) => {
       const value = snapshot.val();
-      console.log(value);
+      return value;
+      // const objKeys = Object.keys(value);
+      // const objArray = objKeys.map((keyString) => {
+      //   const theValueObj = value[keyString];
+      //   theValueObj.key = keyString;
+      //   return theValueObj;
+      // })
+      // setFavorites(objArray)
     })
   }, [currentUser])
 

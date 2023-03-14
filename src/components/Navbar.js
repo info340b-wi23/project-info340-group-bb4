@@ -21,7 +21,7 @@ export function NavBar(props) {
 
     const liArray = NAV_NAMES_ARRAY.map((navNameString) => {
         const liElem = (
-          <li className="nav-item" key={navNameString}>
+          <li className="nav-item" key={navNameString.name}>
             <Nav.Link className="nav-link" href={navNameString.url}>{navNameString.name}</Nav.Link>
           </li>
         )
