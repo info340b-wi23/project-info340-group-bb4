@@ -38,22 +38,6 @@ function App(props) {
       }
     })
 
-    //hook up a listener to Firebase
-    const db = getDatabase();
-    const allFavRef = ref(db, "travel");
-
-    //fetch message data from firebase
-    onValue(allFavRef, function(snapshot){
-      const allFavObj = snapshot.val();
-      // console.log(allFavObj);
-      const objKeys = Object.keys(allFavObj); //null
-      const objArray = objKeys.map((keyString) => {
-        allFavObj[keyString].key = keyString;
-        return allFavObj[keyString];
-      })
-      setFavorites(objArray); //update state & rerender
-    });
-
   }, []);
 
 
@@ -100,7 +84,6 @@ function App(props) {
     }
     const db = getDatabase();
     const allFavRef = ref(db, "travel");
-    // firebaseSet(allFavRef, newFav);
     firebasePush(allFavRef, newFav);
   }
 
