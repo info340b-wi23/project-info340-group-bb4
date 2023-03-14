@@ -1,19 +1,13 @@
 import React from "react";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth';
 
-const DEFAULT_USERS = [
-    { userId: null, userName: "Log Out", userImg: '/img/null.png' }, //null user
-    { userId: "penguin", userName: "Penguin", userImg: '/img/Penguin.png' },
-    { userId: "parrot", userName: "Parrot", userImg: '/img/Parrot.png' },
-    { userId: "zebra", userName: "Zebra", userImg: '/img/Zebra.png' },
-  ]
+
 
 export function NavBar(props) {
     const currentUser = props.currentUser;
-    const {currentpage, changePage} = props;
 
     const NAV_NAMES_ARRAY = [{name:'HOME', url:'/'},
     {name:'COMPARE', url:'/comparisonPage'},
@@ -27,7 +21,7 @@ export function NavBar(props) {
 
     const liArray = NAV_NAMES_ARRAY.map((navNameString) => {
         const liElem = (
-          <li className="nav-item" key={navNameString}>
+          <li className="nav-item" key={navNameString.name}>
             <Nav.Link className="nav-link" href={navNameString.url}>{navNameString.name}</Nav.Link>
           </li>
         )

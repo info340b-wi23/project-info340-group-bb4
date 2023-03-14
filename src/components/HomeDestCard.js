@@ -10,7 +10,7 @@ export function DestCard(props) {
                     <div className='card-body'>
                         <div className='row'>
                             <div className='col-3'>
-                                <img src={'img/'+singleDest.img} className='pb-3'/>
+                                <img src={'img/'+singleDest.img} className='pb-3' alt='posible travel destination'/>
                             </div>
                             <div className='col-sm'>
                                 <h2 className="card-title">{singleDest.name}</h2>

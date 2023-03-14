@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, Routes, Navigate, Outlet } from 'react-router-dom';
 
 //import the function from the realtime database module
-import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database'
+import { getDatabase, ref, push as firebasePush, onValue } from 'firebase/database'
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import INITIAL_HISTORY from '../data/hoteldata.json'
 import DEFAULT_USERS from '../data/users.json';
@@ -41,13 +41,6 @@ function App(props) {
   }, []);
 
 
-  if(currentUser && favoritesList !== undefined && favoritesList.length > 0){
-    const sortedFavList = favoritesList
-    .filter((favLObj) => {
-      return favLObj.userEmail === currentUser.userEmail;
-      })
-  }
-
   useEffect(() => {
     if(currentUser == null){
       return;
@@ -56,6 +49,14 @@ function App(props) {
     const currentUserDataRef = ref(db, "userData/"+currentUser.userId);
     onValue(currentUserDataRef, (snapshot) => {
       const value = snapshot.val();
+      return value;
+      // const objKeys = Object.keys(value);
+      // const objArray = objKeys.map((keyString) => {
+      //   const theValueObj = value[keyString];
+      //   theValueObj.key = keyString;
+      //   return theValueObj;
+      // })
+      // setFavorites(objArray)
     })
   }, [currentUser])
 
