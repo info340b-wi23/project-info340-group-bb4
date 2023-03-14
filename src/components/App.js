@@ -149,8 +149,6 @@ function App(props) {
         {/* added in routing, does not work on add to favorites or compare in results of feature yet*/}
         <Routes>
           <Route path="/" element={<Homepage/>}/>
-            {/* <Route path=":locTo" element={<DetailsPage/>}/>
-          </Route> */}
           {/* please click the search button to navigate to the filter function in searchDataTale */}
           <Route path="search/*" element={<SearchDataTable hotelData = {hotelData} alertMessage = {alertMessage} toggleFavorite={toggleFavorite}/>}/>
           <Route path="details" element={<DetailsPage/>}/>
