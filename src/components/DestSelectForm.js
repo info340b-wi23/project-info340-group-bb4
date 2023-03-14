@@ -28,9 +28,6 @@ export function DestSelectForm(props) {
     { id: 9, string: "9 Passenger" }
   ]
 
-  let numData =EXAMPLE_NUM_PPL;
-  
-
   // track From selected from the <select> input 
   const [selectFrom, setSelectFrom] = useState('');
 
@@ -40,8 +37,6 @@ export function DestSelectForm(props) {
   // track search option checkbox input -- hotel
   const [searchOption, setSearchOption] = useState(false);
 
-  // const [selectNum, setSelectNum] = useState(false);
-
   const handleFromSelect = (event) => {
     setSelectFrom(event.target.value);
   }
@@ -49,18 +44,9 @@ export function DestSelectForm(props) {
   const handleToSelect = (event) => {
     setSelectTo(event.target.value);
   }
-  
-  // const handleNumSelect = (event) => {
-  //   setSelectNum(event.target.value);
-  // }
 
   const handleCheck = (event) => {
     setSearchOption(event.target.checked);
-  }
-
-  const handleClick = (event) => {
-    event.preventDefault();
-    props.applyFilterCallback(selectFrom, searchOption);
   }
   
   const uniqueNamesTo = [...new Set(travelData.reduce((all, current) => {
@@ -79,18 +65,6 @@ export function DestSelectForm(props) {
     return <option key={name} value={name}>{name}</option>
   })
 
-  // const optionElemsFrom = travelData.map((travelData) => {
-  //   return <option key={travelData.from} value={travelData => <div>{travelData.from}</div>}></option>
-  // })
-
-  // const optionElemsTo = travelData.map((travelData) => {
-  //   return <option key={travelData.to} value={travelData => <div>{travelData.to}</div>}></option>
-  // })
-
-  // const optionElemsNum = numData.map((numData) => {
-  //   return <option key={numData.id} value={numData => <div>{numData.string}</div>}></option>
-  // })
-
   return(
     <div>
       <div className='row'>
@@ -104,7 +78,6 @@ export function DestSelectForm(props) {
                         <div className="col-lg-11">
                             <select type="search" id="inputLGEx" className="form-control" value={selectFrom} onChange={handleFromSelect} required>
                                 <option value="">
-                                    {/* <input/> */}
                                 </option>
                                 {optionElemsFrom}
                             </select>
@@ -115,8 +88,6 @@ export function DestSelectForm(props) {
                         <div className="col-lg-11">
                             <select type="search" id="inputLGEx" className="form-control" value={selectTo} onChange={handleToSelect} required>
                                 <option value="">
-                                    {/* <input/> */}
-                                    {/* {optionElemsTo} */}
                                 </option>
                                 {optionElemsTo}
                             </select>                
