@@ -21,25 +21,20 @@ function App(props) {
   const [currentUser, setCurrentUser] = useState(DEFAULT_USERS[0]) //initially null;
   const [hotelData, setHotelData] = useState([]);
   const [alertMessage, setAlertMessage] = useState(null);
-  console.log("rendering App with user", currentUser);
 
   useEffect( () => {
     //log in a default user
     // loginUser(DEFAULT_USERS[1])
 
     onAuthStateChanged(getAuth(), function(firebaseUser) {
-      console.log("someone logged in or logged out!");
       if(firebaseUser) { //not null, so signed in
         //local changes
         firebaseUser.userId = firebaseUser.uid;
         firebaseUser.userName = firebaseUser.displayName;
         firebaseUser.userEmail = firebaseUser.email;
         setCurrentUser(firebaseUser);
-        console.log("sign in as", firebaseUser.displayName);
-        console.log(firebaseUser);        
       } 
       else { //signed out
-        console.log("signed out!");
         setCurrentUser('');
       }
     })
@@ -72,7 +67,6 @@ function App(props) {
   }
 
   useEffect(() => {
-    console.log("test");
     if(currentUser == null){
       return;
     }
@@ -80,13 +74,11 @@ function App(props) {
     const currentUserDataRef = ref(db, "userData/"+currentUser.userId);
     onValue(currentUserDataRef, (snapshot) => {
       const value = snapshot.val();
-      console.log(value);
     })
   }, [currentUser])
 
 
   const loginUser = (userObj) =>{
-    console.log("logging in as", userObj.userName);
     setCurrentUser(userObj)
   }
 
