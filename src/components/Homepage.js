@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import TravelList from './TravelList.js';
+import React from 'react';
 import HomeDestCard from './HomeDestCard.js'
-import { DestSelectForm } from './DestSelectForm';
 import rawDat from '../data/hoteldata.json';
 import { Link } from 'react-router-dom';
 
@@ -12,18 +10,12 @@ export function Homepage(props) {
     <div>
       <main>
         {/* section 1 */}
-        {/* <DestSelectForm destOptions={uniqueDest} applyFilterCallback={applyFilter}/> */}
-
-        
-
         <div className="container homeBox">
           <div className="d-grid gap-2 col-6 mx-auto">
             <h1 className='homeT'>Thinking Where to Go?</h1>
-            {/* <DestSelectForm/> */}
             <Link to="search" type="button" className="btn btn-primary">Start Your Search</Link>
           </div>
         </div>
-        
         <div className="container row">
           <div className='illustration-container col-6'>
             <img className="faran" src="img/noun-world-travel-5074160.svg" alt="faran logo"/>
@@ -44,7 +36,5 @@ export function Homepage(props) {
 
       </main>
     </div>
-    
   );
-
 }
