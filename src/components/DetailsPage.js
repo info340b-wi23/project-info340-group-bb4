@@ -1,9 +1,7 @@
 import React from "react";
 import _ from 'lodash';
 
-// THIS PAGE IS NOT A FEATURE, SO RATHER THAN FOCUSING ON MAKING IT WORK FOR EVERY VALUE IN OUR DATA SET, WE USE
-// AN EXAMPLE DATASET OF WHAT IT WOULD SHOW- AS INSTRUCTIED IN SECTION TO NOT MAKE THIS DYNAMIC AND PERSONAL FOR EACH VIEW DETAIL
-
+// THIS PAGE IS NOT A FEATURE- AS INSTRUCTIED IN SECTION, WE ONLY USE A SAMPLE DATASET
 const EXAMPLE_TRAVEL = [
     { date: '05/04/2023', from: 'Natal', to: 'Aracaju', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'CloudFy', flightPrice: '1640.80', flightDur: '2.44', flightDist: '937.77', totalPrice: '1904.21', class: 'First Class'},
     { date: '05/04/2023', from: 'Natal', to: 'Brasilia', hotel: 'Hotel K', hotelPrice: '263.41', flight: 'FlyingDrops', flightPrice: '1692.64', flightDur: '2.44', flightDist: '937.77', totalPrice: '1956.05', class: 'First Class' },

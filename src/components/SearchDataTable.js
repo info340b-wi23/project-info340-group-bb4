@@ -13,29 +13,6 @@ export function SearchDataTable(props) {
 
   //for favorites list
   let toggleFavorite = props.toggleFavorite;
-  // useEffect(()=>{
-  //   fetch(fetchingUrl, 
-  //     {
-  //       headers : { 
-  //         'Content-Type': 'application/json',
-  //         'Accept': 'application/json'
-  //        }
-  //     }
-  //   )
-  //   .then((response) => {
-  //     return response.json();
-  //   })
-  //   .then((data) => {
-  //     if(data.resultCount === 0){
-  //       setAlertMessage("No results found.");
-  //     }
-  //     setDisplayedData(data.results);
-  //     console.log(data.results);
-  //   })
-  //   .catch((error) => {
-  //     setAlertMessage(error.message);
-  //   })
-  // },[setAlertMessage])
 
   // set conditions for filtering 
   const applyFilter = (to, from) => {
@@ -56,6 +33,7 @@ export function SearchDataTable(props) {
       }
     }
   }
+
   //convert data into rows
   const rows = displayedData.map((flight) => {
     return <DestDataRow key={flight.date+flight.to+flight.from} flight={flight} toggleFavorite={toggleFavorite}/>
@@ -75,9 +53,7 @@ export function SearchDataTable(props) {
           <div className="row">
             {/* display any error messages as dismissible alerts */}
             {alertMessage &&
-              <Alert variant="danger" dismissible onClose={() => setAlertMessage(null)}>{alertMessage}</Alert>
-            }
-            {/* <h3 className="text-right">NO TRAVEL PLANS AVAILABLE: try a different combination of "From" and "To" locations</h3> */}
+              <Alert variant="danger" dismissible onClose={() => setAlertMessage(null)}>{alertMessage}</Alert>}
           </div>
         </div>
       </div>
@@ -122,7 +98,6 @@ function DestDataRow(props) {
     setActive(!active);
     toggleFavorite(flight);
 };
-  //print each result in card
   return (
     <div className="col-12 d-flex">
       <div className="card mb-4 mt-4 w-100">
@@ -137,9 +112,7 @@ function DestDataRow(props) {
               <h3 className="card-title">Total Cost for Travels: ${flight.totalprice}</h3>
               <p className="card-text">Hotel: ${flight.hotelprice} ({flight.hotel})</p>
               <p className="card-text">Flight: ${flight.flightprice} ({flight.flight})</p>
-              {/* <DetailsPage currentpage={flight}/> */}
               <Link to={'/details'} type="button" className="btn btn-dark">View More Details</Link>
-              {/* <a className="btn btn-light">Add to Comparison</a> */}
             </div>
             <div className='col-sm-1 mt-4'>
                 <div style={{ width: "2rem" }}>
